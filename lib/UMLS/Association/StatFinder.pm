@@ -143,7 +143,6 @@ sub _initialize {
     if ($lta_G) {
 	$self->precomputeValues_LTA();
     }
-
 }
 
 sub _debug {
@@ -197,7 +196,7 @@ sub _precomputeValues_LTA() {
 	my %uniqueCuis = ();
 	%n1pAll_G = ();
 	%np1All_G = ();
-	open IN, $matrix_G or die "Cannot open $matrix_G for input: $!\n";
+	open IN, $matrix_G or die "Cannot open matrix_G for input: $matrix_G\n";
 	while (my $line = <IN>) {
 	    #get cuis and value fro mthe line
 	    chomp $line;
@@ -280,10 +279,11 @@ sub calculateStatistic {
         return -1;
     }
     my @data = @{$valid};
+
     my $n11 = $data[0];
     my $n1p = $data[1];
     my $np1 = $data[2];
-    my $npp = $self->_getNPP();
+    my $npp = $self->_getNpp_DB();
     if(!defined $n11 || !defined $n1p || !defined $np1){
 	return -1;
     }
@@ -422,7 +422,8 @@ sub _getStats_DB {
     my $npp = $self->_getNpp_DB();
 
     #return the data
-    return  ($n11, $n1p, $np1, $npp);
+    my @data = ($n11, $n1p, $np1, $npp);
+    return  \@data;
 }
 
 #  Gets N11 of the cui pair using a database
@@ -446,7 +447,7 @@ sub _getN11_DB {
     
     #build a query string for n11
     my $firstCui = shift @{$cuis1Ref};
-    my $queryString = "select SUM(n_11) from N_11 where (cui_1 = '$firstCui' ";
+    my $queryString = "select SUM(n_11) from N_11 where ((cui_1 = '$firstCui' ";
     foreach my $cui (@{$cuis1Ref}) {
 	$queryString .= "or cui_1 = '$cui' ";
     }
@@ -621,7 +622,8 @@ sub _getStats_matrix {
     #npp is precomputed at initialization
 
     #return the data
-    return  ($n11, $n1p, $np1, $npp_G); 
+    my @data = ($n11, $n1p, $np1, $npp_G);
+    return  \@data;
 }
 
 #  Gets N11 of the cui pair using a matrix
@@ -781,7 +783,8 @@ sub _getStats_LTA {
     }
 
     #return the values
-    return ($n11, $n1p, $np1, $npp_G)
+    my @data = ($n11, $n1p, $np1, $npp_G);
+    return  \@data;
 }
 
 

@@ -1,6 +1,0 @@
-use strict;
-use warnings;
-
-use UMLS::Interface;
-use UMLS::Association;
-use UMLS::Association::StatFinder;

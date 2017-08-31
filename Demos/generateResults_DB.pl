@@ -9,8 +9,8 @@ my @goldFiles =  qw(DataSets/MiniMayoSRS.snomedct.coders DataSets/MiniMayoSRS.sn
 my @assocMeasures = qw(ll);
 my @assocTypes = qw(reg conceptexpansion lta ltaWithconceptexpansion);
 my @orderOptions = (0,1);
-my $dataMatrix = '1975_2015_window8';
-my $assocDB = '1975onward';
+my $assocDB = 'CUI_Bigram';
+my $dataMatrix = '';
 
 #output parameters
 my $outputFile = 'results.txt';
@@ -29,11 +29,16 @@ open RESULTS_OUT, ">$outputFile" or die("Error: cannot open outputFile = $output
 #create options hash
 my %assocOptions;
 #$option_hash{'t'} = 1;
+#$assocOptions{'config'} = 
 $assocOptions{'precision'} = 100;
 $assocOptions{'database'} = $assocDB;
 if ($dataMatrix ne '') {
     $assocOptions{'matrix'} = $dataMatrix;
 }
+$assocOptions{'hostname'} = '192.168.24.89';
+$assocOptions{'socket'} = '/var/run/mysqld.sock';
+$assocOptions{'username'} = 'henryst';
+$assocOptions{'password'} = 'OhFaht3eique';
 
 #generate scores over association types
 foreach my $assocType (@assocTypes) {
