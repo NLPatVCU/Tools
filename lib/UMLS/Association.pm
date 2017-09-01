@@ -365,11 +365,11 @@ sub getFrequency {
     return $statfinder->_getFrequency($c1, $c2); 
 }
 
-=head3 calculateStatistic
+=head3 calculateAssociation
 
 description:
  
- function returns the given statistical score of a given concept pair
+ function returns the given association score of a given concept pair
 
 input:   
 
@@ -384,23 +384,23 @@ example:
 
  use UMLS::Association;
  my $associator = UMLS::Association->new(); 
- my $stat = $associator->calculateStatistic($concept1, $concept2, $measure)
+ my $stat = $associator->calculateAssociation($concept1, $concept2, $measure)
 
 =cut
-sub calculateStatistic { 
+sub calculateAssociation { 
     my $self = shift;
     my $c1 = shift; 
     my $c2 = shift; 
     my $meas = shift; 
-    
-    return $statfinder->calculateStatistic($c1, $c2, $meas); 
+
+    return $statfinder->calculateAssociation($c1, $c2, $meas); 
 }
 
-=head3 calculateStatistic
+=head3 calculateAssociationFromValues
 
 description:
  
- function returns the given statistical score of a given set of contingency 
+ function returns the given association score of a given set of contingency 
  table values.
 
 input:   
@@ -422,7 +422,7 @@ example:
     $n11, $n1p, $np1, $npp, $measure)
 
 =cut
-sub calculateStatisticFromValues {
+sub calculateAssociationFromValues {
     my $self = shift;
     my $n11 = shift;
     my $n1p = shift;
@@ -430,7 +430,7 @@ sub calculateStatisticFromValues {
     my $npp = shift;
     my $meas = shift;
 
-    return $statfinder->calculateStatisticFromValues(
+    return $statfinder->calculateAssociationFromValues(
 	$n11, $n1p, $np1, $npp, $meas); 
 }
 

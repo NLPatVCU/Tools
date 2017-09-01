@@ -13,8 +13,8 @@ my $assocDB = 'CUI_Bigram';
 my $dataMatrix = '';
 
 #output parameters
-my $outputFile = 'results.txt';
-my $tempResultsOutFile = 'tempResultsOut.txt';
+my $outputFile = 'results_DB.txt';
+my $tempResultsOutFile = 'tempResultsOut_DB.txt';
 
 
 #TODO, test both wiht and without data matrix
@@ -58,7 +58,7 @@ foreach my $assocType (@assocTypes) {
 	    $assocOptions{'conceptexpansion'} = 1;
 	}
 	delete $assocOptions{'noorder'};
-	if (!$orderMatter) {
+	if ($orderMatter) {
 	    $assocOptions{'noorder'} = 1;
 	}
 	
@@ -80,7 +80,7 @@ foreach my $assocType (@assocTypes) {
 		while (my $line = <IN>) {
 		    chomp $line;
 		    my ($cui1, $cui2) = split(/<>/, $line);
-		    my $score = $assoc->calculateStatistic($cui1, $cui2, $measure);
+		    my $score = $assoc->calculateAssociation($cui1, $cui2, $measure);
 		    print SCORES_OUT "$score<>$line\n";
 		}
 		close IN;
@@ -92,6 +92,7 @@ foreach my $assocType (@assocTypes) {
 
 		#get the spearmans correlation
 		my @outputs = `perl spearmans.pl $goldFiles[$fileIndex] $tempResultsOutFile`;
+		print "------------- OUTPUT RECEIVED: ".join(',',@outputs)."\n";
 		$outputs[0] =~ /(\d+)/g;
 		my $n = $1;
 		$outputs[1] =~ /(\d+\.\d+)/g;

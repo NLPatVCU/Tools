@@ -377,7 +377,7 @@ sub calculateStat {
     my $max = -1.000; my $mc1 = ""; my $mc2 = ""; 
     foreach my $cui1 (@{$c1}) { 
 	foreach my $cui2 (@{$c2}) { 
-	    my $stat = $mmb->calculateStatistic($cui1, $cui2, $measure); 
+	    my $stat = $mmb->calculateAssociation($cui1, $cui2, $measure); 
 	    #my $stat2 = $mmb->calculateStatistic($cui2, $cui1, $measure); 
 	   # my $stat = $stat1 + $stat2 / 2; 
 	    if($stat > $max) { 
