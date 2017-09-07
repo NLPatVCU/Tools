@@ -1,0 +1,8 @@
+nohup: ignoring input
+Warning from statistic library!
+  Warning code: 202
+  Warning message: Frequency value of ngram 'n11' must not exceed the marginal totals.
+Skipping ngram
+Exiting subroutine via next at ../lib//UMLS/Association/StatFinder.pm line 306.
+Exiting subroutine via next at ../lib//UMLS/Association/StatFinder.pm line 306.
+Exiting subroutine via next at ../lib//UMLS/Association/StatFinder.pm line 306.

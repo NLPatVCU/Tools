@@ -1,0 +1,6 @@
+DataSets/UMNSRS_reduced_sim.gold	ll	0.2129	363
+DataSets/UMNSRS_reduced_rel.gold	ll	0.1446	388
+DataSets/UMNSRS_reduced_sim.gold	ll	0.2129	363
+DataSets/UMNSRS_reduced_rel.gold	ll	0.1446	388
+DataSets/UMNSRS_reduced_sim.gold	ll	0.2146	401
+DataSets/UMNSRS_reduced_rel.gold	ll	0.2119	430

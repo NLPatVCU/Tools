@@ -155,6 +155,8 @@ sub calculateAssociation {
     my $cui2 = shift; 
     my $statistic = shift; 
 
+    print "------------------------- $cui1, $cui2 ----------------\n";
+
     #error checking
     my $function = "calculateAssociation"; 
     if(!defined $self || !ref $self) {
@@ -224,6 +226,8 @@ sub calculateAssociationFromValues {
     my $np1 = shift;
     my $npp = shift;
     my $statistic = shift;
+
+    print "n11, n1p, np1, npp = $n11, $n1p, $np1, $npp\n";
 
     #set frequency and marginal totals
     my %values = (n11=>$n11, 
@@ -536,8 +540,8 @@ sub _getStats_matrix {
 
     #calculate stats for the term pair
     my $n11 = $self->_getN11_matrix($cuis1Ref, $cuis2Ref, ${$countsRef}[0]); 
-    my $n1p = $self->_getN1p_matrix($cuis1Ref, ${$countsRef}[1]); 
-    my $np1 = $self->_getNp1_matrix($cuis2Ref, ${$countsRef}[2]); 
+    my $n1p = $self->_getN1p_matrix($cuis1Ref, ${$countsRef}[1], ${$countsRef}[2]); 
+    my $np1 = $self->_getNp1_matrix($cuis2Ref, ${$countsRef}[1], ${$countsRef}[2]); 
     my $npp = ${$countsRef}[3];
 
     #update $npp for noOrder, since Cuis can be trailing or leading its 2x ordered npp
@@ -582,7 +586,7 @@ sub _getObservedCounts_matrix {
     my $npp = 0;
     open IN, $matrix_G or die "Cannot open $matrix_G for input: $!\n";
     while (my $line = <IN>) {
-	#get cuis and value fro mthe line
+	#get cuis and value from the line
 	chomp $line;
 	my ($cui1, $cui2, $num) = split /\t/, $line;
 	
@@ -941,7 +945,7 @@ sub _getCUICooccurrences_matrix {
 #                             values are 1
 #         \%cooccurrences1 <- hash ref, keys are co-occurring cuis with cui 2, 
 #                             values are 1
-sub _getCUICooccurrences_database {
+sub _getCUICooccurrences_DB {
     #grab parameters
     my $self = shift;
     my $cuis1Ref = shift;
