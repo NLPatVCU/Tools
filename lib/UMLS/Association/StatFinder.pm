@@ -155,8 +155,6 @@ sub calculateAssociation {
     my $cui2 = shift; 
     my $statistic = shift; 
 
-    print "------------------------- $cui1, $cui2 ----------------\n";
-
     #error checking
     my $function = "calculateAssociation"; 
     if(!defined $self || !ref $self) {
@@ -226,8 +224,6 @@ sub calculateAssociationFromValues {
     my $np1 = shift;
     my $npp = shift;
     my $statistic = shift;
-
-    print "n11, n1p, np1, npp = $n11, $n1p, $np1, $npp\n";
 
     #set frequency and marginal totals
     my %values = (n11=>$n11, 
@@ -383,19 +379,19 @@ sub _getN11_DB {
     #finalize the query string
     if ($noOrder_G) {
 	#swap the positions of the cuis
-	$firstCui = shift @{$cuis1Ref};
+	$firstCui = shift @{$cuis2Ref};
 	$queryString .= ")) or ((cui_1 = '$firstCui' ";
 	foreach my $cui (@{$cuis2Ref}) {
 	    $queryString .= "or cui_1 = '$cui' ";
 	}
-	unshift @{$cuis1Ref}, $firstCui;
+	unshift @{$cuis2Ref}, $firstCui;
 
-	$firstCui = shift @{$cuis2Ref};
+	$firstCui = shift @{$cuis1Ref};
 	$queryString .= ") and (cui_2 = '$firstCui' ";
-	foreach my $cui (@{$cuis2Ref}) {
+	foreach my $cui (@{$cuis1Ref}) {
 	    $queryString .= "or cui_2 = '$cui' ";
 	}
-	unshift @{$cuis2Ref}, $firstCui;
+	unshift @{$cuis1Ref}, $firstCui;
     }
     $queryString .= "));";
     
