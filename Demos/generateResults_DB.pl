@@ -7,22 +7,15 @@ use UMLS::Association;
 my @cuiFiles = qw(DataSets/MiniMayoSRS.snomedct.cuis DataSets/MiniMayoSRS.snomedct.cuis DataSets/UMNSRS_reduced_sim.cuis DataSets/UMNSRS_reduced_rel.cuis);
 my @goldFiles =  qw(DataSets/MiniMayoSRS.snomedct.coders DataSets/MiniMayoSRS.snomedct.physicians DataSets/UMNSRS_reduced_sim.gold DataSets/UMNSRS_reduced_rel.gold);
 
-#my @cuiFiles = qw(DataSets/errorSet);
-#my @goldFiles =  qw(DataSets/UMNSRS_reduced_sim.gold);
-
 my @assocMeasures = qw(ll);
 my @assocTypes = qw(reg conceptexpansion lta ltaWithconceptexpansion);
 my @orderOptions = (0,1);
-#my @orderOptions = (1);
 my $assocDB = '1975onward';
 my $dataMatrix = '';
 
 #output parameters
 my $outputFile = 'results_DB.txt';
 my $tempResultsOutFile = 'tempResultsOut_DB.txt';
-
-
-#TODO, test both wiht and without data matrix
 
 ######################################################################
 #  Begin Code to loop over files and parameters and generate scores
@@ -97,7 +90,6 @@ foreach my $assocType (@assocTypes) {
 
 		#get the spearmans correlation
 		my @outputs = `perl spearmans.pl $goldFiles[$fileIndex] $tempResultsOutFile`;
-		print "------------- OUTPUT RECEIVED: ".join(',',@outputs)."\n";
 		$outputs[0] =~ /(\d+)/g;
 		my $n = $1;
 		$outputs[1] =~ /(\d+\.\d+)/g;

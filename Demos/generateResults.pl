@@ -93,8 +93,7 @@ foreach my $assocType (@assocTypes) {
 
 		#get the spearmans correlation
 		my @outputs = `perl spearmans.pl $goldFiles[$fileIndex] $tempResultsOutFile`;
-		print "------------- OUTPUT RECEIVED: ".join(',',@outputs)."\n";
-		$outputs[0] =~ /(\d+)/g;
+	        $outputs[0] =~ /(\d+)/g;
 		my $n = $1;
 		$outputs[1] =~ /(\d+\.\d+)/g;
 		my $score = $1;		

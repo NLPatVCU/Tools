@@ -187,7 +187,7 @@ sub calculateAssociation {
 	    $valid = $self->_getStats_DB(\@cuis1, \@cuis2);
 	}
     }
-
+    
     #error checking for n11, n1p, np1, npp
     if($valid == -1){
         return -1;
@@ -397,6 +397,9 @@ sub _getN11_DB {
     
     #query the DB and return n11
     my $n11 = shift @{$db->selectcol_arrayref($queryString)};
+    if (!defined $n11) {
+	$n11 = 0;
+    }
     return $n11;
 }
 
@@ -438,6 +441,9 @@ sub _getNp1_DB {
   
     #query the db to retrive np1
     my $np1 = shift @{$db->selectcol_arrayref($queryString)};
+    if (!defined $np1) {
+	$np1 = 0;
+    }
     return $np1;
 }
 
@@ -479,6 +485,9 @@ sub _getN1p_DB {
 
     #query the db to retrive n1p
     my $n1p = shift @{$db->selectcol_arrayref($queryString)};
+    if (!defined $n1p) {
+	$n1p = 0;
+    }
     return $n1p;
 }
 
