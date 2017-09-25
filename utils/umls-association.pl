@@ -207,6 +207,8 @@ this program; if not, write to:
 #                           ================================
 
 
+use lib '/home/sam/UMLS-Assoc_new/UMLS-Association/lib/';
+
 use UMLS::Interface; 
 use UMLS::Association; 
 use Getopt::Long;

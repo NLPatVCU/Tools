@@ -442,7 +442,7 @@ sub _getNp1_DB {
     #query the db to retrive np1
     my $np1 = shift @{$db->selectcol_arrayref($queryString)};
     if (!defined $np1) {
-	$np1 = 0;
+	$np1 = -1;
     }
     return $np1;
 }
@@ -486,7 +486,7 @@ sub _getN1p_DB {
     #query the db to retrive n1p
     my $n1p = shift @{$db->selectcol_arrayref($queryString)};
     if (!defined $n1p) {
-	$n1p = 0;
+        $n1p = -1;
     }
     return $n1p;
 }
@@ -710,6 +710,13 @@ sub _getN1p_matrix {
 	}
     }
 
+    #set n1p to -1 if there are no values for it since this indicates
+    # there is not enough information to calculate the score
+    if ($n1p == 0) {
+	$n1p = -1;
+    }
+
+    #return the value
     return $n1p;
 }
 
@@ -749,6 +756,13 @@ sub _getNp1_matrix {
 	}
     }
 
+    #set n1p to -1 if there are no values for it since this indicates
+    # there is not enough information to calculate the score
+    if ($np1 == 0) {
+	$np1 = -1;
+    }
+
+    #return the value
     return $np1;
 }
 

@@ -4,14 +4,18 @@ use lib '../lib/';
 use UMLS::Association;
 
 #things to loop over
-my @cuiFiles = qw(DataSets/MiniMayoSRS.snomedct.cuis DataSets/MiniMayoSRS.snomedct.cuis DataSets/UMNSRS_reduced_sim.cuis DataSets/UMNSRS_reduced_rel.cuis);
-my @goldFiles =  qw(DataSets/MiniMayoSRS.snomedct.coders DataSets/MiniMayoSRS.snomedct.physicians DataSets/UMNSRS_reduced_sim.gold DataSets/UMNSRS_reduced_rel.gold);
+#my @cuiFiles = qw(DataSets/MiniMayoSRS.snomedct.cuis DataSets/MiniMayoSRS.snomedct.cuis DataSets/UMNSRS_reduced_sim.cuis DataSets/UMNSRS_reduced_rel.cuis);
+#my @goldFiles =  qw(DataSets/MiniMayoSRS.snomedct.coders DataSets/MiniMayoSRS.snomedct.physicians DataSets/UMNSRS_reduced_sim.gold DataSets/UMNSRS_reduced_rel.gold);
+
+my @cuiFiles = qw(DataSets/UMNSRS_reduced_sim.cuis);
+my @goldFiles =  qw(DataSets/UMNSRS_reduced_sim.gold);
 
 my @assocMeasures = qw(ll);
 my @assocTypes = qw(reg conceptexpansion lta ltaWithconceptexpansion);
 my @orderOptions = (0,1);
-my $assocDB = '1975onward';
+my $assocDB = '1975onward_window8';
 my $dataMatrix = '';
+
 
 #output parameters
 my $outputFile = 'results_DB.txt';
