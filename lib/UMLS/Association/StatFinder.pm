@@ -52,15 +52,15 @@ my $pkg = "UMLS::Association::StatFinder";
 #local(*DEBUG_FILE);
 
 #NOTE: every global variable is followed by a _G with the 
-# exception of debugm error handler, and constants which are all caps
+# exception of debug error handler, and constants which are all caps
 #  global variables
 my $DEFAULT_STATISTIC = "tscore"; #association measure to use
 my $debug     = 0; #in debug mode or not
 my $umls_G = undef; #UMLS interface instance
 my $precision_G = 4; #precision of the output
-my $cuifinder_G      = ""; 
 
 #global options variables
+my $assocDB_G;
 my $conceptExpansion_G = 0; #1 or 0 if using concept expansion or not
 my $lta_G = 0; #1 or 0 is using lta or not
 my $noOrder_G = 0; #1 or 0 if noOrder is enabled or not
@@ -71,14 +71,12 @@ my $matrix_G = 0; #matrix file name is using a matrix file rather than DB
 ######################################################################
 #  method to create a new UMLS::Association::StatFinder object
 #  input : $params <- reference to hash of database parameters
-#          $handler <- reference to cuifinder object 
 #  output: $self
 sub new {
     #grab params and create self
     my $self = {};
     my $className = shift;
     my $params = shift;
-    my $handler = shift; 
 
     #bless the object.
     bless($self, $className);
@@ -91,7 +89,6 @@ sub new {
     }
 
     # initialize the object.
-    $cuifinder_G = $handler; 
     $debug = 0; 
     $self->_initialize($params);
     return $self;
@@ -103,8 +100,8 @@ sub new {
 sub _initialize {
     #grab parameters
     my $self = shift;
-    my $params = shift;
-    my %params = %{$params};
+    my $paramsRef = shift;
+    my %params = %{$paramsRef};
 
     #set global variables using option hash
     $umls_G = $params{'umls'};
@@ -113,11 +110,16 @@ sub _initialize {
     $noOrder_G = $params{'noorder'};
     $matrix_G = $params{'matrix'};
 
-     #set precision
+    #set precision
     if(defined $params{'precision'}) {
 	$precision_G = $params{'precision'};
     }
 
+    #connect to the database of association scores
+    if (!$matrix_G) {
+	$self->_setDatabase($paramsRef);
+    }
+    
     #error checking
     my $function = "_initialize";
     &_debug($function);
@@ -125,9 +127,10 @@ sub _initialize {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #require UMLS::Interface instance with concept expansion
-    if ($conceptexpansion_G && !(defined $umls_G)) {
-	$umls_
+    #require UMLS::Interface to be defined if using a DB, or if
+    # using concept expansion
+    if ($conceptExpansion_G && !defined $umls_G) {
+	die( "ERROR initializing StatFinder: UMLS::Interface (params{umls}) must be defined when using database queries or when using concept expansion\n");
     }
 }
 
@@ -135,6 +138,74 @@ sub _debug {
     my $function = shift;
     if($debug) { print STDERR "In UMLS::Association::StatFinder::$function\n"; }
 }
+
+#  method to set the association database
+#  input : $params <- reference to a hash
+#  output:
+sub _setDatabase  {
+    my $self   = shift;
+    my $params = shift;
+
+    my $function = "_setDatabase";
+    &_debug($function);
+
+    #  check self
+    if(!defined $self || !ref $self) {
+        $errorhandler->_error($pkg, $function, "", 2);
+    }
+
+    #  check the params
+    $params = {} if(!defined $params);
+
+    #  get the database connection parameters
+    my $database     = $params->{'database'};
+    my $hostname     = $params->{'hostname'};
+    my $socket       = $params->{'socket'};
+    my $port         = $params->{'port'};
+    my $username     = $params->{'username'};
+    my $password     = $params->{'password'};
+
+    #  set up defaults if the options were not passed
+    if(! defined $database) { $database = "cuicounts";            }
+    if(! defined $socket)   { $socket   = "/var/run/mysqld/mysqld.sock"; }
+    if(! defined $hostname) { $hostname = "localhost";       }
+
+    #  initialize the database handler
+    $assocDB_G  = "";
+
+    #  create the database object...
+    if(defined $username and defined $password) {
+        if($debug) { print STDERR "Connecting with username and password\n"; }
+        $assocDB_G = DBI->connect("DBI:mysql:database=$database;mysql_socket=$socket;host=$hostname",$username, $password, {RaiseError => 0});
+    }
+    else {
+        if($debug) { print STDERR "Connecting using the my.cnf file\n"; }
+        my $dsn = "DBI:mysql:umls;mysql_read_default_group=client;database=$database";
+        $assocDB_G = DBI->connect($dsn);
+    }
+
+    #  check if there is an error
+    $errorhandler->_checkDbError($pkg, $function, $assocDB_G);
+
+    #  check that the db exists
+    if(!$assocDB_G) { $errorhandler->_error($pkg, $function, "Error with db.", 3); }
+
+    #  set database parameters
+    $assocDB_G->{'mysql_enable_utf8'} = 1;
+    $assocDB_G->do('SET NAMES utf8');
+    $assocDB_G->{mysql_auto_reconnect} = 1;
+
+    #TODO, delete this, it is not needed?
+    #  set the self parameters
+    #$self->{'db'}           = $db;
+    #$self->{'username'}     = $username;
+    #$self->{'password'}     = $password;
+    #$self->{'hostname'}     = $hostname;
+    #$self->{'socket'}       = $socket;
+    #$self->{'database'}     = $database;
+}
+
+
 
 ######################################################################
 #      Public Functions to get Association Scores
@@ -342,6 +413,9 @@ sub _getStats_DB {
     my $np1 = $self->_getNp1_DB($cuis2Ref); 
     my $npp = $self->_getNpp_DB();
 
+    print "$n11, $n1p, $np1, $npp\n";
+    #TODO, $npp *= 2?
+
     #return the data
     my @data = ($n11, $n1p, $np1, $npp);
     return  \@data;
@@ -362,9 +436,6 @@ sub _getN11_DB {
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
-
-    #set up database
-    my $db = $cuifinder_G->_getDB(); 
     
     #build a query string for n11
     my $firstCui = shift @{$cuis1Ref};
@@ -402,7 +473,7 @@ sub _getN11_DB {
     $queryString .= "));";
     
     #query the DB and return n11
-    my $n11 = shift @{$db->selectcol_arrayref($queryString)};
+    my $n11 = shift @{$assocDB_G->selectcol_arrayref($queryString)};
     if (!defined $n11) {
 	$n11 = 0;
     }
@@ -421,9 +492,6 @@ sub _getNp1_DB {
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
-
-    #set up database
-    my $db = $cuifinder_G->_getDB(); 
 
     #build a query string for all where cui2's are in the second position
     my $firstCui = shift @{$cuis2Ref};
@@ -444,9 +512,9 @@ sub _getNp1_DB {
 	unshift @{$cuis2Ref}, $firstCui;
     }
     $queryString .= ");";
-  
+
     #query the db to retrive np1
-    my $np1 = shift @{$db->selectcol_arrayref($queryString)};
+    my $np1 = shift @{$assocDB_G->selectcol_arrayref($queryString)};
     if (!defined $np1) {
 	$np1 = -1;
     }
@@ -465,9 +533,6 @@ sub _getN1p_DB {
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
-
-    #set up database
-    my $db = $cuifinder_G->_getDB(); 
     
     #build the query string for all where cui1's are in the first position
     my $firstCui = shift @{$cuis1Ref};
@@ -490,7 +555,7 @@ sub _getN1p_DB {
     $queryString .= ");";
 
     #query the db to retrive n1p
-    my $n1p = shift @{$db->selectcol_arrayref($queryString)};
+    my $n1p = shift @{$assocDB_G->selectcol_arrayref($queryString)};
     if (!defined $n1p) {
         $n1p = -1;
     }
@@ -509,11 +574,8 @@ sub _getNpp_DB {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #set up database
-    my $db = $cuifinder_G->_getDB(); 
-    
     #get npp, the number of co-occurrences
-    my $npp = shift $db->selectcol_arrayref("select sum(N_11) from N_11"); 
+    my $npp = shift $assocDB_G->selectcol_arrayref("select sum(N_11) from N_11"); 
 
     #update $npp for noOrder, since Cuis can be trailing or leading its 2x ordered npp
     if ($noOrder_G) {
@@ -521,7 +583,7 @@ sub _getNpp_DB {
     }
 
     #return npp
-    if($npp <= 0) { errorhandler->_error($pkg, $function, "", 5); } 
+    if($npp <= 0) { $errorhandler->_error($pkg, $function, "", 5); } 
     return $npp; 
 }
 
@@ -548,12 +610,16 @@ sub _getStats_matrix {
 
     #get all observed counts for all cuis in the term pairs
     my $countsRef = $self->_getObservedCounts_matrix($cuis1Ref, $cuis2Ref);
+    my $n11AllRef = ${$countsRef}[0];
+    my $n1pAllRef = ${$countsRef}[1];
+    my $np1AllRef = ${$countsRef}[2];
+    my $npp = ${$countsRef}[3];
 
     #calculate stats for the term pair
-    my $n11 = $self->_getN11_matrix($cuis1Ref, $cuis2Ref, ${$countsRef}[0]); 
-    my $n1p = $self->_getN1p_matrix($cuis1Ref, ${$countsRef}[1], ${$countsRef}[2]); 
-    my $np1 = $self->_getNp1_matrix($cuis2Ref, ${$countsRef}[1], ${$countsRef}[2]); 
-    my $npp = ${$countsRef}[3];
+    my $n11 = $self->_getN11_matrix($cuis1Ref, $cuis2Ref, $n11AllRef); 
+    my $n1p = $self->_getN1p_matrix($cuis1Ref, $n11AllRef, $n1pAllRef, $np1AllRef); 
+    my $np1 = $self->_getNp1_matrix($cuis2Ref, $n11AllRef, $n1pAllRef, $np1AllRef); 
+    
 
     #update $npp for noOrder, since Cuis can be trailing or leading its 2x ordered npp
     if ($noOrder_G) {
@@ -600,20 +666,13 @@ sub _getObservedCounts_matrix {
 	#get cuis and value from the line
 	chomp $line;
 	my ($cui1, $cui2, $num) = split /\t/, $line;
-	
-	#update n11
-	if (exists $cuis1{$cui1} && exists $cuis2{$cui2}) {
-	    $n11{"$cui1,$cui2"} = $num;
-	}
 
-	#udpate cui1 stats
-	if (exists $cuis1{$cui1}) {
+	#record any occurrence of any cui1 or 2, in case order is ignored
+	if (exists $cuis1{$cui1} || exists $cuis1{$cui2}
+	    || exists $cuis2{$cui1} || exists $cuis2{$cui2}) {
 	    $n1p{$cui1} += $num;
-	}
-
-	#update cui2 stats
-	if (exists $cuis2{$cui2}) {
 	    $np1{$cui2} += $num;
+	    $n11{"$cui1,$cui2"} = $num;
 	}
 
 	#update npp
@@ -687,6 +746,7 @@ sub _getN1p_matrix {
     #grab parameters
     my $self = shift;
     my $cuis1Ref = shift;
+    my $n11AllRef = shift;
     my $n1pAllRef = shift;
     my $np1AllRef = shift;
 
@@ -714,6 +774,16 @@ sub _getN1p_matrix {
 		$n1p += $num;
 	    }
 	}
+
+	#avoid double counting occurrences with self, subtract them
+	foreach my $cui1(@{$cuis1Ref}) {
+	    foreach my $cui2(@{$cuis1Ref}) {
+		my $val = ${$n11AllRef}{"$cui1,$cui2"};
+		if (defined $val) {
+		    $n1p -= $val;
+		}
+	    }
+	}
     }
 
     #set n1p to -1 if there are no values for it since this indicates
@@ -739,6 +809,7 @@ sub _getNp1_matrix {
     #grab parameters
     my $self = shift;
     my $cuis2Ref = shift;
+    my $n11AllRef = shift;
     my $n1pAllRef = shift;
     my $np1AllRef = shift;
 
@@ -758,6 +829,16 @@ sub _getNp1_matrix {
 	    my $num = ${$n1pAllRef}{$cui};
 	    if (defined $num) {
 		$np1 += $num;
+	    }
+	}
+
+	#avoid double counting occurrences with self, subtract them
+	foreach my $cui1(@{$cuis2Ref}) {
+	    foreach my $cui2(@{$cuis2Ref}) {
+		my $val = ${$n11AllRef}{"$cui1,$cui2"};
+		if (defined $val) {
+		    $np1 -= $val;
+		}
 	    }
 	}
     }
@@ -798,7 +879,7 @@ sub _getStats_LTA {
     my $npp = 0;
     if ($matrix_G) {
 	#get observed counts
-	my $observedRef = self->_getObserved_matrix_LTA($cuis1Ref, $cuis2Ref);
+	my $observedRef = $self->_getObserved_matrix_LTA($cuis1Ref, $cuis2Ref);
 
 	#get co-occurrence data
 	($cooccurrences1Ref, $cooccurrences2Ref) = $self
@@ -813,9 +894,9 @@ sub _getStats_LTA {
 	($cooccurrences1Ref, $cooccurrences2Ref) = $self
 	    ->_getCUICooccurrences_DB($cuis1Ref, $cuis2Ref);
 
-	#get npp
-	my $db = $cuifinder_G->_getDB(); 
-	$npp = shift $db->selectcol_arrayref("select count(cui_1) from N_11"); 
+	#get npp, the number of unique cuis
+	#TODO, query is slightly wrong. If the there are cuis that occur in the second position ONLY this will be wrong. I need to merge the CUI 1 and CUI2 tables then select distinct elements
+	$npp = shift $assocDB_G->selectcol_arrayref("SELECT COUNT(cui_1) FROM (SELECT DISTINCT cui_1 FROM N_11) AS names");
     }
 
     #calculate n1p and np1 as the number of co-occurring terms
@@ -832,6 +913,7 @@ sub _getStats_LTA {
     }
 
     #return the values
+    print "$n11, $n1p, $np1, $npp\n";
     my @data = ($n11, $n1p, $np1, $npp);
     return  \@data;
 }
@@ -874,12 +956,14 @@ sub _getObserved_matrix_LTA {
 	chomp $line;
 	my ($cui1, $cui2, $num) = split /\t/, $line;
 
-	#update n1p and np1
-	if (exists $cuis1{$cui1}) {
-	    $n1pAll{$cui1} .= ",$cui2";
+	#update n1p and np1 for both cui1 and cui2 (in case order doesnt matter)
+	if (exists $cuis1{$cui1} || exists $cuis2{$cui1}) {
+	    $n1pAll{$cui1} .= "$cui2,";
+	    $n1pAll{$cui2} .= "$cui2,";
 	}
-	if (exists $cuis2{$cui2}) {
-	    $np1All{$cui2} .= ",$cui1";
+	if (exists $cuis2{$cui2} || exists $cuis1{$cui2}) {
+	    $np1All{$cui2} .= "$cui1,";
+	    $np1All{$cui1} .= "$cui1,";
 	}
 	
 	#update unique cui lists to calculate npp
@@ -887,6 +971,15 @@ sub _getObserved_matrix_LTA {
 	$uniqueCuis{$cui2} = 1;
     }
     close IN;
+
+    #remove the trailing commas from the cui lists
+    foreach my $cui(keys %n1pAll) {
+	chop $n1pAll{$cui};
+    }
+    foreach my $cui(keys %np1All) {
+	chop $np1All{$cui};
+    } 
+
 
     #npp is the number of unique cuis (vocab size)
     my $npp = scalar keys %uniqueCuis;
@@ -982,9 +1075,6 @@ sub _getCUICooccurrences_DB {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #set up database
-    my $db = $cuifinder_G->_getDB(); 
-
     #get hashes of co-occurring CUIs
     my %cooccurrences1 = ();
     my %cooccurrences2 = ();
@@ -996,7 +1086,7 @@ sub _getCUICooccurrences_DB {
 	$query .= "OR N_11.cui_1 = '$cui' ";
     }
     $query .= ") AND N_11.n_11 > 0;";
-    my @cuis = @{$db->selectcol_arrayref($query)};
+    my @cuis = @{$assocDB_G->selectcol_arrayref($query)};
     unshift @{$cuis1Ref}, $firstCui;
 
     #turn CUIs into a hash of cui1's cooccurrences
@@ -1011,7 +1101,7 @@ sub _getCUICooccurrences_DB {
 	$query .= "OR N_11.cui_2 = '$cui' ";
     }
     $query .= ") AND N_11.n_11 > 0;";
-    @cuis = @{$db->selectcol_arrayref($query)};
+    @cuis = @{$assocDB_G->selectcol_arrayref($query)};
     unshift @{$cuis2Ref}, $firstCui;
 
     #turn CUIs into a hash of cui2's co-occurrences
@@ -1028,7 +1118,7 @@ sub _getCUICooccurrences_DB {
 	    $query .= "OR N_11.cui_2 = '$cui' ";
 	}
 	$query .= ") AND N_11.n_11 > 0;";
-	@cuis = @{$db->selectcol_arrayref($query)};
+	@cuis = @{$assocDB_G->selectcol_arrayref($query)};
 	unshift @{$cuis1Ref}, $firstCui;
 
 	#add cuis to the hash of cui1's co-occurrences
@@ -1043,7 +1133,7 @@ sub _getCUICooccurrences_DB {
 	    $query .= "OR N_11.cui_1 = '$cui' ";
 	}
 	$query .= ") AND N_11.n_11 > 0;";
-	@cuis = @{$db->selectcol_arrayref($query)};
+	@cuis = @{$assocDB_G->selectcol_arrayref($query)};
 	unshift @{$cuis2Ref}, $firstCui;
 
 	#add cuis to the hash of cui2's co-occurrences
@@ -1065,9 +1155,6 @@ sub _getCUICooccurrences_DB {
 #  output: reference to @descendants, the descendants of the given cui
 sub _findDescendants {
     my $cui = shift;
-
-    print "CUI in desc = $cui\n";
-    print "umls_G = $umls_G\n";
 
     my $hashref = $umls_G->findDescendants($cui);
     my @descendants = (keys %{$hashref});

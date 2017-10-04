@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "UMLS::Association 3pm"
-.TH UMLS::Association 3pm "2017-09-07" "perl v5.18.2" "User Contributed Perl Documentation"
+.TH UMLS::Association 3pm "2017-10-04" "perl v5.18.2" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -265,39 +265,6 @@ of the Association.pm module.
 .Ve
 .SH "FUNCTION DESCRIPTIONS"
 .IX Header "FUNCTION DESCRIPTIONS"
-\fIexists\fR
-.IX Subsection "exists"
-.PP
-description:
-.PP
-.Vb 1
-\& function to check if a concept ID exists in the database.
-.Ve
-.PP
-input:
-.PP
-.Vb 1
-\& $concept <\- string containing a cui
-.Ve
-.PP
-output:
-.PP
-.Vb 1
-\& 1 | 0    <\- integers indicating if the cui exists
-.Ve
-.PP
-example:
-.PP
-.Vb 2
-\& use UMLS::Association;
-\& my $umls = UMLS::Association\->new(); 
-\&         
-\& my $concept = "C0018563";      
-\& if($umls\->exists($concept)) { 
-\&    print "$concept exists\en";
-\& }
-.Ve
-.PP
 \fIgetFrequency\fR
 .IX Subsection "getFrequency"
 .PP
@@ -384,74 +351,6 @@ example:
 \& my $associator = UMLS::Association\->new(); 
 \& my $stat = $associator\->calculateStatisticFromContingencyTable(
 \&    $n11, $n1p, $np1, $npp, $measure)
-.Ve
-.PP
-\fIgetParents\fR
-.IX Subsection "getParents"
-.PP
-description:
-.PP
-.Vb 3
-\& returns the parents of a concept \- the relations that are considered parents 
-\& are predefined by the user in the configuration file. The default is the PAR 
-\& relation.
-.Ve
-.PP
-input:
-.PP
-.Vb 1
-\& $concept <\- string containing cui
-.Ve
-.PP
-output:
-.PP
-.Vb 1
-\& $array   <\- reference to an array containing a list of cuis
-.Ve
-.PP
-example:
-.PP
-.Vb 6
-\& use UMLS::Association;
-\& my $umls = UMLS::Association\->new(); 
-\& my $concept  = "C0018563";     
-\& my $parents  = $umls\->getParents($concept);
-\& print "The parents of $concept are:\en";
-\& foreach my $parent (@{$parents}) { print "  $parent\en"; }
-.Ve
-.PP
-\fIgetChildren\fR
-.IX Subsection "getChildren"
-.PP
-description:
-.PP
-.Vb 3
-\& returns the children of a concept \- the relations that are considered children 
-\& are predefined by the user in the configuration file. The default is the CHD 
-\& relation.
-.Ve
-.PP
-input:
-.PP
-.Vb 1
-\& $concept <\- string containing cui
-.Ve
-.PP
-output:
-.PP
-.Vb 1
-\& $array   <\- reference to an array containing a list of cuis
-.Ve
-.PP
-example:
-.PP
-.Vb 6
-\& use UMLS::Association;
-\& my $umls = UMLS::Association\->new(); 
-\& my $concept  = "C0018563";     
-\& my $children = $umls\->getChildren($concept);
-\& print "The children of $concept are:\en";
-\& foreach my $child (@{$children}) { print "  $child\en"; }
 .Ve
 .SH "REFERENCING"
 .IX Header "REFERENCING"

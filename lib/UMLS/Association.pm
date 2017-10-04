@@ -172,13 +172,10 @@ use warnings;
 use DBI;
 use bytes;
 
-use UMLS::Association::CuiFinder;
 use UMLS::Association::StatFinder;
 use UMLS::Association::ErrorHandler; 
 
-
 my $errorhandler     = ""; 
-my $cuifinder          = "";
 my $statfinder = ""; 
 
 my $pkg = "UMLS::Association";
@@ -234,16 +231,9 @@ sub _initialize {
     if(!defined $self || !ref $self) {
     $errorhandler->_error($pkg, $function, "", 2);
     }
-
-    #  set the cuifinder
-    $cuifinder = UMLS::Association::CuiFinder->new($params);
-    if(! defined $cuifinder) { 
-    my $str = "The UMLS::Association::CuiFinder object was not created.";
-    $errorhandler->_error($pkg, $function, $str, 8);
-    }
     
     #  set the statfinder
-    $statfinder = UMLS::Association::StatFinder->new($params, $cuifinder);
+    $statfinder = UMLS::Association::StatFinder->new($params);
     if(! defined $statfinder) { 
 	my $str = "The UMLS::Association::StatFinder object was not created.";
 	$errorhandler->_error($pkg, $function, $str, 8);
@@ -273,7 +263,6 @@ sub _checkOptions {
     my $username     = $params->{'username'};
     my $password     = $params->{'password'};
     my $conceptExpansion = $params->{'conceptExpansion'};
-    my $umls = $params->{'umls'};
    
     #  cuifinder options
     my $measure = $params->{'config'}; 
@@ -291,50 +280,9 @@ sub _checkOptions {
 	my $str = "The --username option must be defined when using --password.";
 	$errorhandler->_error($pkg, $function, $str, 10);
     }
-    
-    if((defined $conceptExpansion) && (!defined $umls))
-    {
-	my $str = "There must be a UMLS Interface object for concept expansion to be used.";
-	$errorhandler->_error($pkg, $function, $str, 10);
-    }
 }
 
-=head3 exists
-
-description:
-
- function to check if a concept ID exists in the database.
-
-input:   
-
- $concept <- string containing a cui
-
-output:
-
- 1 | 0    <- integers indicating if the cui exists
-
-example:
-
- use UMLS::Association;
- my $umls = UMLS::Association->new(); 
-	 
- my $concept = "C0018563";	
- if($umls->exists($concept)) { 
-    print "$concept exists\n";
- }
-
-=cut
-sub exists() {
-    
-    my $self = shift;
-    my $concept = shift;
-    
-    my $bool = $cuifinder->_exists($concept);
-
-    return $bool;
-}   
-
-
+ 
 =head3 getFrequency
 
 description:
@@ -432,79 +380,6 @@ sub calculateAssociationFromValues {
 
     return $statfinder->calculateAssociationFromValues(
 	$n11, $n1p, $np1, $npp, $meas); 
-}
-
-=head3 getParents
-
-description:
-
- returns the parents of a concept - the relations that are considered parents 
- are predefined by the user in the configuration file. The default is the PAR 
- relation.
-
-input:   
-
- $concept <- string containing cui
-
-output:
-
- $array   <- reference to an array containing a list of cuis
-
-example:
-
- use UMLS::Association;
- my $umls = UMLS::Association->new(); 
- my $concept  = "C0018563";	
- my $parents  = $umls->getParents($concept);
- print "The parents of $concept are:\n";
- foreach my $parent (@{$parents}) { print "  $parent\n"; }
-
-=cut
-sub getParents {
-
-    my $self    = shift;
-    my $concept = shift;
-
-    my $array = $cuifinder->_getParents($concept);
-
-    return $array;
-    
-}
-
-=head3 getChildren
-
-description:
-
- returns the children of a concept - the relations that are considered children 
- are predefined by the user in the configuration file. The default is the CHD 
- relation.
-
-input:   
-
- $concept <- string containing cui
-
-output:
-
- $array   <- reference to an array containing a list of cuis
-
-example:
-
- use UMLS::Association;
- my $umls = UMLS::Association->new(); 
- my $concept  = "C0018563";	
- my $children = $umls->getChildren($concept);
- print "The children of $concept are:\n";
- foreach my $child (@{$children}) { print "  $child\n"; }
-
-=cut
-sub getChildren {
-
-    my $self    = shift;
-    my $concept = shift;
-
-    my $array = $cuifinder->_getChildren($concept);
-
-    return $array;
 }
 
 1;

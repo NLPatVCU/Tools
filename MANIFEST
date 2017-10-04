@@ -12,7 +12,6 @@ Hadoop/TODO
 INSTALL
 lib/UMLS/Association.pm
 lib/UMLS/Association/CUICollector.pm
-lib/UMLS/Association/CuiFinder.pm
 lib/UMLS/Association/ErrorHandler.pm
 lib/UMLS/Association/StatFinder.pm
 Makefile.PL

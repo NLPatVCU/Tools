@@ -4,22 +4,41 @@ use UMLS::Association::StatFinder;
 use UMLS::Association::CuiFinder;
 use UMLS::Association;
 
-#user parameters
+##### parameters for this run
 my $cuisFileName = '/home/sam/UMLS-Assoc_new/UMLS-Association/Demos/DataSets/MiniMayoSRS.snomedct.cuis';
 my $n11MatrixFileName = '/home/sam/semmeddb';
 my $outputFileName = 'scores';
+
+
+
+##### UMLS::Association Options
 my $noOrder =1;
 my $conceptExpansion = 0;
 my $measure = 'll';
 
 
+
+##### UMLS::InterfaceOptions
+#debug
+#verbose
+#username
+#driver
+#database
+#password
+#hostname
+#socket
+#config
+
+
 #####################################
 #####         BEGIN CODE        #####
 #####################################
+#create UMLS::Interface options hash
+my %interfaceHash = ();
 
 #initialize the statFinder
 my %params = ();
-my $cuifinder = UMLS::Association::CuiFinder->new(\%params);
+$params{'interfaceOptions'} = \%interfaceHash;
 my $statFinder = UMLS::Association::StatFinder->new(\%params, $cuifinder);
 
 

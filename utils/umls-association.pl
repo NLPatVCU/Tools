@@ -210,7 +210,7 @@ use UMLS::Interface;
 use UMLS::Association; 
 use Getopt::Long;
 
-eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "infile=s", "measure=s", "conceptExpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "infile=s", "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 
 #  if help is defined, print out help
@@ -273,6 +273,7 @@ die "Unable to create UMLS::Interface object.\n" if(!$umls);
 
 #  set UMLS-Association option hash
 my %assoc_option_hash = ();
+$assoc_option_hash{'umls'} = $umls;
 
 if(defined $opt_debug) {
     $assoc_option_hash{"debug"} = $opt_debug;
@@ -298,14 +299,14 @@ if(defined $opt_hostname) {
 if(defined $opt_socket) {
     $assoc_option_hash{"socket"}   = $opt_socket;
 }
-if(defined $opt_getdescendants) {
-    $assoc_option_hash{"getdescendants"}   = $opt_getdescendants;
+if(defined $opt_conceptexpansion) {
+    $assoc_option_hash{"conceptexpansion"}   = $opt_conceptexpansion;
 }
 if(defined $opt_precision){
     $assoc_option_hash{"precision"} = $opt_precision;
 }
-if(defined $opt_implicit){
-    $assoc_option_hash{"implicit"} = $opt_implicit;
+if(defined $opt_lta){
+    $assoc_option_hash{"lta"} = $opt_lta;
 }
 if(defined $opt_noorder){
     $assoc_option_hash{"noorder"} = $opt_noorder;
@@ -313,8 +314,6 @@ if(defined $opt_noorder){
 if(defined $opt_matrix){
     $assoc_option_hash{"matrix"} = $opt_matrix;
 }
-$assoc_option_hash{"umls"} = $umls;
-
 
 #  instantiate instance of UMLS-Assocation
 my $mmb = UMLS::Association->new(\%assoc_option_hash); 
