@@ -356,19 +356,8 @@ sub _exists {
     if(! ($errorhandler->_validCui($concept)) ) {
         $errorhandler->_error($pkg, $function, "Concept ($concept) is not valid.", 6);
     }
-   
-    #  set up database
-    my $db = $self->_getDB(); 
 
-   my $arrRef = $db->selectcol_arrayref("select * from N_11 where cui_1='$concept' or cui_2='$concept' LIMIT 1"); 
-
-    #  check the database for errors
-    $errorhandler->_checkDbError($pkg, $function, $db);
-
-    #  get the count
-    my $count = scalar(@{$arrRef});
-
-    return 1 if($count); return 0;
+    return 1;
 }
  
 #  Method to return 'parents' of a CUI

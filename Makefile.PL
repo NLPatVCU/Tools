@@ -7,11 +7,11 @@
 
 use 5.005;
 use ExtUtils::MakeMaker;
-my $author2 = 'Keith Herbert <herbertkb@vcu.edu>'; 
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
-
+my $author4 = 'Sam Henry <henryst@vcu.edu>';
 my $author3 = 'Andriy Mulyar <andriy.mulyar@gmail.com>'; 
 my $author2 = 'Keith Herbert <herbertkb@vcu.edu>'; 
 my $author1 = 'Bridget McInnes <btmcinnes@vcu.edu';
@@ -29,5 +29,5 @@ WriteMakefile(
               'dist'              => {'COMPRESS' => 'gzip -9f', 'SUFFIX' => 'gz'},
     ($] >= 5.005 ?
      ('ABSTRACT_FROM'   => 'lib/UMLS/Association.pm', # retrieve abstract from module
-      'AUTHOR'          => "$author1, $author2, $author3") : ()));
+      'AUTHOR'          => "$author1, $author4, $author2, $author3") : ()));
 

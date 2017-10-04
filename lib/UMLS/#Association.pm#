@@ -176,7 +176,6 @@ use UMLS::Association::CuiFinder;
 use UMLS::Association::StatFinder;
 use UMLS::Association::ErrorHandler; 
 
-
 my $errorhandler     = ""; 
 my $cuifinder          = "";
 my $statfinder = ""; 

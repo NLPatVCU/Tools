@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "UMLS::Association::StatFinder 3pm"
-.TH UMLS::Association::StatFinder 3pm "2017-08-09" "perl v5.18.2" "User Contributed Perl Documentation"
+.TH UMLS::Association::StatFinder 3pm "2017-10-04" "perl v5.18.2" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -156,16 +156,9 @@ die \*(L"Unable to create UMLS::Association::StatFinder object.\en\*(R" if(!$sta
 my \f(CW$cui1\fR = C0018563;   
 my \f(CW$cui2\fR = C0446516;
 .PP
-#  get the frequecy
-my \f(CW$freq\fR = \f(CW$statfinder\fR\->_getFrequency($cui1, \f(CW$cui2\fR);
-.PP
-#  get marginal totals
-my \f(CW$np1\fR = \f(CW$statfinder\fR\->_getNp1($cui2);
-my \f(CW$n1p\fR = \f(CW$statfinder\fR\->_getN1p($cui1);
-.PP
 # calculate measure assocation
 my \f(CW$measure\fR = \*(L"ll\*(R"; 
-my \f(CW$score\fR = \f(CW$statfinder\fR\->_calculateStatistic($cui1, \f(CW$cui2\fR, \f(CW$measure\fR);
+my \f(CW$score\fR = \f(CW$statfinder\fR\->calculateStatistic($cui1, \f(CW$cui2\fR, \f(CW$measure\fR);
 .SH "INSTALL"
 .IX Header "INSTALL"
 .Vb 1
@@ -190,13 +183,15 @@ my \f(CW$score\fR = \f(CW$statfinder\fR\->_calculateStatistic($cui1, \f(CW$cui2\
 \&
 \&    =head1 SEE ALSO
 \&
-\&    L<http://tech.groups.yahoo.com/group/umls\-similarity/>
+\&    <http://tech.groups.yahoo.com/group/umls\-similarity/>
 \&
 \&    =head1 AUTHOR
 \&
 \&    Bridget T McInnes <bmcinnes@vcu.edu>
 \&    Andriy Y. Mulyar  <andriy.mulyar@gmail.com>
 \&    Alexander D. McQuilkin <alexmcq99@yahoo.com>
+\&    Alex McQuilken <alexmcq99@yahoo.com>
+\&    Sam Henry <henryst@vcu.edu>
 \&
 \&    =head1 COPYRIGHT
 \&

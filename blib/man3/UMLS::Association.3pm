@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "UMLS::Association 3pm"
-.TH UMLS::Association 3pm "2017-05-03" "perl v5.18.2" "User Contributed Perl Documentation"
+.TH UMLS::Association 3pm "2017-09-07" "perl v5.18.2" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -326,13 +326,13 @@ example:
 \& my $freq = $mmb\->getFrequency($concept1, $concept2)
 .Ve
 .PP
-\fIcalculateStatistic\fR
-.IX Subsection "calculateStatistic"
+\fIcalculateAssociation\fR
+.IX Subsection "calculateAssociation"
 .PP
 description:
 .PP
 .Vb 1
-\& function returns the given statistical score of a given concept pair
+\& function returns the given association score of a given concept pair
 .Ve
 .PP
 input:
@@ -351,16 +351,16 @@ example:
 .Vb 3
 \& use UMLS::Association;
 \& my $associator = UMLS::Association\->new(); 
-\& my $stat = $associator\->calculateStatistic($concept1, $concept2, $measure)
+\& my $stat = $associator\->calculateAssociation($concept1, $concept2, $measure)
 .Ve
 .PP
-\fIcalculateStatistic\fR
-.IX Subsection "calculateStatistic"
+\fIcalculateAssociationFromValues\fR
+.IX Subsection "calculateAssociationFromValues"
 .PP
 description:
 .PP
 .Vb 2
-\& function returns the given statistical score of a given set of contingency 
+\& function returns the given association score of a given set of contingency 
 \& table values.
 .Ve
 .PP
@@ -464,6 +464,7 @@ http://search.cpan.org/dist/UMLS\-Association
 .SH "AUTHOR"
 .IX Header "AUTHOR"
 Bridget T McInnes <btmcinnes@vcu.edu>
+Sam Henry <henryst@vcu.edu>
 .SH "COPYRIGHT"
 .IX Header "COPYRIGHT"
 .Vb 3

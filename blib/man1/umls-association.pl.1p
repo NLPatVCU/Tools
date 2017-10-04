@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "UMLS-ASSOCIATION 1p"
-.TH UMLS-ASSOCIATION 1p "2017-06-14" "perl v5.18.2" "User Contributed Perl Documentation"
+.TH UMLS-ASSOCIATION 1p "2017-10-03" "perl v5.18.2" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -160,20 +160,23 @@ Optional command line arguements
 .IX Subsection "General Options:"
 Displays the quick summary of program options.
 .PP
-\fI\-\-getdescendants\fR
-.IX Subsection "--getdescendants"
+\fI\-\-conceptexpansion\fR
+.IX Subsection "--conceptexpansion"
 .PP
-Calculates the association score taking into account the occurrences of descendants of the specified CUIs.
+Calculates the association score taking into account the occurrences of 
+descendants of the specified CUIs.
 .PP
 \fI\-\-noorder\fR
 .IX Subsection "--noorder"
 .PP
-If selected, the order in which CUIs appear will be disregarded when the association score is calculated.
+If selected, the order in which CUIs appear will be disregarded when 
+the association score is calculated.
 .PP
-\fI\-\-implicit\fR
-.IX Subsection "--implicit"
+\fI\-\-lta\fR
+.IX Subsection "--lta"
 .PP
-Calculates the association scores using implicit or intermediate relationships between the specified CUIs.
+Linking Term Association \- Calculates the association scores using 
+implicit or intermediate relationships between the specified CUIs.
 .PP
 \fI\-\-precision N\fR
 .IX Subsection "--precision N"
@@ -267,7 +270,10 @@ Database contain \s-1UMLS DEFAULT:\s0 umls
 \fI\-\-matrix \s-1FILE\s0\fR
 .IX Subsection "--matrix FILE"
 .PP
-File containing the information otherwise contained in the UMLS::Interface database
+File name containing co-occurrence data in sparse matrix format
+This is an alternative to storing in a database, but will be 
+slower for single queries, but much faster for multiple queries
+File should should be sparse format of the form CUI1\etCUI2\etvalue\e\en \en\en";
 .SS "UMLS::Association Database Options:"
 .IX Subsection "UMLS::Association Database Options:"
 \fI\-\-assocdatabase \s-1STRING        \s0\fR
@@ -304,9 +310,10 @@ Text::NSP \- http://search.cpan.org/dist/Text\-NSP
 .Ve
 .SH "AUTHOR"
 .IX Header "AUTHOR"
-.Vb 2
+.Vb 3
 \& Bridget T. McInnes, Virginia Commonwealth University 
 \& Alexander D. McQuilkin, Virginia Commonwealth University
+\& Sam Henry, Virginia Commonwealth University
 .Ve
 .SH "COPYRIGHT"
 .IX Header "COPYRIGHT"

@@ -1,7 +1,7 @@
 {
    "abstract" : "A suite of Perl modules that implement a number of semantic",
    "author" : [
-      "Bridget McInnes <btmcinnes@vcu.edu, Keith Herbert <herbertkb@vcu.edu>, Andriy Mulyar <andriy.mulyar@gmail.com>"
+      "Bridget McInnes <btmcinnes@vcu.edu, Sam Henry <henryst@vcu.edu>, Keith Herbert <herbertkb@vcu.edu>, Andriy Mulyar <andriy.mulyar@gmail.com>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921",

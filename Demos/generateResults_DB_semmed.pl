@@ -4,18 +4,18 @@ use lib '../lib/';
 use UMLS::Association;
 
 #things to loop over
-my @cuiFiles = qw(DataSets/MiniMayoSRS.snomedct.cuis DataSets/MiniMayoSRS.snomedct.cuis DataSets/UMNSRS_reduced_sim.cuis DataSets/UMNSRS_reduced_rel.cuis);
-my @goldFiles =  qw(DataSets/MiniMayoSRS.snomedct.coders DataSets/MiniMayoSRS.snomedct.physicians DataSets/UMNSRS_reduced_sim.gold DataSets/UMNSRS_reduced_rel.gold);
+my @cuiFiles = qw(DataSets/UMNSRS_reduced_sim.cuis);
+my @goldFiles =  qw(DataSets/UMNSRS_reduced_sim.gold);
 
-my @assocMeasures = qw(ll x2 dice odds);
-my @assocTypes = qw(reg conceptexpansion lta ltaWithconceptexpansion);
+my @assocMeasures = qw(ll);
+my @assocTypes = qw(reg conceptexpansion);
 my @orderOptions = (0,1);
-my $assocDB = '1975onward_window8';
+my $assocDB = 'semmeddbCounts';
 my $dataMatrix = '';
 
 #output parameters
-my $outputFile = 'results_DB_1975OnwardWindow8_test.txt';
-my $tempResultsOutFile = 'tempResultsOut_DB.txt';
+my $outputFile = 'results_DB_semmedDB_test.txt';
+my $tempResultsOutFile = 'tempResultsOut_DB_semmeddb.txt';
 
 ######################################################################
 #  Begin Code to loop over files and parameters and generate scores

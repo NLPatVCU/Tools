@@ -31,17 +31,20 @@ Optional command line arguements
 
 Displays the quick summary of program options.
 
-=head3 --getdescendants
+=head3 --conceptexpansion
 
-Calculates the association score taking into account the occurrences of descendants of the specified CUIs.
+Calculates the association score taking into account the occurrences of 
+descendants of the specified CUIs.
 
 =head3 --noorder
 
-If selected, the order in which CUIs appear will be disregarded when the association score is calculated.
+If selected, the order in which CUIs appear will be disregarded when 
+the association score is calculated.
 
-=head3 --implicit
+=head3 --lta
 
-Calculates the association scores using implicit or intermediate relationships between the specified CUIs.
+Linking Term Association - Calculates the association scores using 
+implicit or intermediate relationships between the specified CUIs.
 
 =head3 --precision N
 
@@ -123,7 +126,10 @@ Database contain UMLS DEFAULT: umls
 
 =head3 --matrix FILE
 
-File containing the information otherwise contained in the UMLS::Interface database
+File name containing co-occurrence data in sparse matrix format
+This is an alternative to storing in a database, but will be 
+slower for single queries, but much faster for multiple queries
+File should should be sparse format of the form CUI1\tCUI2\tvalue\\n \n\n";
 
 =head2 UMLS::Association Database Options:
 
@@ -167,6 +173,7 @@ The association between the two concepts (or terms)
 
  Bridget T. McInnes, Virginia Commonwealth University 
  Alexander D. McQuilkin, Virginia Commonwealth University
+ Sam Henry, Virginia Commonwealth University
 
 =head1 COPYRIGHT
 
@@ -202,12 +209,11 @@ this program; if not, write to:
 #                            COMMAND LINE OPTIONS AND USAGE
 #                           ================================
 
-
 use UMLS::Interface; 
 use UMLS::Association; 
 use Getopt::Long;
 
-eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "infile=s", "measure=s", "getdescendants", "cooccurrence", "noorder", "implicit", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "infile=s", "measure=s", "conceptExpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 
 #  if help is defined, print out help
@@ -227,7 +233,7 @@ if( defined $opt_version ) {
 # At least 1 term should be given on the command line.
 if(!(defined $opt_infile) && (scalar(@ARGV) < 1) ) {
     print STDERR "No term was specified on the command line\n";
-    #&minimalUsageNotes();
+    &minimalUsageNotes();
     exit;
 }
 
@@ -307,9 +313,6 @@ if(defined $opt_implicit){
 if(defined $opt_noorder){
     $assoc_option_hash{"noorder"} = $opt_noorder;
 }
-if(defined $opt_cooccurrence){
-    $assoc_option_hash{"cooccurrence"} = $opt_cooccurrence;
-}
 if(defined $opt_matrix){
     $assoc_option_hash{"matrix"} = $opt_matrix;
 }
@@ -376,15 +379,13 @@ sub calculateStat {
     my $max = -1.000; my $mc1 = ""; my $mc2 = ""; 
     foreach my $cui1 (@{$c1}) { 
 	foreach my $cui2 (@{$c2}) { 
-	    my $stat = $mmb->calculateStatistic($cui1, $cui2, $measure); 
-	    #my $stat2 = $mmb->calculateStatistic($cui2, $cui1, $measure); 
-	   # my $stat = $stat1 + $stat2 / 2; 
+	    my $stat = $mmb->calculateAssociation($cui1, $cui2, $measure); 
+
 	    if($stat > $max) { 
 		$max = $stat; $mc1 = $cui1; $mc2 = $cui2; 
 	    }
 	}
     }
-    if($max == 0) { $max = -1; }
     print "$max<>$term1($mc1)<>$term2($mc2)\n";
 }
 
@@ -434,14 +435,14 @@ sub showHelp() {
     
     print "--help                   Prints this help message.\n\n";
 
-    print "--getdescendants         Calculates the association score taking into account
-                         the occurrences of descendants of the specified CUIs.  Can be used with implicit.\n\n";
+    print "--conceptexpansion       Calculates the association score taking into account
+                                    the occurrences of descendants of the specified CUIs.\n\n";
 
-    print "--implicit               Calculates the association scores using implicit or intermediate relationships between the specified CUIs.  Can be used with getdescendants\n\n";
+    print "--lta                    Linking Term Association - Calculates the association scores using implicit 
+                                    or intermediate relationships between the specified CUIs.\n\n";
 
-    print "--cooccurrence           Only possible if the implicit option is selected.  It calculates the association score by summing the minimum number of co-occurrences between the specified CUIs and the intermediate term of the implicit relationships between the specified CUIs.  If not chosen, the association score is calculated by counting the number of implicit relationships.\n\n";
-
-    print "--noorder                If selected, the order in which CUIs appear will be disregarded when the association score is calculated.\n\n";
+    print "--noorder                If selected, the order in which CUIs appear will be disregarded when the association 
+                                    score is calculated.\n\n";
 
     print "--config FILE            Configuration file\n\n";    
 
@@ -460,14 +461,17 @@ sub showHelp() {
 
     print "\n\nUMLS-Interface Database Options: \n\n";
 
-    print "--matrix FILE            Option to input a data file containing the matrix of CUI pairs and their co-occurrence data.  NOTE: Does not work with --noorder.\n\n";
+    print "--matrix FILE            File name containing co-occurrence data in sparse matrix format
+                                    This is an alternative to storing in a database, but will be 
+                                    slower for single queries, but much faster for multiple queries.
+                                    File should should be sparse format of the form CUI1\tCUI2\tvalue\\n \n\n";
 
-    print "--umlsdatabase STRING        Database contain UMLS (DEFAULT: umls)\n\n";
+    print "--umlsdatabase STRING    Database contain UMLS (DEFAULT: umls)\n\n";
     
     print "\n\nUMLS-Association Database Options: \n\n";
 
     print "--assocdatabase STRING        Database containing CUI bigrams 
-                              (DEFAULT: CUI_BIGRAMS)\n\n";
+                                         (DEFAULT: CUI_BIGRAMS)\n\n";
     
     
 

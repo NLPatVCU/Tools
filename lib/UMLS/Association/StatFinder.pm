@@ -66,13 +66,6 @@ my $lta_G = 0; #1 or 0 is using lta or not
 my $noOrder_G = 0; #1 or 0 if noOrder is enabled or not
 my $matrix_G = 0; #matrix file name is using a matrix file rather than DB
 
-#global pre-computed values variables
-# for when using a matrix only
-#my %n11All_G; #hash of n11 values, keys are cui pairs of the form $cui1,$cui2
-#my %n1pAll_G; #hash of n1p values, keys are cui strings
-#my %np1All_G ; #hash of np1 values, keys are cui strings
-#my $npp_G; #npp for the whole matrix, its a number
-
 ######################################################################
 #                 Initialization Functions
 ######################################################################
@@ -115,11 +108,16 @@ sub _initialize {
 
     #set global variables using option hash
     $umls_G = $params{'umls'};
-    $conceptExpansion_G = $params{'conceptExpansion'};
+    $conceptExpansion_G = $params{'conceptexpansion'};
     $lta_G = $params{'lta'};
     $noOrder_G = $params{'noorder'};
     $matrix_G = $params{'matrix'};
-   
+
+     #set precision
+    if(defined $params{'precision'}) {
+	$precision_G = $params{'precision'};
+    }
+
     #error checking
     my $function = "_initialize";
     &_debug($function);
@@ -127,9 +125,9 @@ sub _initialize {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #set precision
-    if(defined $params{'precision'}) {
-	$precision_G = $params{'precision'};
+    #require UMLS::Interface instance with concept expansion
+    if ($conceptexpansion_G && !(defined $umls_G)) {
+	$umls_
     }
 }
 
@@ -190,7 +188,7 @@ sub calculateAssociation {
     
     #error checking for n11, n1p, np1, npp
     if($valid == -1){
-        return -1;
+	return -1;
     }
     my @data = @{$valid};
 
@@ -205,11 +203,18 @@ sub calculateAssociation {
     #calculate the statistic and return it
     my $stat = $self->calculateAssociationFromValues(
 	$n11, $n1p, $np1, $npp, $statistic);
- 
+
     return $stat;
 }
 
 # calculates an association score from the provided values
+# NOTE: Please be careful when writing code that uses this
+# method. Results may become inconsistent if you don't check
+# that CUIs occur in the hierarchy before calling
+# e.g. C0009951 does not occur in the SNOMEDCT Hierarchy but
+# it likely occurs in the association database so if not check
+# is made an association score will be calculate for it, but it has not
+# been done in reported results from this application
 # input:  $n11 <- n11 for the cui pair
 #         $npp <- npp for the dataset
 #         $n1p <- n1p for the cui pair
@@ -243,7 +248,7 @@ sub calculateAssociationFromValues {
     if(!defined $statistic) { 
 	$statistic = $DEFAULT_STATISTIC;  
     }
-    
+
     #set statistic module (Text::NSP)
     my $includename = ""; my $usename = "";  my $ngram = 2; #TODO, what is this ngram parameter
     if($statistic eq "ll")  { 
@@ -306,6 +311,7 @@ sub calculateAssociationFromValues {
     #return statistic to given precision.  if no precision given, default is 4
     my $floatFormat = join '', '%', '.', $precision_G, 'f';
     my $statScore = sprintf $floatFormat, $statisticValue;
+
     return $statScore; 
 }
 
@@ -841,7 +847,7 @@ sub _getStats_LTA {
 #                      the value is a comma seperated list of cuis it co-occurs 
 #                      with. Npp is the number of unique cuis in the vocabular
 #                      which is the vocabulary size
-sub _getObserved_matrix_LTA() {
+sub _getObserved_matrix_LTA {
     #grab parameters
     my $self = shift;
     my $cuis1Ref = shift;
@@ -1059,6 +1065,9 @@ sub _getCUICooccurrences_DB {
 #  output: reference to @descendants, the descendants of the given cui
 sub _findDescendants {
     my $cui = shift;
+
+    print "CUI in desc = $cui\n";
+    print "umls_G = $umls_G\n";
 
     my $hashref = $umls_G->findDescendants($cui);
     my @descendants = (keys %{$hashref});

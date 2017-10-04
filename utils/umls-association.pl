@@ -206,9 +206,6 @@ this program; if not, write to:
 #                            COMMAND LINE OPTIONS AND USAGE
 #                           ================================
 
-
-use lib '/home/sam/UMLS-Assoc_new/UMLS-Association/lib/';
-
 use UMLS::Interface; 
 use UMLS::Association; 
 use Getopt::Long;
@@ -380,14 +377,12 @@ sub calculateStat {
     foreach my $cui1 (@{$c1}) { 
 	foreach my $cui2 (@{$c2}) { 
 	    my $stat = $mmb->calculateAssociation($cui1, $cui2, $measure); 
-	    #my $stat2 = $mmb->calculateStatistic($cui2, $cui1, $measure); 
-	   # my $stat = $stat1 + $stat2 / 2; 
+
 	    if($stat > $max) { 
 		$max = $stat; $mc1 = $cui1; $mc2 = $cui2; 
 	    }
 	}
     }
-    if($max == 0) { $max = -1; }
     print "$max<>$term1($mc1)<>$term2($mc2)\n";
 }
 

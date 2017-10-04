@@ -1,23 +1,23 @@
+#sample program to generate results using the sample matrix
 use strict;
 use warnings;
 use lib '../lib/';
 use UMLS::Association;
 
 #things to loop over
-my @cuiFiles = qw(DataSets/MiniMayoSRS.snomedct.cuis DataSets/MiniMayoSRS.snomedct.cuis DataSets/UMNSRS_reduced_sim.cuis DataSets/UMNSRS_reduced_rel.cuis);
-my @goldFiles =  qw(DataSets/MiniMayoSRS.snomedct.coders DataSets/MiniMayoSRS.snomedct.physicians DataSets/UMNSRS_reduced_sim.gold DataSets/UMNSRS_reduced_rel.gold);
+my @cuiFiles = qw(DataSets/UMNSRS_reduced_sim.cuis);
+my @goldFiles =  qw(DataSets/UMNSRS_reduced_sim.gold);
+
 my @assocMeasures = qw(ll);
-my @assocTypes = qw(reg conceptexpansion lta ltaWithconceptexpansion);
+my @assocTypes = qw(reg conceptexpansion);
 my @orderOptions = (0,1);
-my $dataMatrix = '../../1975_2015_window8';
+#my $dataMatrix = 'sampleMatrix';
+my $dataMatrix = '/home/sam/semmeddb';
 my $assocDB = 'CUI_Bigram';
 
 #output parameters
-my $outputFile = 'results_matrix.txt';
-my $tempResultsOutFile = 'tempResultsOut_matrix.txt';
-
-
-#TODO, test both wiht and without data matrix
+my $outputFile = 'results_matrixSemMedDB_simReg.txt';
+my $tempResultsOutFile = 'tempResultsOut_matrixSemMedDB_simReg.txt';
 
 ######################################################################
 #  Begin Code to loop over files and parameters and generate scores
@@ -29,7 +29,6 @@ open RESULTS_OUT, ">$outputFile" or die("Error: cannot open outputFile = $output
 #create options hash
 my %assocOptions;
 #$option_hash{'t'} = 1;
-#$assocOptions{'config'} = 
 $assocOptions{'precision'} = 100;
 $assocOptions{'database'} = $assocDB;
 if ($dataMatrix ne '') {

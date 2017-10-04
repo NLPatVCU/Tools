@@ -112,7 +112,12 @@ sub _initialize {
     $lta_G = $params{'lta'};
     $noOrder_G = $params{'noorder'};
     $matrix_G = $params{'matrix'};
-   
+
+     #set precision
+    if(defined $params{'precision'}) {
+	$precision_G = $params{'precision'};
+    }
+
     #error checking
     my $function = "_initialize";
     &_debug($function);
@@ -120,9 +125,9 @@ sub _initialize {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #set precision
-    if(defined $params{'precision'}) {
-	$precision_G = $params{'precision'};
+    #require UMLS::Interface instance with concept expansion
+    if ($conceptexpansion_G && !(defined $umls_G)) {
+	
     }
 }
 
@@ -1060,6 +1065,9 @@ sub _getCUICooccurrences_DB {
 #  output: reference to @descendants, the descendants of the given cui
 sub _findDescendants {
     my $cui = shift;
+
+    print "CUI in desc = $cui\n";
+    print "umls_G = $umls_G\n";
 
     my $hashref = $umls_G->findDescendants($cui);
     my @descendants = (keys %{$hashref});
