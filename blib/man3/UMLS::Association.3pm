@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "UMLS::Association 3pm"
-.TH UMLS::Association 3pm "2017-10-04" "perl v5.18.2" "User Contributed Perl Documentation"
+.TH UMLS::Association 3pm "2017-10-05" "perl v5.18.2" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -265,93 +265,6 @@ of the Association.pm module.
 .Ve
 .SH "FUNCTION DESCRIPTIONS"
 .IX Header "FUNCTION DESCRIPTIONS"
-\fIgetFrequency\fR
-.IX Subsection "getFrequency"
-.PP
-description:
-.PP
-.Vb 1
-\& function returns the frequency of a given concept pair
-.Ve
-.PP
-input:
-.PP
-.Vb 2
-\& $concept1 <\- cui
-\& $concept2 <\- cui
-.Ve
-.PP
-output:
-.PP
-\&\f(CW$frequency\fR <\- number
-.PP
-example:
-.PP
-.Vb 3
-\& use UMLS::Association;
-\& my $associator = UMLS::Association\->new(); 
-\& my $freq = $mmb\->getFrequency($concept1, $concept2)
-.Ve
-.PP
-\fIcalculateAssociation\fR
-.IX Subsection "calculateAssociation"
-.PP
-description:
-.PP
-.Vb 1
-\& function returns the given association score of a given concept pair
-.Ve
-.PP
-input:
-.PP
-.Vb 4
-\& $concept1 <\- cui
-\& $concept2 <\- cui 
-\& $measure <\- statistical measure
-\&output:
-.Ve
-.PP
-\&\f(CW$score\fR <\- float
-.PP
-example:
-.PP
-.Vb 3
-\& use UMLS::Association;
-\& my $associator = UMLS::Association\->new(); 
-\& my $stat = $associator\->calculateAssociation($concept1, $concept2, $measure)
-.Ve
-.PP
-\fIcalculateAssociationFromValues\fR
-.IX Subsection "calculateAssociationFromValues"
-.PP
-description:
-.PP
-.Vb 2
-\& function returns the given association score of a given set of contingency 
-\& table values.
-.Ve
-.PP
-input:
-.PP
-.Vb 6
-\& $n11 <\- n11 for the cui pair
-\& $n1p <\- n1p for the cui pair
-\& $np1 <\- np1 for the cui pair
-\& $npp <\- npp for the cui pair
-\& $measure <\- statistical measure
-\&output:
-.Ve
-.PP
-\&\f(CW$score\fR <\- float
-.PP
-example:
-.PP
-.Vb 4
-\& use UMLS::Association;
-\& my $associator = UMLS::Association\->new(); 
-\& my $stat = $associator\->calculateStatisticFromContingencyTable(
-\&    $n11, $n1p, $np1, $npp, $measure)
-.Ve
 .SH "REFERENCING"
 .IX Header "REFERENCING"
 If you write a paper that has used UMLS-Association in some way, we'd 

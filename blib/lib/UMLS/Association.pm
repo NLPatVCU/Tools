@@ -176,15 +176,20 @@ use UMLS::Association::StatFinder;
 use UMLS::Association::ErrorHandler; 
 
 my $errorhandler     = ""; 
-my $statfinder = ""; 
+my $statfinder_G = ""; 
 
 my $pkg = "UMLS::Association";
 
 use vars qw($VERSION);
 
-$VERSION = '0.13';
+$VERSION = '0.15';
 
 my $debug = 0;
+my $umls_G = undef;
+my $conceptExpansion_G = 0;
+my $precision_G = 4; #precision of the output
+my $DEFAULT_STATISTIC ="tscore";
+
 
 # UMLS-specific stuff ends ----------
 
@@ -208,9 +213,6 @@ sub new {
 	exit;
     }
     
-    #  check options
-    $self->_checkOptions($params);
-
     # Initialize the object.
     $self->_initialize($params);
 
@@ -221,165 +223,338 @@ sub new {
 #  input : $params <- reference to hash containing the parameters 
 #  output:
 sub _initialize {
-    
     my $self = shift;
     my $params = shift;
 
+    #  check self
     my $function = "_initialize";
-
-    #  check self
-    if(!defined $self || !ref $self) {
-    $errorhandler->_error($pkg, $function, "", 2);
-    }
-    
-    #  set the statfinder
-    $statfinder = UMLS::Association::StatFinder->new($params);
-    if(! defined $statfinder) { 
-	my $str = "The UMLS::Association::StatFinder object was not created.";
-	$errorhandler->_error($pkg, $function, $str, 8);
-    }
-}
-
-#  method checks the parameters based to the UMLS::Association package
-#  input : $params <- reference to hash containing the parameters 
-#  output:
-sub _checkOptions {
-
-    my $self = shift;
-    my $params = shift;
-
-    my $function = "_checkOptions";
-
-    #  check self
     if(!defined $self || !ref $self) {
 	$errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #  database options
-    my $database     = $params->{'database'};
-    my $hostname     = $params->{'hostname'};
-    my $socket       = $params->{'socket'};
-    my $port         = $params->{'port'};
-    my $username     = $params->{'username'};
-    my $password     = $params->{'password'};
-    my $conceptExpansion = $params->{'conceptExpansion'};
-   
-    #  cuifinder options
-    my $measure = $params->{'config'}; 
-    
-    #  general options
-    my $debugoption  = $params->{'debug'};
-    my $verbose      = $params->{'verbose'};
+    # set parameters
+    if ($params->{'conceptexpansion'}) {
+	$conceptExpansion_G = 1;
+    }
+    if ($params->{'precision'}) {
+	$precision_G = $params->{'precision'};
+    }
+    $umls_G = $params->{'umls'};
 
-    if( (defined $username) && (!defined $password) ) {
-	my $str = "The --password option must be defined when using --username.";
-	$errorhandler->_error($pkg, $function, $str, 10);
+    # set the statfinder
+    $statfinder_G = UMLS::Association::StatFinder->new($params);
+    if(! defined $statfinder_G) { 
+	my $str = "The UMLS::Association::StatFinder object was not created.";
+	$errorhandler->_error($pkg, $function, $str, 8);
     }
 
-    if( (!defined $username) && (defined $password) ) {
-	my $str = "The --username option must be defined when using --password.";
-	$errorhandler->_error($pkg, $function, $str, 10);
+    #require UMLS::Interface to be defined if using a DB, or if
+    # using concept expansion
+    if ($conceptExpansion_G && !defined $umls_G) {
+	die( "ERROR initializing Association: UMLS::Interface (params{umls}) must be defined when using database queries or when using concept expansion\n");
     }
 }
 
- 
-=head3 getFrequency
+##########################################################################
+#                  Public Association Interface
+##########################################################################
+# All association scores are computed through a data structure, the pair hash 
+# list. This forces all the modes of operation to use the same code, and allows
+# all data to be retreived in a single pass of a matrix file, or efficient DB 
+# queries. The pair hash list is an array of pairHashRefs. The pair hash is a 
+# hash with two keys, 'set1' and 'set2'each of these keys holds an arrayRef of 
+# cuis which correspond to cuis in that set. This allows for lists of pairs of 
+# sets of CUIs to be computed, either through concept expansion or input as a 
+# set. In the case where only a single pair computation is needed, or rather 
+# than a set, just a single cui is needed, each function still wraps the 
+# values into a pairHashList.  
 
-description:
- 
- function returns the frequency of a given concept pair
 
-input:   
-
- $concept1 <- cui
- $concept2 <- cui
-
-output:
-
-$frequency <- number
-
-example:
-
- use UMLS::Association;
- my $associator = UMLS::Association->new(); 
- my $freq = $mmb->getFrequency($concept1, $concept2)
-
-=cut
-sub getFrequency { 
+# calculates association for a list of single cui pairs
+# $cuiPairsFromFileRef - an array ref of comma seperated cui pairs  
+# input:
+# output:
+sub calculateAssociation_termPairList {
     my $self = shift;
-    my $c1 = shift; 
-    my $c2 = shift; 
+    my $cuiPairListRef = shift;
+    my $measure = shift;
+
+    #create the cuiPairs hash datasetructure
+    my @pairHashes = ();
+    foreach my $pair (@{$cuiPairListRef}) {
+	#grab the cuis from the pair
+	(my $cui1, my $cui2) = split(',',$pair);
+	push @pairHashes, $self->_createPairHash_singleTerms($cui1,$cui2);
+    }
+
+    #return the array of association scores for each pair
+    return $self->_calculateAssociation_pairHashList(\@pairHashes, $measure);
+}
+
+# calculates association for a single cui pair
+# input:
+# output: 
+sub calculateAssociation_termPair {
+    my $self = shift;
+    my $cui1 = shift;
+    my $cui2 = shift;
+    my $measure = shift;  
     
-    return $statfinder->_getFrequency($c1, $c2); 
+    #create the pairHash List
+    my @pairHashes = ();
+    push @pairHashes, $self->_createPairHash_singleTerms($cui1,$cui2);
+
+    #return the association score, which is the first (and only)
+    # values of the return array
+    return ${$self->_calculateAssociation_pairHashList(\@pairHashes, $measure)}[0];
 }
 
-=head3 calculateAssociation
-
-description:
- 
- function returns the given association score of a given concept pair
-
-input:   
-
- $concept1 <- cui
- $concept2 <- cui 
- $measure <- statistical measure
-output:
-
-$score <- float
-
-example:
-
- use UMLS::Association;
- my $associator = UMLS::Association->new(); 
- my $stat = $associator->calculateAssociation($concept1, $concept2, $measure)
-
-=cut
-sub calculateAssociation { 
+# calculates association for two sets of cuis
+# input:
+# output:
+sub calculateAssociation_setPair {
     my $self = shift;
-    my $c1 = shift; 
-    my $c2 = shift; 
-    my $meas = shift; 
+    my $cuis1Ref = shift;
+    my $cuis2Ref = shift;
+    my $measure = shift;
 
-    return $statfinder->calculateAssociation($c1, $c2, $meas); 
+    #create the cuiPairs hash datasetructure
+    my @pairHashes = ();
+    push @pairHashes, $self->createPairHash_termList($cuis1Ref, $cuis2Ref);
+
+    #return the association score, which is the first (and only)
+    # value of the return array
+    return ${$self->_calculateAssociation_pairHashList(\@pairHashes, $measure)}[0];
 }
 
-=head3 calculateAssociationFromValues
 
-description:
- 
- function returns the given association score of a given set of contingency 
- table values.
+# calculate association between a list of cui pairs
+# input:
+# output:
+sub calculateAssociation_setPairList {
 
-input:   
+#TODO
 
- $n11 <- n11 for the cui pair
- $n1p <- n1p for the cui pair
- $np1 <- np1 for the cui pair
- $npp <- npp for the cui pair
- $measure <- statistical measure
-output:
+}
 
-$score <- float
+##########################################################################
+#                          PairHash Creators
+##########################################################################
 
-example:
+# creates a pair hash object from two cuis
+# input:
+# output:
+sub _createPairHash_singleTerms {
+    my $self = shift;
+    my $cui1 = shift;
+    my $cui2 = shift;
 
- use UMLS::Association;
- my $associator = UMLS::Association->new(); 
- my $stat = $associator->calculateStatisticFromContingencyTable(
-    $n11, $n1p, $np1, $npp, $measure)
+    #create the hash data structures
+    my %pairHash = ();
 
-=cut
-sub calculateAssociationFromValues {
+    #populate the @cuiLists
+    if ($conceptExpansion_G) {
+	#set the cui lists to the expanded concept
+	$pairHash{'set1'} = $self->_expandConcept($cui1);
+	$pairHash{'set2'} = $self->_expandConcept($cui2);
+    }
+    else {
+	#set the cui lists to the concept
+	my @cui1List = ();
+	push @cui1List, $cui1;
+	my @cui2List = ();
+	push @cui2List, $cui2;
+
+	$pairHash{'set1'} = \@cui1List;
+	$pairHash{'set2'} = \@cui2List;
+    }
+    return \%pairHash;
+}
+
+
+# Creates a pair hash from two cui lists
+# input:
+# output:
+sub _createPairHash_termLists {
+    my $self = shift;
+    my $set1Ref = shift;
+    my $set2Ref = shift;
+
+    #TODO
+
+}
+
+##########################################################################
+#                    Association Calculators
+##########################################################################
+
+# calculate association for a hash of cui pairs hashes
+# input is a hash of cui pair hashes. The element of each 
+# cui pair hash is 2 keys, 'set1', and 'set2'. Each of those
+# contain a list of cuis corresponding to cui1 and cui2
+#returns an array of assocation scores
+# input:
+# output:
+sub _calculateAssociation_pairHashList {
+    my $self = shift;
+    my $pairHashListRef = shift;
+    my $measure = shift;
+
+    #retreive observed counts for each pairHash
+    my $statsListRef = $statfinder_G->getObservedCounts($pairHashListRef);
+    
+    #calculate associaiton score for each pairHash
+    my @scores = ();
+    foreach my $statsRef(@{$statsListRef}) {
+	#grab stats for this pairHash from the list of stats
+	my $n11 = ${$statsRef}[0];
+	my $n1p = ${$statsRef}[1];
+	my $np1 = ${$statsRef}[2];
+	my $npp = ${$statsRef}[3];
+	
+	#calculate the association score
+	push @scores, $self->_calculateAssociation_fromObservedCounts($n11, $n1p, $np1, $npp, $measure);
+    }
+
+    #return the association scores for all pairHashes in the list
+    return \@scores
+}
+
+
+# calculates an association score from the provided values
+# NOTE: Please be careful when writing code that uses this
+# method. Results may become inconsistent if you don't check
+# that CUIs occur in the hierarchy before calling
+# e.g. C0009951 does not occur in the SNOMEDCT Hierarchy but
+# it likely occurs in the association database so if not check
+# is made an association score will be calculate for it, but it has not
+# been done in reported results from this application
+# input:  $n11 <- n11 for the cui pair
+#         $npp <- npp for the dataset
+#         $n1p <- n1p for the cui pair
+#         $np1 <- np1 for the cui pair
+#         $statistic <- the string specifying the stat to calc
+# output: the statistic (association score) between the two concepts
+sub _calculateAssociation_fromObservedCounts {
+    #grab parameters
     my $self = shift;
     my $n11 = shift;
     my $n1p = shift;
     my $np1 = shift;
     my $npp = shift;
-    my $meas = shift;
+    my $statistic = shift;
 
-    return $statfinder->calculateAssociationFromValues(
-	$n11, $n1p, $np1, $npp, $meas); 
+    #set frequency and marginal totals
+    my %values = (n11=>$n11, 
+		  n1p=>$n1p, 
+		  np1=>$np1, 
+		  npp=>$npp); 
+    
+    #return cannot compute, or 0
+    if($n1p < 0 || $np1 < 0) { 	
+	return -1.000; 
+    }
+    if($n11 <= 0) { 
+	return 0.000;
+    }
+    
+    #set default statistic
+    if(!defined $statistic) { 
+	$statistic = $DEFAULT_STATISTIC;  
+    }
+
+    #set statistic module (Text::NSP)
+    my $includename = ""; my $usename = "";  my $ngram = 2; #TODO, what is this ngram parameter
+    if ($statistic eq "freq") {
+	return $n11;
+    }
+    elsif($statistic eq "ll")  { 
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::MI::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','MI',$statistic.'.pm');
+    }
+    elsif($statistic eq "pmi" || $statistic eq "tmi" || $statistic eq "ps") { 
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::MI::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','MI',$statistic.'.pm');
+    }
+    elsif($statistic eq "x2"||$statistic eq "phi") {
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::CHI::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','CHI',$statistic.'.pm');
+    }
+    elsif($statistic eq "leftFisher"||$statistic eq "rightFisher"||$statistic eq "twotailed") { 
+	if($statistic eq "leftFisher")	       { $statistic = "left";  }
+	elsif($statistic eq "rightFisher")  { $statistic = "right"; }
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::Fisher::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','Fisher',$statistic.'.pm');
+    }
+    elsif($statistic eq "dice" || $statistic eq "jaccard") {
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::Dice::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','Dice',$statistic.'.pm');
+    }
+    elsif($statistic eq "odds") { 
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D',$statistic.'.pm');
+    }
+    elsif($statistic eq "tscore") { 
+	$usename = 'Text::NSP::Measures::'.$ngram.'D::CHI::'.$statistic;
+	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','CHI',$statistic.'.pm');
+    }
+    
+    # import module
+    require $includename;
+    import $usename;
+    
+    # get statistics (From NSP package)
+    my $statisticValue = calculateStatistic(%values); 
+    
+    # check for errors/warnings from statistics.pm     
+    my $errorMessage=""; 
+    my $errorCode = getErrorCode(); 
+    if (defined $errorCode) { 
+	if($errorCode =~ /^1/) { 
+	    printf(STDERR "Error from statistic library!\n  Error code: %d\n", $errorCode);
+	    $errorMessage = getErrorMessage();
+	    print STDERR "  Error message: $errorMessage\n" if( $errorMessage ne "");
+	    exit; # exit on error
+	}
+	if ($errorCode =~ /^2/)  { 
+	    printf(STDERR "Warning from statistic library!\n  Warning code: %d\n", $errorCode);
+	    $errorMessage = getErrorMessage();
+	    print STDERR "  Warning message: $errorMessage\n" if( $errorMessage ne "");
+	    print STDERR "Skipping ngram\n";
+	    next; # if warning, dont save the statistic value just computed
+	}
+    }
+
+    #return statistic to given precision.  if no precision given, default is 4
+    my $floatFormat = join '', '%', '.', $precision_G, 'f';
+    my $statScore = sprintf $floatFormat, $statisticValue;
+
+    return $statScore; 
+}
+
+#################################################
+#  Utilitiy Functions
+#################################################
+
+# Applies concept expansion
+# input :
+# output:  
+sub _expandConcept {
+    my $self = shift;
+    my $cui = shift;
+
+    #find all descendants
+    my $descendantsRef = $umls_G->findDescendants($cui);
+
+    #add all cuis to the expanded cuis list
+    my @cuis = ();
+    push @cuis, $cui;
+    foreach my $desc (keys %{$descendantsRef}) {
+	push @cuis, $desc;
+    }
+    
+    #return the expanded cuis array
+    return \@cuis;
 }
 
 1;

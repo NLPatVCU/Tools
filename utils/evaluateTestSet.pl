@@ -1,210 +1,181 @@
-use strict;
-use warnings;
-use UMLS::Association::StatFinder;
-use UMLS::Association::CuiFinder;
+use UMLS::Interface;
 use UMLS::Association;
+use Getopt::Long;
+#############################################
+#  Get Options and params
+#############################################
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
-##### parameters for this run
-my $cuisFileName = '/home/sam/UMLS-Assoc_new/UMLS-Association/Demos/DataSets/MiniMayoSRS.snomedct.cuis';
-my $n11MatrixFileName = '/home/sam/semmeddb';
-my $outputFileName = 'scores';
+#get required input
+my $cuisFileName = shift;
+my $outputFileName = shift;
+
+#set default measure
+my $measure = $opt_measure;
+if (!$measure) {
+    $measure = "tscore";
+}
+
+#############################################
+#  Check help, version, minimal usage notes
+#############################################
+#  if help is defined, print out help
+if( defined $opt_help ) {
+    $opt_help = 1;
+    &showHelp();
+    exit;
+}
+
+#  if version is requested, show version
+if( defined $opt_version ) {
+    $opt_version = 1;
+    &showVersion();
+    exit;
+}
+
+# a single input file and output file must be passed in 
+if(!(defined $cuisFileName)) {
+    print STDERR "No CUI Pair Input File provided\n";
+    &minimalUsageNotes();
+    exit;
+}
+if(!(defined $outputFileName)) {
+    print STDERR "No Output File provided\n";
+    &minimalUsageNotes();
+    exit;
+}
 
 
+#############################################
+#  Set Up UMLS::Interface
+#############################################
+#  set UMLS-Interface options
+my %umls_option_hash = ();
 
-##### UMLS::Association Options
-my $noOrder =1;
-my $conceptExpansion = 0;
-my $measure = 'll';
+$umls_option_hash{"t"} = 1; 
 
+if(defined $opt_debug) {
+    $umls_option_hash{"debug"} = $opt_debug;
+}
+if(defined $opt_verbose) {
+    $umls_option_hash{"verbose"} = $opt_verbose;
+}
+if(defined $opt_username) {
+    $umls_option_hash{"username"} = $opt_username;
+}
+if(defined $opt_driver) {
+    $umls_option_hash{"driver"}   = $opt_driver;
+}
+if(defined $opt_umlsdatabase) {
+    $umls_option_hash{"database"} = $opt_umlsdatabase;
+}
+if(defined $opt_password) {
+    $umls_option_hash{"password"} = $opt_password;
+}
+if(defined $opt_hostname) {
+    $umls_option_hash{"hostname"} = $opt_hostname;
+}
+if(defined $opt_socket) {
+    $umls_option_hash{"socket"}   = $opt_socket;
+}
+if(defined $opt_config){
+    $umls_option_hash{"config"} = $opt_config;
+}
 
+#  instantiate instance of UMLS-Interface
+my $umls = UMLS::Interface->new(\%umls_option_hash); 
+die "Unable to create UMLS::Interface object.\n" if(!$umls);
 
-##### UMLS::InterfaceOptions
-#debug
-#verbose
-#username
-#driver
-#database
-#password
-#hostname
-#socket
-#config
+#############################################
+#  Set Up UMLS::Association
+#############################################
+#  set UMLS-Association option hash
+my %assoc_option_hash = ();
+$assoc_option_hash{'umls'} = $umls;
 
+if(defined $opt_debug) {
+    $assoc_option_hash{"debug"} = $opt_debug;
+}
+if(defined $opt_verbose) {
+    $assoc_option_hash{"verbose"} = $opt_verbose;
+}
+if(defined $opt_username) {
+    $assoc_option_hash{"username"} = $opt_username;
+}
+if(defined $opt_driver) {
+    $assoc_option_hash{"driver"}   = $opt_driver;
+}
+if(defined $opt_assocdatabase) {
+    $assoc_option_hash{"database"} = $opt_assocdatabase;
+}
+if(defined $opt_password) {
+    $assoc_option_hash{"password"} = $opt_password;
+}
+if(defined $opt_hostname) {
+    $assoc_option_hash{"hostname"} = $opt_hostname;
+}
+if(defined $opt_socket) {
+    $assoc_option_hash{"socket"}   = $opt_socket;
+}
+if(defined $opt_conceptexpansion) {
+    $assoc_option_hash{"conceptexpansion"}   = $opt_conceptexpansion;
+}
+if(defined $opt_precision){
+    $assoc_option_hash{"precision"} = $opt_precision;
+}
+if(defined $opt_lta){
+    $assoc_option_hash{"lta"} = $opt_lta;
+}
+if(defined $opt_noorder){
+    $assoc_option_hash{"noorder"} = $opt_noorder;
+}
+if(defined $opt_matrix){
+    $assoc_option_hash{"matrix"} = $opt_matrix;
+}
 
-#####################################
-#####         BEGIN CODE        #####
-#####################################
-#create UMLS::Interface options hash
-my %interfaceHash = ();
+#  instantiate instance of UMLS-Assocation
+my $association = UMLS::Association->new(\%assoc_option_hash); 
+die "Unable to create UMLS::Association object.\n" if(!$association);
 
-#initialize the statFinder
-my %params = ();
-$params{'interfaceOptions'} = \%interfaceHash;
-my $statFinder = UMLS::Association::StatFinder->new(\%params, $cuifinder);
-
+#############################################
+#  Calculate Association
+#############################################
 
 #read in all the first and second cuis
 open IN, $cuisFileName 
     or die ("Error: unable to open cui list file: $cuisFileName");
-my %cuis1 = ();
-my %cuis2 = ();
-my %cuiPair = ();
-my %n11 = ();
+my @cuiPairs = ();
 foreach my $line (<IN>) {
     chomp $line;
     (my $cui1, my $cui2) = split('<>',$line);
-    $cuis1{$cui1} = 0;
-    $cuis2{$cui2} = 0;
-    $cuiPair{"$cui1<>$cui2"} = 0;
-    $n11{"$cui1<>$cui2"}=0;
-}
-close IN;
- 
-#apply concept expansion to all cuis if needed
-my %originalCuiPair = %cuiPair;
-if($conceptExpansion) {
-    &applyConceptExpansion();
-}
-
-#read in all vaules need with a single pass of the file
-open IN, $n11MatrixFileName 
-    or die ("Error: unable to open input matrix file: $n11MatrixFileName\n");
-my %n1p = ();
-my %np1 = ();
-my $npp = 0;
-foreach my $line(<IN>) {
-    #grab line values
-    chomp $line;
-    (my $cui1, my $cui2, my $val) = split(/\t/,$line);
-
-    #update counts (n11, n1p, np1, npp)
-    &updateCounts($cui1, $cui2, $val);
-    if ($noOrder) {
-	print "NO ORDER\n";
-	&updateCounts($cui2,$cui1,$val);
-    }
+    push @cuiPairs, "$cui1,$cui2";
 }
 close IN;
 
-#update original Pair counts with expanded counts
-if ($conceptExpansion) {
-    &updateCountsWithExpansions();
-}
-
-
-#calucate the association scores for all term pairs
-foreach my $pairKey(keys %cuiPair) {
-    (my $cui1, my $cui2) = split('<>',$pairKey);
-    $cuiPair{$pairKey} = $statFinder->calculateAssociationFromValues(
-	$n11{"$cui1<>$cui2"}, $n1p{$cui1}, $np1{$cui2}, $npp, $measure);
-}
+#calculate association scores for each term pair
+my $scoresRef = $association->calculateAssociation_termPairList(\@cuiPairs, $params->{'measure'});
 
 #output the results
 open OUT, ">$outputFileName" 
     or die ("Error: Unable to open output file: $outputFileName");
-foreach my $pairKey(keys %cuiPair) {
-    print OUT "$cuiPair{$pairKey}<>$pairKey\n";
+for (my $i = 0; $i < scalar @cuiPairs; $i++) {
+    (my $cui1, my $cui2) = split(',',$cuiPairs[$i]);
+    print OUT "${$scoresRef}[$i]<>$cui1<>$cui2\n";
 } 
 close OUT;
 
 
 
-
-
-
-#####################
-######################
-
-
-# updates the n11, n1p, np1, and npp counts
-# Input:
-# Output:
-sub updateCounts {
-    my $cui1 = shift;
-    my $cui2 = shift;
-    my $val = shift;
-
-    #update needed values
-    if (defined $cuiPair{"$cui1<>$cui2"}) {
-	$n11{"$cui1<>$cui2"}+=$val;
-    }
-    if (defined $cuis1{$cui1}) {
-	$n1p{$cui1} += $val;
-    }
-    if (defined $cuis2{$cui2}) {
-	$np1{$cui2} += $val;
-    }
-    $npp += $val;
+#########################
+###########################
+sub minimalUsageNotes {
+#TODO
 }
 
-
-
-
-# updates $cuis1, $cuis2, and $cuiPairs with expanded concepts
-# Input: 
-# Ouptut: 
-sub conceptExpansion {
-   
-    #expanded each pair
-    foreach my $pairKey (keys %cuiPair) {
-	#get cuis from each pair key
-	(my $cui1, my $cui2) = split('<>',$pairKey);
-
-	#find all descendants
-	my $expandedCuis1Ref = $statFinder->_findDescendants($cui1);
-	my $expandedCuis2Ref = $statFinder->_findDescendants($cui2);
-
-	#add all cuis1 to cuis1 list
-	foreach my $key (@{$expandedCuis1Ref}) {
-	    $cuis1{$key} = 0;
-	}
-
-	#add all cuis2 to cuis2 list
-	foreach my $key (@{$expandedCuis2Ref}) {
-	    $cuis2{$key} = 0;
-	}
-
-	#add cui pairs that need to be found
-	push @{$expandedCuis1Ref}, $cui1;
-	push @{$expandedCuis2Ref}, $cui2;
-	foreach my $key1 (@{$expandedCuis1Ref}) {
-	    foreach my $key2 (@{$expandedCuis2Ref}) {
-		$cuiPair{"$key1<>$key2"} = 0;
-	    }
-	}
-    }
+sub showHelp {
+#TODO
 }
 
-
-#updates the original cui pair counts with their expansions
-sub updateCountsWithExpansion {
-    
-    #expanded each pair
-    foreach my $pairKey (keys %originalCuiPair) {
-	#get cuis from each pair key
-	(my $cui1, my $cui2) = split('<>',$pairKey);
-
-	#find all descendants
-	my $expandedCuis1Ref = $statFinder->_findDescendants($cui1);
-	my $expandedCuis2Ref = $statFinder->_findDescendants($cui2);
-
-	#add all cuis1 to cuis1 list
-	foreach my $key (@{$expandedCuis1Ref}) {
-	    $n1p{$cui1} += $n1p{$key};
-	}
-
-	#add all cuis2 to cuis2 list
-	foreach my $key (@{$expandedCuis2Ref}) {
-	    $np1{$cui2} += $np1{$key};
-	}
-
-	#add cui pairs that need to be found
-	foreach my $key1 (@{$expandedCuis1Ref}) {
-	    foreach my $key2 (@{$expandedCuis2Ref}) {
-		 $cuiPair{"$cui1<>$cui2"} += $n11{"$key1<>$key2"};
-	    }
-	}
-    }
+sub showVersion {
+#TODO
 }
-
-
-

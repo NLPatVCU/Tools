@@ -54,14 +54,10 @@ my $pkg = "UMLS::Association::StatFinder";
 #NOTE: every global variable is followed by a _G with the 
 # exception of debug error handler, and constants which are all caps
 #  global variables
-my $DEFAULT_STATISTIC = "tscore"; #association measure to use
 my $debug     = 0; #in debug mode or not
-my $umls_G = undef; #UMLS interface instance
-my $precision_G = 4; #precision of the output
 
 #global options variables
 my $assocDB_G;
-my $conceptExpansion_G = 0; #1 or 0 if using concept expansion or not
 my $lta_G = 0; #1 or 0 is using lta or not
 my $noOrder_G = 0; #1 or 0 if noOrder is enabled or not
 my $matrix_G = 0; #matrix file name is using a matrix file rather than DB
@@ -104,16 +100,9 @@ sub _initialize {
     my %params = %{$paramsRef};
 
     #set global variables using option hash
-    $umls_G = $params{'umls'};
-    $conceptExpansion_G = $params{'conceptexpansion'};
     $lta_G = $params{'lta'};
     $noOrder_G = $params{'noorder'};
     $matrix_G = $params{'matrix'};
-
-    #set precision
-    if(defined $params{'precision'}) {
-	$precision_G = $params{'precision'};
-    }
 
     #connect to the database of association scores
     if (!$matrix_G) {
@@ -125,13 +114,7 @@ sub _initialize {
     &_debug($function);
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
-    }
-
-    #require UMLS::Interface to be defined if using a DB, or if
-    # using concept expansion
-    if ($conceptExpansion_G && !defined $umls_G) {
-	die( "ERROR initializing StatFinder: UMLS::Interface (params{umls}) must be defined when using database queries or when using concept expansion\n");
-    }
+    }    
 }
 
 sub _debug {
@@ -194,212 +177,58 @@ sub _setDatabase  {
     $assocDB_G->{'mysql_enable_utf8'} = 1;
     $assocDB_G->do('SET NAMES utf8');
     $assocDB_G->{mysql_auto_reconnect} = 1;
-
-    #TODO, delete this, it is not needed?
-    #  set the self parameters
-    #$self->{'db'}           = $db;
-    #$self->{'username'}     = $username;
-    #$self->{'password'}     = $password;
-    #$self->{'hostname'}     = $hostname;
-    #$self->{'socket'}       = $socket;
-    #$self->{'database'}     = $database;
 }
 
-
-
 ######################################################################
-#      Public Functions to get Association Scores
+#           public interface to get observed counts
 ######################################################################
 
-# calculate a contingency table values and an associationScore
-# for the cui pair
-# input:  $cui1  <- the cui of the first concept 
-#         $cui2  <- the cui of the second concept
-#         $statistic <- the string specifying the stat to calc
-# output: the statistic (Association score) between the two concepts
-sub calculateAssociation { 
+# Gets observed counts (n11, n1p, np1, npp) of the cui sets
+# input:
+# output:
+sub getObservedCounts {   
     #grab parameters
     my $self = shift;
-    my $cui1 = shift; 
-    my $cui2 = shift; 
-    my $statistic = shift; 
+    my $pairHashListRef = shift; 
 
     #error checking
-    my $function = "calculateAssociation"; 
+    my $function = "getObservedCounts"; 
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #create the sets of cuis, default is just a single cui
-    my @cuis1 = ();
-    push @cuis1, $cui1;
-    my @cuis2 = ();
-    push @cuis2, $cui2;
-
-    #add descendants to the sets if needed
-    if ($conceptExpansion_G) {
-	push @cuis1, @{&_findDescendants($cui1)};
-	push @cuis2, @{&_findDescendants($cui2)};	
-    }
-
     #calculate n11, n1p, np1, npp using a matrix or DB
     # and according to the method of various other options
-    my $valid = -1; #if invalid, valid stays -1, else if becomes a hash ref
+    my $allStatsRef = -1;
     if ($lta_G) {
-	$valid = $self->_getStats_LTA(\@cuis1, \@cuis2);
+	$allStatsRef = $self->_getStats_LTA($pairHashListRef);
     }
     else {
 	if ($matrix_G) {
-	    $valid = $self->_getStats_matrix(\@cuis1, \@cuis2);
+	    $allStatsRef = $self->_getStats_matrix($pairHashListRef);
 	}
 	else {
-	    $valid = $self->_getStats_DB(\@cuis1, \@cuis2);
+	    $allStatsRef = $self->_getStats_DB($pairHashListRef);
 	}
     }
-    
-    #error checking for n11, n1p, np1, npp
-    if($valid == -1){
-	return -1;
-    }
-    my @data = @{$valid};
 
-    my $n11 = $data[0];
-    my $n1p = $data[1];
-    my $np1 = $data[2];
-    my $npp = $data[3];
-    if(!defined $n11 || !defined $n1p || !defined $np1){
-	return -1;
-    }
-    
-    #calculate the statistic and return it
-    my $stat = $self->calculateAssociationFromValues(
-	$n11, $n1p, $np1, $npp, $statistic);
-
-    return $stat;
+    #return a reference to a list of stats for each pairHash
+    return $allStatsRef;
 }
 
-# calculates an association score from the provided values
-# NOTE: Please be careful when writing code that uses this
-# method. Results may become inconsistent if you don't check
-# that CUIs occur in the hierarchy before calling
-# e.g. C0009951 does not occur in the SNOMEDCT Hierarchy but
-# it likely occurs in the association database so if not check
-# is made an association score will be calculate for it, but it has not
-# been done in reported results from this application
-# input:  $n11 <- n11 for the cui pair
-#         $npp <- npp for the dataset
-#         $n1p <- n1p for the cui pair
-#         $np1 <- np1 for the cui pair
-#         $statistic <- the string specifying the stat to calc
-# output: the statistic (association score) between the two concepts
-sub calculateAssociationFromValues {
-    #grab parameters
-    my $self = shift;
-    my $n11 = shift;
-    my $n1p = shift;
-    my $np1 = shift;
-    my $npp = shift;
-    my $statistic = shift;
-
-    #set frequency and marginal totals
-    my %values = (n11=>$n11, 
-		  n1p=>$n1p, 
-		  np1=>$np1, 
-		  npp=>$npp); 
-    
-    #return cannot compute, or 0
-    if($n11 < 0 || $n1p < 0 || $np1 < 0) { 	
-	return -1.000; 
-    }
-    if($n11 == 0) { 
-	return 0.000;
-    }
-    
-    #set default statistic
-    if(!defined $statistic) { 
-	$statistic = $DEFAULT_STATISTIC;  
-    }
-
-    #set statistic module (Text::NSP)
-    my $includename = ""; my $usename = "";  my $ngram = 2; #TODO, what is this ngram parameter
-    if($statistic eq "ll")  { 
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::MI::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','MI',$statistic.'.pm');
-    }
-    elsif($statistic eq "pmi" || $statistic eq "tmi" || $statistic eq "ps") { 
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::MI::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','MI',$statistic.'.pm');
-    }
-    elsif($statistic eq "x2"||$statistic eq "phi") {
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::CHI::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','CHI',$statistic.'.pm');
-    }
-    elsif($statistic eq "leftFisher"||$statistic eq "rightFisher"||$statistic eq "twotailed") { 
-	if($statistic eq "leftFisher")	       { $statistic = "left";  }
-	elsif($statistic eq "rightFisher")  { $statistic = "right"; }
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::Fisher::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','Fisher',$statistic.'.pm');
-    }
-    elsif($statistic eq "dice" || $statistic eq "jaccard") {
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::Dice::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','Dice',$statistic.'.pm');
-    }
-    elsif($statistic eq "odds") { 
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D',$statistic.'.pm');
-    }
-    elsif($statistic eq "tscore") { 
-	$usename = 'Text::NSP::Measures::'.$ngram.'D::CHI::'.$statistic;
-	$includename = File::Spec->catfile('Text','NSP','Measures',$ngram.'D','CHI',$statistic.'.pm');
-    }
-    
-    # import module
-    require $includename;
-    import $usename;
-    
-    # get statistics (From NSP package)
-    my $statisticValue = calculateStatistic(%values); 
-    
-    # check for errors/warnings from statistics.pm     
-    my $errorMessage=""; 
-    my $errorCode = getErrorCode(); 
-    if (defined $errorCode) { 
-	if($errorCode =~ /^1/) { 
-	    printf(STDERR "Error from statistic library!\n  Error code: %d\n", $errorCode);
-	    $errorMessage = getErrorMessage();
-	    print STDERR "  Error message: $errorMessage\n" if( $errorMessage ne "");
-	    exit; # exit on error
-	}
-	if ($errorCode =~ /^2/)  { 
-	    printf(STDERR "Warning from statistic library!\n  Warning code: %d\n", $errorCode);
-	    $errorMessage = getErrorMessage();
-	    print STDERR "  Warning message: $errorMessage\n" if( $errorMessage ne "");
-	    print STDERR "Skipping ngram\n";
-	    next; # if warning, dont save the statistic value just computed
-	}
-    }
-
-    #return statistic to given precision.  if no precision given, default is 4
-    my $floatFormat = join '', '%', '.', $precision_G, 'f';
-    my $statScore = sprintf $floatFormat, $statisticValue;
-
-    return $statScore; 
-}
 
 ######################################################################
 # functions to get statistical information about the cuis using a DB
 ######################################################################
 
-# gets N11, N1P, NP1, NPP for the two sets of CUIs using a database
-#  input : $cuis1Ref <- ref to an array of the first cuis in a set of cui pairs
-#          $cuis2Ref <- ref to an array of the second cuis in a set of cui pairs
-#  output: $\@data  <- array ref containing four values: $n11, $n1p, $np1, and 
-#                      $npp for the sets of cui pairs
+# gets N11, N1P, NP1, NPP for a pairHashList using a database
+#  input : $pairHashListRef <- ref to a pairHashList
+#  output: $\@data  <- array ref containing array refs of four values
+#                      for each pair Hash, $n11, $n1p, $np1, and $npp
 sub _getStats_DB {
     #grab parameters
     my $self = shift;
-    my $cuis1Ref = shift;
-    my $cuis2Ref = shift;
+    my $pairHashListRef = shift;
     
     #error checking
     my $function = "_getStats_DB"; 
@@ -407,17 +236,22 @@ sub _getStats_DB {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
-    #grab the data from a DB
-    my $n11 = $self->_getN11_DB($cuis1Ref, $cuis2Ref); 
-    my $n1p = $self->_getN1p_DB($cuis1Ref); 
-    my $np1 = $self->_getNp1_DB($cuis2Ref); 
+    #compute observed counts for each pair hash
+    my @data = ();
     my $npp = $self->_getNpp_DB();
+    foreach my $pairHashRef(@{$pairHashListRef}) {
 
-    print "$n11, $n1p, $np1, $npp\n";
-    #TODO, $npp *= 2?
+	#grab the data from a DB
+	my $n11 = $self->_getN11_DB(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'}); 
+	my $n1p = $self->_getN1p_DB(${$pairHashRef}{'set1'});  
+	my $np1 = $self->_getNp1_DB(${$pairHashRef}{'set2'}); 
+
+	#store the data
+	my @values = ($n11, $n1p, $np1, $npp);
+	push @data, \@values;	
+    }
 
     #return the data
-    my @data = ($n11, $n1p, $np1, $npp);
     return  \@data;
 }
 
@@ -591,43 +425,71 @@ sub _getNpp_DB {
 # functions to get statistical information about the cuis using a matrix 
 ########################################################################
 
-# gets N11, N1P, NP1, NPP for the two sets of CUIs using a matrix
-#  input : $cuis1Ref <- ref to an array of the first cuis in a set of cui pairs
-#          $cuis2Ref <- ref to an array of the second cuis in a set of cui pairs
-#  output: $\@data  <- array ref containing four values: $n11, $n1p, $np1, and 
-#                      $npp for the sets of cui pairs
+
+# Gets arrays of all first (leading) and second (trailing)
+# This is used when retreiving data from a matrix flat file
+# input:
+# output: 
+sub _getAllLeadingAndTrailingCuis {
+    my $self = shift;
+    my $pairHashListRef = shift;
+
+    #create a list of all possible cuis in the first and second positions
+    my @cuis1 = ();
+    my @cuis2 = ();
+    foreach my $pairHashRef(@{$pairHashListRef}) {
+	foreach my $cui(@{${$pairHashRef}{'set1'}}) {
+	    push @cuis1, $cui;
+	}
+	foreach my $cui(@{${$pairHashRef}{'set2'}}) {
+	    push @cuis2, $cui;
+	}
+    }
+
+    return (\@cuis1, \@cuis2);
+}
+
+
+# gets N11, N1P, NP1, NPP for a pairHashList using a matrix
+#  input : $pairHashListRef <- ref to a pairHashList
+#  output: $\@data  <- array ref containing array refs of four values
+#                      for each pair Hash, $n11, $n1p, $np1, and $npp
 sub _getStats_matrix {
     #grab parameters
     my $self = shift;
-    my $cuis1Ref = shift;
-    my $cuis2Ref = shift;
-    
+    my $pairHashListRef = shift;
+
     #error checking
-    my $function = "_getStats_DB"; 
+    my $function = "_getStats_matrix"; 
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
-
-    #get all observed counts for all cuis in the term pairs
+    
+    #get all observed counts for all possible cuis in the term pairs
+    (my $cuis1Ref, my $cuis2Ref) = $self->_getAllLeadingAndTrailingCuis($pairHashListRef);
     my $countsRef = $self->_getObservedCounts_matrix($cuis1Ref, $cuis2Ref);
     my $n11AllRef = ${$countsRef}[0];
     my $n1pAllRef = ${$countsRef}[1];
     my $np1AllRef = ${$countsRef}[2];
     my $npp = ${$countsRef}[3];
 
-    #calculate stats for the term pair
-    my $n11 = $self->_getN11_matrix($cuis1Ref, $cuis2Ref, $n11AllRef); 
-    my $n1p = $self->_getN1p_matrix($cuis1Ref, $n11AllRef, $n1pAllRef, $np1AllRef); 
-    my $np1 = $self->_getNp1_matrix($cuis2Ref, $n11AllRef, $n1pAllRef, $np1AllRef); 
-    
-
     #update $npp for noOrder, since Cuis can be trailing or leading its 2x ordered npp
     if ($noOrder_G) {
 	$npp *= 2;
     }
 
+    #get values for each pairHash based on what was retreived from the matrix
+    my @data = ();
+    foreach my $pairHashRef (@{$pairHashListRef}) {
+	my $n11 = $self->_getN11_matrix(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'}, $n11AllRef); 
+	my $n1p = $self->_getN1p_matrix(${$pairHashRef}{'set1'}, $n11AllRef, $n1pAllRef, $np1AllRef); 
+	my $np1 = $self->_getNp1_matrix(${$pairHashRef}{'set2'}, $n11AllRef, $n1pAllRef, $np1AllRef); 
+	
+	my @vals = ($n11, $n1p, $np1, $npp);
+	push @data, \@vals;
+    }
+    
     #return the data
-    my @data = ($n11, $n1p, $np1, $npp);
     return \@data;
 }
 
@@ -857,16 +719,13 @@ sub _getNp1_matrix {
 # functions to get statistical information about the cuis LTA
 ########################################################################
 #  Gets contingency table values for LTA using a matrix
-#  input : $cuis1Ref <- ref to an array of the first cuis in a set of cui pairs
-#          $cuis2Ref <- ref to an array of the second cuis in a set of cui pairs
-#  output: $\@data  <- array ref containing four values: $n11, $n1p, $np1, and 
-#                      $npp for the sets of cui pairs
+#  input : $pairHashListRef <- ref to a pairHashList
+#  output: $\@data  <- array ref containing array refs of four values
 sub _getStats_LTA {
     #grab parameters
     my $self = shift;
-    my $cuis1Ref = shift;
-    my $cuis2Ref = shift;
-   
+    my $pairHashListRef = shift;
+    
     #error checking
     my $function = "_getStats_LTA"; 
     if(!defined $self || !ref $self) {
@@ -874,47 +733,64 @@ sub _getStats_LTA {
     }
 
     #Get co-occurrences with each set of CUIs
-    my $cooccurrences1Ref;
-    my $cooccurrences2Ref;
+    # for each set of cuis we find a list of cuis that co-occur with that set
+    # this is done for cuis1 and cuis2. Once retreiving these two lists
+    # of co-occurring cuis, we can calculate LTA based on the overlap of 
+    # co-occurrences.
+    my @cooccurrences1List;
+    my @cooccurrences2List;
     my $npp = 0;
     if ($matrix_G) {
-	#get observed counts
-	my $observedRef = $self->_getObserved_matrix_LTA($cuis1Ref, $cuis2Ref);
+	#get observed counts for all data
+	(my $cuis1Ref, my $cuis2Ref) = $self->_getAllLeadingAndTrailingCuis($pairHashListRef);
+	(my $n1pAllRef, my $np1AllRef, $npp) = $self->_getObserved_matrix_LTA($cuis1Ref, $cuis2Ref);
 
-	#get co-occurrence data
-	($cooccurrences1Ref, $cooccurrences2Ref) = $self
-	    ->_getCUICooccurrences_matrix($cuis1Ref, $cuis2Ref, 
-					  ${$observedRef}[0], ${$observedRef}[1]);
-
-	#get npp
-	$npp = ${$observedRef}[2];
+	#get co-occurrence data for each pairHash
+	foreach my $pairHashRef(@{$pairHashListRef}) {
+	    (my $cooccurrences1Ref, my $cooccurrences2Ref) = $self
+		->_getCUICooccurrences_matrix($cuis1Ref, $cuis2Ref, 
+					      $n1pAllRef, $np1AllRef);
+	    push @cooccurrences1List, $cooccurrences1Ref;
+	    push @cooccurrences2List, $cooccurrences2Ref;
+	}
     }
     else {
-	#get co-occurrence data
-	($cooccurrences1Ref, $cooccurrences2Ref) = $self
-	    ->_getCUICooccurrences_DB($cuis1Ref, $cuis2Ref);
-
 	#get npp, the number of unique cuis
 	#TODO, query is slightly wrong. If the there are cuis that occur in the second position ONLY this will be wrong. I need to merge the CUI 1 and CUI2 tables then select distinct elements
 	$npp = shift $assocDB_G->selectcol_arrayref("SELECT COUNT(cui_1) FROM (SELECT DISTINCT cui_1 FROM N_11) AS names");
-    }
 
-    #calculate n1p and np1 as the number of co-occurring terms
-    my $n1p = scalar keys %{$cooccurrences1Ref};
-    my $np1 = scalar keys %{$cooccurrences2Ref};
-
-    #calculate n11
-    my $n11 = 0;
-    #Find number of CUIs that co-occur with both CUI 1 and CUI 2
-    foreach my $cui (keys %{$cooccurrences1Ref}) {
-	if (exists ${$cooccurrences2Ref}{$cui}) {
-	    $n11++;
+	#get co-occurrence data for each pair hash
+	foreach my $pairHashRef(@{$pairHashListRef}) {
+	    (my $cooccurrences1Ref, my $cooccurrences2Ref) = $self
+		->_getCUICooccurrences_DB(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'});
+	    push @cooccurrences1List, $cooccurrences1Ref;
+	    push @cooccurrences2List, $cooccurrences2Ref;
 	}
     }
 
-    #return the values
-    print "$n11, $n1p, $np1, $npp\n";
-    my @data = ($n11, $n1p, $np1, $npp);
+    #calculate stats for each pairHash based on the co-occurrences data
+    my @data = ();
+    for (my $i = 0; $i < scalar @{$pairHashListRef}; $i++) {
+  
+	#calculate n1p and np1 as the number of co-occurring terms
+	my $n1p = scalar keys %{$cooccurrences1List[$i]};
+	my $np1 = scalar keys %{$cooccurrences2List[$i]};
+
+	#calculate n11
+	my $n11 = 0;
+	#Find number of CUIs that co-occur with both CUI 1 and CUI 2
+	foreach my $cui (keys %{$cooccurrences1List[$i]}) {
+	    if (exists ${$cooccurrences2List[$i]}{$cui}) {
+		$n11++;
+	    }
+	}
+
+	#store the data for this pairHash
+	my @vals = ($n11, $n1p, $np1, $npp);
+	push @data, \@vals;
+    }
+
+    #return the data
     return  \@data;
 }
 
@@ -980,13 +856,11 @@ sub _getObserved_matrix_LTA {
 	chop $np1All{$cui};
     } 
 
-
     #npp is the number of unique cuis (vocab size)
     my $npp = scalar keys %uniqueCuis;
-   
-    #rest up and the observed
-    my @observed = (\%n1pAll, \%np1All, $npp);
-    return \@observed;
+       
+    #return the observed values
+    return (\%n1pAll, \%np1All, $npp);
 }
 
 # Gets hashes of CUIs that co-occurr with the sets of cuis1 and cuis 2 using
@@ -1144,21 +1018,6 @@ sub _getCUICooccurrences_DB {
 
     #return the cui co-occurrences
     return (\%cooccurrences1, \%cooccurrences2);
-}
-
-######################################################################
-#                  Utility Functions
-######################################################################
-
-#  Method to retrieve descendants of a cui
-#  input : $cui <- string containing a cui 
-#  output: reference to @descendants, the descendants of the given cui
-sub _findDescendants {
-    my $cui = shift;
-
-    my $hashref = $umls_G->findDescendants($cui);
-    my @descendants = (keys %{$hashref});
-    return \@descendants;
 }
 
 1;
