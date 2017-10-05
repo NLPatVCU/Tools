@@ -197,19 +197,22 @@ this program; if not, write to:
 
 =cut
 
-use UMLS::Interface;
-use UMLS::Association;
+###############################################################################
+
+#                               THE CODE STARTS HERE
+###############################################################################
+
+#                           ================================
+#                            COMMAND LINE OPTIONS AND USAGE
+#                           ================================
+
+use UMLS::Interface; 
+use UMLS::Association; 
 use Getopt::Long;
 
-#############################################
-#  Get Options and params
-#############################################
 eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "infile=s", "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 
-#############################################
-#  Check help, version, minimal usage notes
-#############################################
 #  if help is defined, print out help
 if( defined $opt_help ) {
     $opt_help = 1;
@@ -231,20 +234,6 @@ if(!(defined $opt_infile) && (scalar(@ARGV) < 1) ) {
     exit;
 }
 
-#get required input
-my $cui1 = shift;
-my $cui2 = shift;
-
-#set default measure
-my $measure = $opt_measure;
-if (!$measure) {
-    $measure = "tscore";
-}
-
-
-#############################################
-#  Set Up UMLS::Interface
-#############################################
 #  set UMLS-Interface options
 my %umls_option_hash = ();
 
@@ -282,9 +271,6 @@ if(defined $opt_config){
 my $umls = UMLS::Interface->new(\%umls_option_hash); 
 die "Unable to create UMLS::Interface object.\n" if(!$umls);
 
-#############################################
-#  Set Up UMLS::Association
-#############################################
 #  set UMLS-Association option hash
 my %assoc_option_hash = ();
 $assoc_option_hash{'umls'} = $umls;
@@ -330,16 +316,74 @@ if(defined $opt_matrix){
 }
 
 #  instantiate instance of UMLS-Assocation
-my $association = UMLS::Association->new(\%assoc_option_hash); 
-die "Unable to create UMLS::Association object.\n" if(!$association);
+my $mmb = UMLS::Association->new(\%assoc_option_hash); 
+die "Unable to create UMLS::Association object.\n" if(!$mmb);
 
+#  if --infile option defined calculate assocation over pairs in 
+#  the input file
+if(defined $opt_infile) { 
+    open(FILE, $opt_infile) || die "Could not open file ($opt_infile)\n";
+    while(<FILE>) { 
+	chomp;
+	my ($i1, $i2) = split/<>/;
+	calculateStat($i1, $i2); 
+    }
+}
+#  otherwise calculate the assocation over the two input terms
+else { 
+    my $input1 = shift; my $input2 = shift; 
+    calculateStat($input1, $input2); 
+}
 
-#############################################
-#  Calculate Association
-#############################################
+sub calculateStat { 
 
-my $score = $association->calculateAssociation_termPair($cui1, $cui2, $measure);
-print "$score<>$cui1<>$cui2\n";
+    my $input1 = shift;
+    my $input2 = shift; 
+    
+    my $term1 = $input1; 
+    my $term2 = $input2; 
+    
+    my $c1 = undef;
+    if($input1=~/C[0-9]+/) {
+	push @{$c1}, $input1;
+	$term1 = $umls->getAllPreferredTerm($input1);
+    }
+    else {
+	$c1 = $umls->getConceptList($input1);
+    }
+    
+    my $c2 = undef;
+    if($input2=~/C[0-9]+/) {
+	push @{$c2}, $input2;
+	$term2 = $umls->getAllPreferredTerm($input2);
+    }
+    else {
+	$c2 = $umls->getConceptList($input2);
+    }
+    
+    my $measure = "tscore"; 
+    if(defined $opt_measure) { 
+	$measure = $opt_measure; 
+	
+	if(! ($measure=~/(ll|pmi|tmi|ps|x2|phi|leftFisher|rightFisher|twotailed|dice|jaccard|odds|tscore)/)) { 
+	    print STDER "That measure is not defined for this program\n";
+	    &showHelp();
+	    exit;
+	}
+    }
+
+    my $max = -1.000; my $mc1 = ""; my $mc2 = ""; 
+    foreach my $cui1 (@{$c1}) { 
+	foreach my $cui2 (@{$c2}) { 
+	    my $stat = $mmb->calculateAssociation($cui1, $cui2, $measure); 
+
+	    if($stat > $max) { 
+		$max = $stat; $mc1 = $cui1; $mc2 = $cui2; 
+	    }
+	}
+    }
+    print "$max<>$term1($mc1)<>$term2($mc2)\n";
+}
 
 ##############################################################################
 #  function to output minimal usage notes
@@ -424,6 +468,9 @@ sub showHelp() {
 
     print "--assocdatabase STRING        Database containing CUI bigrams 
                                          (DEFAULT: CUI_BIGRAMS)\n\n";
+    
+    
+
 }
 ##############################################################################
 #  function to output the version number
