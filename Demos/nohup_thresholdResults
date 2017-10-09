@@ -1,0 +1,380 @@
+nohup: ignoring input
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_ll
+          0.7896, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_ll
+          0.4984, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_ll
+          0.7957, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_ll
+          0.5085, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_x2
+          0.7569, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_x2
+          0.4811, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_x2
+          0.7637, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_x2
+          0.5054, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_dice
+          0.7926, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_dice
+          0.3623, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_dice
+          0.8014, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_dice
+          0.3798, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_odds
+          0.7273, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_odds
+          0.1744, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_odds
+          0.7637, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_odds
+          0.1801, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_leftFisher
+          0.8178, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_leftFisher
+          0.7627, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_ll
+          0.8310, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_ll
+          0.4832, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_ll
+          0.8292, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_ll
+          0.4867, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_x2
+          0.8039, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_x2
+          0.4855, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_x2
+          0.8159, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_x2
+          0.5000, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_dice
+          0.8045, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_dice
+          0.3997, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_dice
+          0.8149, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_dice
+          0.4014, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_odds
+          0.7385, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_odds
+          0.1632, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_odds
+          0.7676, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_odds
+          0.1619, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_leftFisher
+          0.7915, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_leftFisher
+          0.7915, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_1975_2015_window1_threshold1_sim_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_1975_2015_window1_threshold1_sim_ll
+          0.6441, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_1975_2015_window1_threshold1_sim_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_1975_2015_window1_threshold1_sim_ll
+          0.2246, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_1975_2015_window1_threshold1_sim_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_1975_2015_window1_threshold1_sim_ll
+          0.6668, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_1975_2015_window1_threshold1_sim_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_1975_2015_window1_threshold1_sim_ll
+          0.2150, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_1975_2015_window1_threshold1_sim_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_1975_2015_window1_threshold1_sim_x2
+          0.6498, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_1975_2015_window1_threshold1_sim_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_1975_2015_window1_threshold1_sim_x2
+          0.3864, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_1975_2015_window1_threshold1_sim_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_1975_2015_window1_threshold1_sim_x2
+          0.6753, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_1975_2015_window1_threshold1_sim_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_1975_2015_window1_threshold1_sim_x2
+          0.3691, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_1975_2015_window1_threshold1_sim_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_1975_2015_window1_threshold1_sim_dice
+          0.6014, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_1975_2015_window1_threshold1_sim_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_1975_2015_window1_threshold1_sim_dice
+          0.3384, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_1975_2015_window1_threshold1_sim_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_1975_2015_window1_threshold1_sim_dice
+          0.5914, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_1975_2015_window1_threshold1_sim_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_1975_2015_window1_threshold1_sim_dice
+          0.3159, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_1975_2015_window1_threshold1_sim_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_1975_2015_window1_threshold1_sim_odds
+          0.6501, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_1975_2015_window1_threshold1_sim_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_1975_2015_window1_threshold1_sim_odds
+          0.3905, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_1975_2015_window1_threshold1_sim_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_1975_2015_window1_threshold1_sim_odds
+          0.6737, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_1975_2015_window1_threshold1_sim_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_1975_2015_window1_threshold1_sim_odds
+          0.3779, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_1975_2015_window1_threshold1_sim_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_1975_2015_window1_threshold1_sim_leftFisher
+          0.6403, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_1975_2015_window1_threshold1_sim_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_1975_2015_window1_threshold1_sim_leftFisher
+          0.0379, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_1975_2015_window1_threshold1_sim_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_1975_2015_window1_threshold1_sim_leftFisher
+          0.6549, 389
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_1975_2015_window1_threshold1_sim_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_1975_2015_window1_threshold1_sim_leftFisher
+          0.0107, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_1975_2015_window1_threshold1_rel_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_1975_2015_window1_threshold1_rel_ll
+          0.5512, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_1975_2015_window1_threshold1_rel_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_1975_2015_window1_threshold1_rel_ll
+          0.2167, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_1975_2015_window1_threshold1_rel_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_1975_2015_window1_threshold1_rel_ll
+          0.5605, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_1975_2015_window1_threshold1_rel_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_1975_2015_window1_threshold1_rel_ll
+          0.2144, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_1975_2015_window1_threshold1_rel_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_1975_2015_window1_threshold1_rel_x2
+          0.5425, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_1975_2015_window1_threshold1_rel_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_1975_2015_window1_threshold1_rel_x2
+          0.2825, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_1975_2015_window1_threshold1_rel_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_1975_2015_window1_threshold1_rel_x2
+          0.5521, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_1975_2015_window1_threshold1_rel_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_1975_2015_window1_threshold1_rel_x2
+          0.2746, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_1975_2015_window1_threshold1_rel_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_1975_2015_window1_threshold1_rel_dice
+          0.5400, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_1975_2015_window1_threshold1_rel_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_1975_2015_window1_threshold1_rel_dice
+          0.2471, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_1975_2015_window1_threshold1_rel_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_1975_2015_window1_threshold1_rel_dice
+          0.5488, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_1975_2015_window1_threshold1_rel_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_1975_2015_window1_threshold1_rel_dice
+          0.2386, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_1975_2015_window1_threshold1_rel_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_1975_2015_window1_threshold1_rel_odds
+          0.5333, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_1975_2015_window1_threshold1_rel_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_1975_2015_window1_threshold1_rel_odds
+          0.2319, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_1975_2015_window1_threshold1_rel_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_1975_2015_window1_threshold1_rel_odds
+          0.5394, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_1975_2015_window1_threshold1_rel_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_1975_2015_window1_threshold1_rel_odds
+          0.2272, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_1975_2015_window1_threshold1_rel_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_1975_2015_window1_threshold1_rel_leftFisher
+          0.5642, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_1975_2015_window1_threshold1_rel_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_1975_2015_window1_threshold1_rel_leftFisher
+          0.0261, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_1975_2015_window1_threshold1_rel_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_1975_2015_window1_threshold1_rel_leftFisher
+          0.5717, 412
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_1975_2015_window1_threshold1_rel_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_1975_2015_window1_threshold1_rel_leftFisher
+          0.0167, 430
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_ll
+          0.7796, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_ll
+          0.5597, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_ll
+          0.7901, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_ll
+          0.5633, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_x2
+          0.7516, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_x2
+          0.4669, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_x2
+          0.7571, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_x2
+          0.4545, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_dice
+          0.7781, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_dice
+          0.3713, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_dice
+          0.7809, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_dice
+          0.3602, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_odds
+          0.7281, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_odds
+          0.2837, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_odds
+          0.7300, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_odds
+          0.2798, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_1975_2015_window1_threshold1_mmCoders_leftFisher
+          0.7768, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_1975_2015_window1_threshold1_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_1975_2015_window1_threshold1_mmCoders_leftFisher
+          0.7133, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmCoders_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_1975_2015_window1_threshold1_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_ll
+          0.8106, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_ll
+          0.5458, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_ll
+          0.8172, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_ll --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_ll
+          0.5440, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_x2
+          0.7996, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_x2
+          0.4822, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_x2
+          0.8052, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_x2 --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_x2
+          0.4740, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_dice
+          0.8054, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_dice
+          0.4067, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_dice
+          0.7900, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_dice --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_dice
+          0.3934, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_odds
+          0.7334, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_odds
+          0.2640, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_odds
+          0.7411, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_odds --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_1975_2015_window1_threshold1_mmPhys_odds
+          0.2643, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_1975_2015_window1_threshold1_mmPhys_leftFisher
+          0.7176, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_1975_2015_window1_threshold1_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults.pl line 126.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_1975_2015_window1_threshold1_mmPhys_leftFisher
+          0.7323, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_1975_2015_window1_threshold1_mmPhys_leftFisher --matrix /home/sam/matrices/1975_2015_window1_threshold1 --measure leftFisher --lta --conceptexpansion --noorder

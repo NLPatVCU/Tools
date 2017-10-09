@@ -748,7 +748,7 @@ sub _getStats_LTA {
 	#get co-occurrence data for each pairHash
 	foreach my $pairHashRef(@{$pairHashListRef}) {
 	    (my $cooccurrences1Ref, my $cooccurrences2Ref) = $self
-		->_getCUICooccurrences_matrix($cuis1Ref, $cuis2Ref, 
+		->_getCUICooccurrences_matrix(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'}, 
 					      $n1pAllRef, $np1AllRef);
 	    push @cooccurrences1List, $cooccurrences1Ref;
 	    push @cooccurrences2List, $cooccurrences2Ref;

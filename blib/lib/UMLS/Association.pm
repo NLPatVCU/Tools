@@ -255,6 +255,14 @@ sub _initialize {
     }
 }
 
+# returns the version currently being used
+# input : none
+# output: the version number being used
+sub version {
+    my $self = shift;
+    return $VERSION;
+}
+
 ##########################################################################
 #                  Public Association Interface
 ##########################################################################
@@ -398,7 +406,7 @@ sub _createPairHash_termLists {
 sub _calculateAssociation_pairHashList {
     my $self = shift;
     my $pairHashListRef = shift;
-    my $measure = shift;
+    my $measure = shift;  
 
     #retreive observed counts for each pairHash
     my $statsListRef = $statfinder_G->getObservedCounts($pairHashListRef);

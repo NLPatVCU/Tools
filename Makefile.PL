@@ -25,7 +25,7 @@ WriteMakefile(
                                       'UMLS::Interface' => '0', 
                                       'File::Spec' => '3.31',
                                       'File::Path' => '2.08'},
-              'EXE_FILES'         => [("utils/umls-association.pl", "utils/CUICollector.pl", "utils/umls-association_runDataSet.pl")], 
+              'EXE_FILES'         => [("utils/umls-association.pl", "utils/CUICollector.pl", "utils/umls-association-runDataSet.pl")], 
               'dist'              => {'COMPRESS' => 'gzip -9f', 'SUFFIX' => 'gz'},
     ($] >= 5.005 ?
      ('ABSTRACT_FROM'   => 'lib/UMLS/Association.pm', # retrieve abstract from module

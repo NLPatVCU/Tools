@@ -1,108 +1,131 @@
-#sample program to generate results using the sample matrix
+#function to generate results using a series of datasets 
+# and parameters. This can be used to replicate or generate
+# published results.
+# Please hard code the parameters before the 'Begin Code'
+# section.
+
 use strict;
 use warnings;
-use lib '../lib/';
-use UMLS::Association;
 
-#things to loop over
-my @cuiFiles = qw(DataSets/UMNSRS_reduced_sim.cuis);
-my @goldFiles =  qw(DataSets/UMNSRS_reduced_sim.gold);
+#the output file for all results
+my $outputFile = 'thresholdResults.csv';
 
-my @assocMeasures = qw(ll);
-my @assocTypes = qw(reg conceptexpansion);
-my @orderOptions = (0,1);
-#my $dataMatrix = 'sampleMatrix';
-my $dataMatrix = '/home/sam/semmeddb';
-my $assocDB = 'CUI_Bigram';
+#a list of matrices to run
+my $matrixDirectory = '/home/sam/matrices/';
+my @matrices = ();
+=comment
+push @matrices, 'semmeddb';
+push @matrices, '2000_2015_window1';
+push @matrices, '1975_2015_window1';
+push @matrices, '1809_2015_window1';
+push @matrices, '2000_2015_window8_ordered';
+push @matrices, '1975_2015_window8';
+push @matrices, '1809_2015_window8';
+=cut
+push @matrices, '1975_2015_window1_threshold1';
+push @matrices, '1975_2015_window1_threshold3';
+push @matrices, '1975_2015_window1_threshold5';
+push @matrices, '1975_2015_window1_threshold10';
+push @matrices, '1975_2015_window8_threshold1';
+push @matrices, '1975_2015_window8_threshold3';
+push @matrices, '1975_2015_window8_threshold5';
+push @matrices, '1975_2015_window8_threshold10';
 
-#output parameters
-my $outputFile = 'results_matrixSemMedDB_simReg.txt';
-my $tempResultsOutFile = 'tempResultsOut_matrixSemMedDB_simReg.txt';
 
-######################################################################
-#  Begin Code to loop over files and parameters and generate scores
-######################################################################
+#a list of measures to test
+my @measures = ('ll','x2','dice','odds','leftFisher');
+
+#A hash of parameters combinations to test
+#regO, regU, regOExp, regUExp, ltaO, ltaU, ltaOExp, ltaUExp
+my @paramTags = ('regO','lta','regOExp','ltaOExp');
+my @paramCommands = ('', '--lta', '--conceptexpansion', '--lta --conceptexpansion');
+my @orderCommands = ('','--noorder');
+
+#dataset params
+my @dataTags = ('mmCoders','mmPhys','sim','rel');
+my @goldFileNames = ('DataSets/MiniMayoSRS.snomedct.coders', 'DataSets/MiniMayoSRS.snomedct.physicians', 'DataSets/UMNSRS_reduced_sim.gold','DataSets/UMNSRS_reduced_rel.gold');
+my @cuisFileNames = ('DataSets/MiniMayoSRS.snomedct.cuis', 'DataSets/MiniMayoSRS.snomedct.cuis', 'DataSets/UMNSRS_reduced_sim.cuis','DataSets/UMNSRS_reduced_rel.cuis');
+
+
+###################################################
+#                  Begin Code
+###################################################
 
 #open the output file
-open RESULTS_OUT, ">$outputFile" or die("Error: cannot open outputFile = $outputFile\n");
+open OUT, ">$outputFile" or die ("Error: unable to open outputFile: $outputFile\n");
 
-#create options hash
-my %assocOptions;
-#$option_hash{'t'} = 1;
-$assocOptions{'precision'} = 100;
-$assocOptions{'database'} = $assocDB;
-if ($dataMatrix ne '') {
-    $assocOptions{'matrix'} = $dataMatrix;
-}
-$assocOptions{'hostname'} = '192.168.24.89';
-$assocOptions{'socket'} = '/var/run/mysqld.sock';
-$assocOptions{'username'} = 'henryst';
-$assocOptions{'password'} = 'OhFaht3eique';
-
-#generate scores over association types
-foreach my $assocType (@assocTypes) {
-    print "assocType = $assocType\n";
-
-    #generate scores over whether or not order matters
-    foreach my $orderMatter (@orderOptions) {
-	print "      orderMatter = $orderMatter\n";
-	
-	#set parameters for this run
-	delete $assocOptions{'lta'};
-	if ($assocType =~ /lta/) {
-	    $assocOptions{'lta'} = 1;
+#loop over each co-occurrence matrix
+foreach my $matrix(@matrices) {
+    #loop over ordered or no order
+    foreach my $orderCommand(@orderCommands) {
+	#set up the order string, part of the table title
+	my $orderString = 'ordered';
+	if ($orderCommand eq "--noorder") {
+	    $orderString = "No Order";
 	}
-	delete $assocOptions{'conceptexpansion'};
-	if ($assocType =~ /conceptexpansion/) {
-	    $assocOptions{'conceptexpansion'} = 1;
-	}
-	delete $assocOptions{'noorder'};
-	if ($orderMatter) {
-	    $assocOptions{'noorder'} = 1;
-	}
-	
-        #create UMLS::Association with parameters for this run
-	print "         initalizing UMLS::Association\n";
-	my $assoc = UMLS::Association->new(\%assocOptions);
 
-	#loop over each input file (dataset)
-	for (my $fileIndex = 0; $fileIndex < scalar @cuiFiles; $fileIndex++) {
-	    print "         cuiFile = $cuiFiles[$fileIndex]\n";
+	#print titles to output file
+	print OUT "$matrix $orderString\n";
+	print OUT "Reg,,,,LTA,,,,Reg_Exp,,,,LTA_Exp\n";
 
-	    #loop over each measure
-	    foreach my $measure (@assocMeasures) {
-		print "            measure = $measure\n";
+	#loop over each dataset (mmCod, mmPhys, sim, reg)
+	for (my $datasetNum = 0; $datasetNum < scalar @dataTags; $datasetNum++) {
+	    #grab values for this dataset
+	    my $dataTag = $dataTags[$datasetNum];
+	    my $goldFile = $goldFileNames[$datasetNum];
+	    my $cuisFileName = $cuisFileNames[$datasetNum];
 
-		#calculate stats for each cui pair, and write to file
-		open IN, $cuiFiles[$fileIndex] or die ("Error: cannot open cuiFiles[$fileIndex] = $cuiFiles[$fileIndex]\n");
-		open SCORES_OUT, ">$tempResultsOutFile" or die ("Error: cannot open tempResultsOutFile = $tempResultsOutFile\n");
-		while (my $line = <IN>) {
-		    chomp $line;
-		    my ($cui1, $cui2) = split(/<>/, $line);
-		    my $score = $assoc->calculateAssociation(
-			$cui1, $cui2, $measure);
-		    print SCORES_OUT "$score<>$line\n";
+	    #print titles to output file
+	    print OUT "$dataTag,,,,$dataTag,,,,$dataTag,,,,$dataTag\n";
+
+	    #generate the line for this measure
+	    foreach my $measure(@measures) {	
+		#generate scores using each set of parameters
+		for (my $paramNum = 0; $paramNum < scalar @paramTags; $paramNum++) {
+		    #grab values for these params
+		    my $paramsTag = $paramTags[$paramNum];
+		    my $paramsCommand = $paramCommands[$paramNum];
+
+		    #generate and output the correlation
+		    (my $correlation, my $n) = &_getCorrelation($matrix, $matrixDirectory, $orderCommand, $dataTag, $goldFile, $cuisFileName, $measure, $paramsTag, $paramsCommand);
+		    print OUT "$measure,$correlation,$n,,";
 		}
-		close IN;
-		close SCORES_OUT;
-
-		#ensure gold can be opened
-		open GOLD, $goldFiles[$fileIndex] or die ("Error: cannot open goldFiles[$fileIndex] = $goldFiles[$fileIndex]\n");
-		close GOLD;
-
-		#get the spearmans correlation
-		my @outputs = `perl spearmans.pl $goldFiles[$fileIndex] $tempResultsOutFile`;
-	        $outputs[0] =~ /(\d+)/g;
-		my $n = $1;
-		$outputs[1] =~ /(\d+\.\d+)/g;
-		my $score = $1;		
-		
-		#output the results
-		print RESULTS_OUT "$goldFiles[$fileIndex]\t$measure\t$score\t$n\n";
+		print OUT "\n";
 	    }
+	    print OUT "\n";
 	}
+	print OUT "\n";
     }
+    print OUT "\n";
 }
-close RESULTS_OUT;
 
-print "DONE!\n";
+
+#gets spearnmans correlation using the passed in params
+sub _getCorrelation {
+    my $matrixName = shift;
+    my $matrixPath = shift;
+    my $orderCommand = shift;
+    my $dataTag = shift;
+    my $goldFile = shift;
+    my $cuisFileName = shift;
+    my $measure = shift;
+    my $paramsTag = shift;
+    my $paramsCommand = shift;
+
+    #generate the results file
+    my $resultsFileName = "results/$paramsTag\_$matrixName\_$dataTag\_$measure";
+    my $command = "umls-association-runDataSet.pl $cuisFileName $resultsFileName --matrix $matrixPath$matrixName --measure $measure $paramsCommand $orderCommand";
+    print "$command\n";
+    `$command`;
+    
+    #find correlation with results and gold
+     print "perl spearmans.pl $goldFile $resultsFileName\n";
+    my @outputs = `perl spearmans.pl $goldFile $resultsFileName`;
+    $outputs[0] =~ /(\d+)/g;
+    my $n = $1;
+    $outputs[1] =~ /(\d+\.\d+)/g;
+    my $correlation = $1;
+    
+    print "          $correlation, $n\n";
+    return ($correlation, $n);
+}

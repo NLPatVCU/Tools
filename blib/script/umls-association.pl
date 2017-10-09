@@ -81,24 +81,6 @@ Displays the version information.
 
 =head2 Input Options:
 
-=head3 --infile FILE
-
-A file containing pairs of concepts or terms in the following format:
-
-    term1<>term2 
-    
-    or 
-
-    cui1<>cui2
-
-    or 
-
-    cui1<>term2
-
-    or 
-
-    term1<>cui2
-
 =head2 General Database Options:
 
 =head3 --username STRING
@@ -204,10 +186,12 @@ use UMLS::Interface;
 use UMLS::Association;
 use Getopt::Long;
 
+my $DEFAULT_MEASURE = "tscore";
+
 #############################################
 #  Get Options and params
 #############################################
-eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "infile=s", "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s",  "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 
 #############################################
@@ -237,12 +221,6 @@ if(!(defined $opt_infile) && (scalar(@ARGV) < 1) ) {
 #get required input
 my $cui1 = shift;
 my $cui2 = shift;
-
-#set default measure
-my $measure = $opt_measure;
-if (!$measure) {
-    $measure = "tscore";
-}
 
 
 #############################################
@@ -292,6 +270,12 @@ die "Unable to create UMLS::Interface object.\n" if(!$umls);
 my %assoc_option_hash = ();
 $assoc_option_hash{'umls'} = $umls;
 
+if(defined $opt_measure) {
+    $assoc_option_hash{"measure"} = $opt_measure;
+}
+else {
+    $assoc_option_hash = $DEFAULT_MEASURE;
+}
 if(defined $opt_debug) {
     $assoc_option_hash{"debug"} = $opt_debug;
 }
@@ -341,14 +325,13 @@ die "Unable to create UMLS::Association object.\n" if(!$association);
 #  Calculate Association
 #############################################
 
-my $score = $association->calculateAssociation_termPair($cui1, $cui2, $measure);
+my $score = $association->calculateAssociation_termPair($cui1, $cui2, $assoc_option_hash{"measure"});
 print "$score<>$cui1<>$cui2\n";
 
 ##############################################################################
 #  function to output minimal usage notes
 ##############################################################################
 sub minimalUsageNotes {
-    
     print "Usage: umls-association.pl [OPTIONS] [TERM1 TERM2] [CUI1 CUI2]\n";
     &askHelp();
     exit;
@@ -403,8 +386,6 @@ sub showHelp() {
 
     print "\n\nInput Options: \n\n";
 
-    print "--infile FILE            File containing TERM or CUI pairs\n\n";  
-
     print "\n\nGeneral Database Options:\n\n"; 
 
     print "--username STRING        Username required to access mysql\n\n";
@@ -432,8 +413,8 @@ sub showHelp() {
 #  function to output the version number
 ##############################################################################
 sub showVersion {
-    print '$Id: umls-assocation.pl,v 0.01 2015/06/24 19:25:05 btmcinnes Exp $';
-    print "\nCopyright (c) 2015, Bridget McInnes\n";
+    print "current version is ".(Association->version())."\n";
+    exit;
 }
 
 ##############################################################################
