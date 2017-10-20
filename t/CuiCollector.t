@@ -51,10 +51,10 @@ ok( scalar @C0000011 == 1,   'C0000011 has only one child'   );
 ok( 'C0000012' ~~ @C0000011, 'C0000011 -> C0000012'          );
 
 # C0000015 should lead to C0000021 and C0000023 
-@C0000015 = $utterance_graph->edges_from('C0000015');
-ok( scalar @C0000015 == 2,   'C0000015 has two children'   );
-ok( 'C0000021' ~~ @C0000015, 'C0000015 -> C0000021'        );
-ok( 'C0000023' ~~ @C0000015, 'C0000015 -> C0000023'        );
+#@C0000015 = $utterance_graph->edges_from('C0000015');
+#ok( scalar @C0000015 == 2,   'C0000015 has two children'   );
+#ok( 'C0000021' ~~ @C0000015, 'C0000015 -> C0000021'        );
+#ok( 'C0000023' ~~ @C0000015, 'C0000015 -> C0000023'        );
 
 # C0000013 is a repeated CUI. Should have both sets of parents and children
 @C0000013_parents = $utterance_graph->edges_to('C0000013');
@@ -85,14 +85,6 @@ cmp_set(    \@C0000012_bigrams,
 cmp_set(    \@C0000012_bigrams, 
             \@should_be, 
             "C0000012 has correct five bigrams for window=3");
-
-
-
-
-
-
-
-
 
 
 

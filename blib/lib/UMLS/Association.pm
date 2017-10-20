@@ -188,7 +188,6 @@ my $debug = 0;
 my $umls_G = undef;
 my $conceptExpansion_G = 0;
 my $precision_G = 4; #precision of the output
-my $DEFAULT_STATISTIC ="tscore";
 
 
 # UMLS-specific stuff ends ----------
@@ -197,7 +196,7 @@ my $DEFAULT_STATISTIC ="tscore";
 
 #  method to create a new UMLS::Association object
 #  input : $params <- reference to hash containing the parameters 
-#  output:
+#  output: $self
 sub new {
     my $self      = {};
     my $className = shift;
@@ -221,7 +220,7 @@ sub new {
 
 #  initialize the variables and set the parameters
 #  input : $params <- reference to hash containing the parameters 
-#  output:
+#  output: none, but $self is initialized
 sub _initialize {
     my $self = shift;
     my $params = shift;
@@ -270,18 +269,21 @@ sub version {
 # list. This forces all the modes of operation to use the same code, and allows
 # all data to be retreived in a single pass of a matrix file, or efficient DB 
 # queries. The pair hash list is an array of pairHashRefs. The pair hash is a 
-# hash with two keys, 'set1' and 'set2'each of these keys holds an arrayRef of 
+# hash with two keys, 'set1' and 'set2' each of these keys holds an arrayRef of 
 # cuis which correspond to cuis in that set. This allows for lists of pairs of 
 # sets of CUIs to be computed, either through concept expansion or input as a 
 # set. In the case where only a single pair computation is needed, or rather 
 # than a set, just a single cui is needed, each function still wraps the 
-# values into a pairHashList.  
+# values into a pairHashList. 'set1' cuis are the leading cuis in the pair, and
+# 'set2 are the trailing cuis in the pair'
 
 
 # calculates association for a list of single cui pairs
-# $cuiPairsFromFileRef - an array ref of comma seperated cui pairs  
-# input:
-# output:
+# input:  $cuiPairsFromFileRef - an array ref of comma seperated cui pairs  
+#                                the first in the pair is the leading, 
+#                                second in the pair is the trailing
+#         $measure - a string specifying the association measure to use
+# output: $score - the association between the cuis
 sub calculateAssociation_termPairList {
     my $self = shift;
     my $cuiPairListRef = shift;
@@ -300,8 +302,10 @@ sub calculateAssociation_termPairList {
 }
 
 # calculates association for a single cui pair
-# input:
-# output: 
+# input:  $cui1 - the leading cui
+#         $cui2 - the trailing cui
+#         $measure - a string specifying the association measure to use
+# output: $score - the association between the cuis
 sub calculateAssociation_termPair {
     my $self = shift;
     my $cui1 = shift;
@@ -317,9 +321,11 @@ sub calculateAssociation_termPair {
     return ${$self->_calculateAssociation_pairHashList(\@pairHashes, $measure)}[0];
 }
 
-# calculates association for two sets of cuis
-# input:
-# output:
+# calculates association for two sets of cuis (leading and trailing cuis)
+# input:  \@cuis1Ref - a ref to an array of leading cuis
+#         \@cuis2Ref - a ref to an array of trailing cuis
+#         $measure - a string specifying the association measure to use
+# output: $score - the association between the cui sets
 sub calculateAssociation_setPair {
     my $self = shift;
     my $cuis1Ref = shift;
@@ -350,8 +356,9 @@ sub calculateAssociation_setPairList {
 ##########################################################################
 
 # creates a pair hash object from two cuis
-# input:
-# output:
+# input:  $cui1 - the leading cui in the pair hash
+#         $cui2 - the trailing cui in the pair hash
+# output: \%pairHash - a ref to a pairHash
 sub _createPairHash_singleTerms {
     my $self = shift;
     my $cui1 = shift;
@@ -396,13 +403,11 @@ sub _createPairHash_termLists {
 #                    Association Calculators
 ##########################################################################
 
-# calculate association for a hash of cui pairs hashes
-# input is a hash of cui pair hashes. The element of each 
-# cui pair hash is 2 keys, 'set1', and 'set2'. Each of those
-# contain a list of cuis corresponding to cui1 and cui2
-#returns an array of assocation scores
-# input:
-# output:
+# calculate association for each of the pairHashes in the input list of 
+# cui pair hashes
+# input: $pairHashListRef - an array ref of cui pairHashes
+# output: \@scores - an array ref of scores corresponding to the assocaition
+#                    score for each of the pairHashes that were input
 sub _calculateAssociation_pairHashList {
     my $self = shift;
     my $pairHashListRef = shift;
@@ -427,7 +432,6 @@ sub _calculateAssociation_pairHashList {
     #return the association scores for all pairHashes in the list
     return \@scores
 }
-
 
 # calculates an association score from the provided values
 # NOTE: Please be careful when writing code that uses this
@@ -468,7 +472,7 @@ sub _calculateAssociation_fromObservedCounts {
     
     #set default statistic
     if(!defined $statistic) { 
-	$statistic = $DEFAULT_STATISTIC;  
+	die ("ERROR: no association measure defined\n");
     }
 
     #set statistic module (Text::NSP)
@@ -544,9 +548,11 @@ sub _calculateAssociation_fromObservedCounts {
 #  Utilitiy Functions
 #################################################
 
-# Applies concept expansion
-# input :
-# output:  
+# Applies concept expansion by creating an array
+# of the input concept and all of its UMLS d
+# descendants
+# input : $cui - the cui that will be expanded
+# output:  \@cuis - the expanded concept array
 sub _expandConcept {
     my $self = shift;
     my $cui = shift;

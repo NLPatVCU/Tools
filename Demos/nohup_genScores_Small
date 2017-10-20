@@ -1,0 +1,1749 @@
+nohup: ignoring input
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_ll
+          0.7940, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_ll
+          0.4956, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_ll
+          0.7943, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_ll
+          0.4922, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_x2
+          0.8006, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_x2
+          0.5101, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_x2
+          0.8181, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_x2
+          0.5284, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_dice
+          0.7109, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_dice
+          0.4191, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_dice
+          0.7219, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_dice
+          0.4527, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_odds
+          0.8034, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_odds
+          0.2158, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_odds
+          0.8434, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_odds
+          0.1832, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_leftFisher
+          0.8284, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_leftFisher
+          0.8284, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_ll
+          0.8078, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_ll
+          0.4880, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_ll
+          0.8048, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_ll
+          0.4820, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_x2
+          0.8172, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_x2
+          0.5358, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_x2
+          0.8283, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_x2
+          0.5501, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_dice
+          0.7228, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_dice
+          0.4612, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_dice
+          0.7935, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_dice
+          0.4865, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_odds
+          0.8104, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_odds
+          0.2087, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_odds
+          0.8316, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_odds
+          0.1907, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_leftFisher
+          0.7732, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_leftFisher
+          0.7732, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_ll
+          0.6490, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_ll
+          0.2098, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_ll
+          0.6509, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_ll
+          0.2012, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_x2
+          0.6631, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_x2
+          0.3636, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_x2
+          0.6673, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_x2
+          0.3413, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_dice
+          0.5314, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_dice
+          0.2992, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_dice
+          0.6649, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_dice
+          0.2732, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_odds
+          0.6717, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_odds
+          0.2405, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_odds
+          0.6759, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_odds
+          0.2443, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_leftFisher
+          0.6569, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_leftFisher
+          0.0806, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_leftFisher
+          0.6541, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_leftFisher
+          0.0806, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_ll
+          0.5824, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_ll
+          0.2258, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_ll
+          0.5813, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_ll
+          0.2213, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_x2
+          0.5764, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_x2
+          0.2784, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_x2
+          0.5780, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_x2
+          0.2690, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_dice
+          0.5655, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_dice
+          0.2275, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_dice
+          0.5669, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_dice
+          0.2218, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_odds
+          0.5539, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_odds
+          0.1082, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_odds
+          0.5610, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_odds
+          0.1049, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_leftFisher
+          0.5926, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_leftFisher
+          0.0428, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_leftFisher
+          0.5938, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_leftFisher
+          0.0428, 430
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_ll
+          0.7883, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_ll
+          0.5437, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_ll
+          0.7917, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_ll
+          0.5403, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_x2
+          0.7953, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_x2
+          0.4824, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_x2
+          0.8032, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_x2
+          0.5070, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_dice
+          0.7898, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_dice
+          0.4100, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_dice
+          0.8016, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_dice
+          0.4441, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_odds
+          0.8021, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_odds
+          0.3178, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_odds
+          0.8306, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_odds
+          0.2886, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2010_2015_window8_mmCoders_leftFisher
+          0.8284, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2010_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2010_2015_window8_mmCoders_leftFisher
+          0.8284, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2010_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_ll
+          0.7934, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_ll
+          0.5433, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_ll
+          0.7985, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_ll
+          0.5378, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_x2
+          0.8045, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_x2
+          0.5205, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_x2
+          0.8124, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_x2
+          0.5460, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_dice
+          0.7701, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_dice
+          0.4614, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_dice
+          0.7838, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_dice
+          0.4842, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_odds
+          0.8055, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_odds
+          0.2998, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_odds
+          0.8263, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_odds
+          0.2795, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2010_2015_window8_mmPhys_leftFisher
+          0.7705, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2010_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2010_2015_window8_mmPhys_leftFisher
+          0.7705, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2010_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2010_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_ll
+          0.6566, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_ll
+          0.2391, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_ll
+          0.6531, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_ll
+          0.2307, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_x2
+          0.6753, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_x2
+          0.3928, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_x2
+          0.6763, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_x2
+          0.3726, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_dice
+          0.5226, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_dice
+          0.3250, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_dice
+          0.6657, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_dice
+          0.2981, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_odds
+          0.6854, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_odds
+          0.2691, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_odds
+          0.6880, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_odds
+          0.2931, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2010_2015_window8_sim_leftFisher
+          0.6573, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2010_2015_window8_sim_leftFisher
+          0.0806, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2010_2015_window8_sim_leftFisher
+          0.6583, 390
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2010_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2010_2015_window8_sim_leftFisher
+          0.0806, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_ll
+          0.5921, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_ll
+          0.2475, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_ll
+          0.5867, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_ll --matrix /home/sam/matrices/2010_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_ll
+          0.2427, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_x2
+          0.5879, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_x2
+          0.3050, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_x2
+          0.5864, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_x2 --matrix /home/sam/matrices/2010_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_x2
+          0.2938, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_dice
+          0.4456, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_dice
+          0.2512, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_dice
+          0.4361, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_dice --matrix /home/sam/matrices/2010_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_dice
+          0.2435, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_odds
+          0.5635, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_odds
+          0.1419, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_odds
+          0.5678, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_odds --matrix /home/sam/matrices/2010_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_odds
+          0.1487, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2010_2015_window8_rel_leftFisher
+          0.5938, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2010_2015_window8_rel_leftFisher
+          0.0428, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2010_2015_window8_rel_leftFisher
+          0.5970, 411
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2010_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2010_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2010_2015_window8_rel_leftFisher
+          0.0428, 430
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_ll
+          0.7958, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_ll
+          0.4956, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_ll
+          0.8039, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_ll
+          0.4948, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_x2
+          0.8089, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_x2
+          0.5101, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_x2
+          0.8199, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_x2
+          0.5375, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_dice
+          0.7968, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_dice
+          0.4145, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_dice
+          0.8057, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_dice
+          0.4431, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_odds
+          0.8121, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_odds
+          0.1723, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_odds
+          0.8422, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_odds
+          0.1563, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_leftFisher
+          0.8329, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_leftFisher
+          0.8329, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_ll
+          0.7928, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_ll
+          0.4880, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_ll
+          0.8043, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_ll
+          0.4905, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_x2
+          0.8198, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_x2
+          0.5255, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_x2
+          0.8254, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_x2
+          0.5475, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_dice
+          0.7613, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_dice
+          0.4507, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_dice
+          0.7717, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_dice
+          0.4720, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_odds
+          0.8086, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_odds
+          0.1619, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_odds
+          0.8236, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_odds
+          0.1639, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_leftFisher
+          0.7651, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_leftFisher
+          0.7651, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_ll
+          0.6507, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_ll
+          0.1954, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_ll
+          0.6630, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_ll
+          0.1888, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_x2
+          0.6649, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_x2
+          0.3360, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_x2
+          0.6793, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_x2
+          0.3159, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_dice
+          0.5488, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_dice
+          0.2799, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_dice
+          0.5453, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_dice
+          0.2533, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_odds
+          0.6663, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_odds
+          0.2571, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_odds
+          0.6810, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_odds
+          0.2514, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_leftFisher
+          0.6460, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_leftFisher
+          0.0533, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_leftFisher
+          0.6608, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_leftFisher
+          0.0533, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_ll
+          0.5628, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_ll
+          0.2142, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_ll
+          0.5672, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_ll
+          0.2127, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_x2
+          0.5540, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_x2
+          0.2599, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_x2
+          0.5628, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_x2
+          0.2525, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_dice
+          0.4451, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_dice
+          0.2151, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_dice
+          0.4355, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_dice
+          0.2086, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_odds
+          0.5314, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_odds
+          0.1143, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_odds
+          0.5407, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_odds
+          0.1087, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_leftFisher
+          0.5683, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_leftFisher
+          0.0296, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_leftFisher
+          0.5709, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_leftFisher
+          0.0296, 430
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_ll
+          0.7940, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_ll
+          0.5359, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_ll
+          0.8013, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_ll
+          0.5300, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_x2
+          0.8034, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_x2
+          0.4946, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_x2
+          0.8129, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_x2
+          0.5225, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_dice
+          0.7968, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_dice
+          0.4165, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_dice
+          0.7133, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_dice
+          0.4428, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_odds
+          0.8016, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_odds
+          0.2540, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_odds
+          0.8315, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_odds
+          0.2543, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2012_2015_window8_mmCoders_leftFisher
+          0.8329, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2012_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2012_2015_window8_mmCoders_leftFisher
+          0.8329, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2012_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_ll
+          0.7931, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_ll
+          0.5280, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_ll
+          0.8076, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_ll
+          0.5205, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_x2
+          0.8121, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_x2
+          0.5290, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_x2
+          0.8210, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_x2
+          0.5523, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_dice
+          0.7082, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_dice
+          0.4518, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_dice
+          0.7717, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_dice
+          0.4758, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_odds
+          0.8050, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_odds
+          0.2520, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_odds
+          0.8236, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_odds
+          0.2565, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2012_2015_window8_mmPhys_leftFisher
+          0.7651, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2012_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2012_2015_window8_mmPhys_leftFisher
+          0.7651, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2012_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2012_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_ll
+          0.6594, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_ll
+          0.2248, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_ll
+          0.6556, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_ll
+          0.2187, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_x2
+          0.6735, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_x2
+          0.3744, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_x2
+          0.6749, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_x2
+          0.3548, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_dice
+          0.6712, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_dice
+          0.3103, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_dice
+          0.5366, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_dice
+          0.2846, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_odds
+          0.6804, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_odds
+          0.2874, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_odds
+          0.6831, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_odds
+          0.3028, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2012_2015_window8_sim_leftFisher
+          0.6546, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2012_2015_window8_sim_leftFisher
+          0.0533, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2012_2015_window8_sim_leftFisher
+          0.6543, 388
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2012_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2012_2015_window8_sim_leftFisher
+          0.0533, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_ll
+          0.5901, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_ll
+          0.2368, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_ll
+          0.5900, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_ll --matrix /home/sam/matrices/2012_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_ll
+          0.2350, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_x2
+          0.5822, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_x2
+          0.2890, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_x2
+          0.5851, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_x2 --matrix /home/sam/matrices/2012_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_x2
+          0.2804, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_dice
+          0.5711, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_dice
+          0.2392, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_dice
+          0.4506, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_dice --matrix /home/sam/matrices/2012_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_dice
+          0.2325, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_odds
+          0.5579, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_odds
+          0.1436, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_odds
+          0.5604, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_odds --matrix /home/sam/matrices/2012_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_odds
+          0.1488, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2012_2015_window8_rel_leftFisher
+          0.5929, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2012_2015_window8_rel_leftFisher
+          0.0296, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2012_2015_window8_rel_leftFisher
+          0.5951, 410
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2012_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2012_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2012_2015_window8_rel_leftFisher
+          0.0296, 430
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_ll
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_ll
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_x2
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_x2
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_dice
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_dice
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_odds
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_odds
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_leftFisher
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_leftFisher
+          0.0509, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_ll
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_ll
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_x2
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_x2
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_dice
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_dice
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_odds
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_odds
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_leftFisher
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          4, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion 
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_leftFisher
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regO_2015_2015_window8_mmCoders_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/lta_2015_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/regOExp_2015_2015_window8_mmCoders_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmCoders_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.coders results/ltaOExp_2015_2015_window8_mmCoders_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_ll
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_ll
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_x2
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_x2
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_dice
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_dice
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_odds
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_odds
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regO_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regO_2015_2015_window8_mmPhys_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/lta_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/lta_2015_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/regOExp_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/regOExp_2015_2015_window8_mmPhys_leftFisher
+Illegal division by zero at spearmans.pl line 310, <Y> line 29.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          0, 0
+umls-association-runDataSet.pl DataSets/MiniMayoSRS.snomedct.cuis results/ltaOExp_2015_2015_window8_mmPhys_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/MiniMayoSRS.snomedct.physicians results/ltaOExp_2015_2015_window8_mmPhys_leftFisher
+Correlation can not be calculated.
+Files do not contain similar ngrams.
+Use of uninitialized value $outputs[1] in pattern match (m//) at generateResults_smallDataset.pl line 112.
+          29, 29
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_ll
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_ll
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_ll
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_ll
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_x2
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_x2
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_x2
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_x2
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_dice
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_dice
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_dice
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_dice
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_odds
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_odds
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_odds
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_odds
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regO_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regO_2015_2015_window8_sim_leftFisher
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/lta_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/lta_2015_2015_window8_sim_leftFisher
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/regOExp_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/regOExp_2015_2015_window8_sim_leftFisher
+          0.2582, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_sim.cuis results/ltaOExp_2015_2015_window8_sim_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_sim.gold results/ltaOExp_2015_2015_window8_sim_leftFisher
+          0.0086, 401
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_ll
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_ll
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_ll
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_ll --matrix /home/sam/matrices/2015_2015_window8 --measure ll --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_ll
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_x2
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_x2
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_x2
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_x2 --matrix /home/sam/matrices/2015_2015_window8 --measure x2 --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_x2
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_dice
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_dice
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_dice
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_dice --matrix /home/sam/matrices/2015_2015_window8 --measure dice --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_dice
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_odds
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_odds
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_odds
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_odds --matrix /home/sam/matrices/2015_2015_window8 --measure odds --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_odds
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regO_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher  --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regO_2015_2015_window8_rel_leftFisher
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/lta_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/lta_2015_2015_window8_rel_leftFisher
+          0.0510, 430
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/regOExp_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/regOExp_2015_2015_window8_rel_leftFisher
+          0.7746, 4
+umls-association-runDataSet.pl DataSets/UMNSRS_reduced_rel.cuis results/ltaOExp_2015_2015_window8_rel_leftFisher --matrix /home/sam/matrices/2015_2015_window8 --measure leftFisher --lta --conceptexpansion --noorder
+perl spearmans.pl DataSets/UMNSRS_reduced_rel.gold results/ltaOExp_2015_2015_window8_rel_leftFisher
+          0.0510, 430

@@ -92,7 +92,7 @@ sub new {
 
 #  method to initialize the UMLS::Association::StatFinder object.
 #  input : $parameters <- reference to a hash of database parameters
-#  output: none
+#  output: none, but $self is initialized
 sub _initialize {
     #grab parameters
     my $self = shift;
@@ -124,7 +124,7 @@ sub _debug {
 
 #  method to set the association database
 #  input : $params <- reference to a hash
-#  output:
+#  output: none, but association database is set and initialized
 sub _setDatabase  {
     my $self   = shift;
     my $params = shift;
@@ -184,8 +184,12 @@ sub _setDatabase  {
 ######################################################################
 
 # Gets observed counts (n11, n1p, np1, npp) of the cui sets
-# input:
-# output:
+# input: $pairHashListRef - a ref to an array of pairHashes
+# output: \@allStatsRef - a ref to an array of observed counts 4-tuples
+#                         each 4-tuple consists of in order:
+#                         $n11, $n1p, $np1, and $npp
+#                         and they correspond to the observed counts of
+#                         each of the pairHashes passed in
 sub getObservedCounts {   
     #grab parameters
     my $self = shift;
@@ -426,10 +430,13 @@ sub _getNpp_DB {
 ########################################################################
 
 
-# Gets arrays of all first (leading) and second (trailing)
+# Gets arrays of all first (leading) and second (trailing) cuis
 # This is used when retreiving data from a matrix flat file
-# input:
-# output: 
+# input:  $pairHashListRef - a ref to an array of pairHashes
+# output: (\@cuis1, \@cuis2) - two array refs, the first contains
+#                              all leading cuis in the dataset, the
+#                              second contains all trailing cuis in 
+#                              the dataset.
 sub _getAllLeadingAndTrailingCuis {
     my $self = shift;
     my $pairHashListRef = shift;
@@ -445,7 +452,6 @@ sub _getAllLeadingAndTrailingCuis {
 	    push @cuis2, $cui;
 	}
     }
-
     return (\@cuis1, \@cuis2);
 }
 

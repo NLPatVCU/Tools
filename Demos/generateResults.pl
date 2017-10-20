@@ -13,23 +13,13 @@ my $outputFile = 'thresholdResults.csv';
 #a list of matrices to run
 my $matrixDirectory = '/home/sam/matrices/';
 my @matrices = ();
-=comment
 push @matrices, 'semmeddb';
 push @matrices, '2000_2015_window1';
 push @matrices, '1975_2015_window1';
 push @matrices, '1809_2015_window1';
-push @matrices, '2000_2015_window8_ordered';
+push @matrices, '2000_2015_window8';
 push @matrices, '1975_2015_window8';
 push @matrices, '1809_2015_window8';
-=cut
-push @matrices, '1975_2015_window1_threshold1';
-push @matrices, '1975_2015_window1_threshold3';
-push @matrices, '1975_2015_window1_threshold5';
-push @matrices, '1975_2015_window1_threshold10';
-push @matrices, '1975_2015_window8_threshold1';
-push @matrices, '1975_2015_window8_threshold3';
-push @matrices, '1975_2015_window8_threshold5';
-push @matrices, '1975_2015_window8_threshold10';
 
 
 #a list of measures to test
