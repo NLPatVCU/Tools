@@ -1,0 +1,13 @@
+semmeddb ordered
+Reg,,,,LTA,,,,Reg_Exp,,,,LTA_Exp
+mmCoders,,,,mmCoders,,,,mmCoders,,,,mmCoders
+ll,0.7160,29,,ll,0.4824,29,,ll,0.7448,29,,ll,0.4643,29,,
+x2,0.7234,29,,x2,0.5517,29,,x2,0.7523,29,,x2,0.5579,29,,
+dice,0.7311,29,,dice,0.4956,29,,dice,0.7233,29,,dice,0.4837,29,,
+odds,0.7399,29,,odds,0.6194,29,,odds,0.7740,29,,odds,0.6083,29,,
+leftFisher,0.7183,29,,leftFisher,29,29,,leftFisher,0.7278,29,,leftFisher,29,29,,
+
+mmPhys,,,,mmPhys,,,,mmPhys,,,,mmPhys
+ll,0.7215,29,,ll,0.4582,29,,ll,0.7320,29,,ll,0.4424,29,,
+x2,0.7271,29,,x2,0.5288,29,,x2,0.7381,29,,x2,0.5285,29,,
+dice,0.7382,29,,dice,0.4617,29,,dice,0.7236,29,,

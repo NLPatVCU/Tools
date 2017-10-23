@@ -8,18 +8,12 @@ use strict;
 use warnings;
 
 #the output file for all results
-my $outputFile = 'thresholdResults.csv';
+my $outputFile = 'semmeddbTest.csv';
 
 #a list of matrices to run
 my $matrixDirectory = '/home/sam/matrices/';
 my @matrices = ();
 push @matrices, 'semmeddb';
-push @matrices, '2000_2015_window1';
-push @matrices, '1975_2015_window1';
-push @matrices, '1809_2015_window1';
-push @matrices, '2000_2015_window8';
-push @matrices, '1975_2015_window8';
-push @matrices, '1809_2015_window8';
 
 
 #a list of measures to test

@@ -183,7 +183,7 @@ my $pkg = "UMLS::Association";
 use vars qw($VERSION);
 
 $VERSION = '0.15';
-
+  
 my $debug = 0;
 my $umls_G = undef;
 my $conceptExpansion_G = 0;

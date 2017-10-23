@@ -800,6 +800,7 @@ sub _getStats_LTA {
     return  \@data;
 }
 
+
 #computes the observed co-occurrences for all combinations of the cuis passed in
 #doing this in a single function makes it so all values can be computed with a 
 #single pass of the input file, making execution time much faster
@@ -839,13 +840,23 @@ sub _getObserved_matrix_LTA {
 	my ($cui1, $cui2, $num) = split /\t/, $line;
 
 	#update n1p and np1 for both cui1 and cui2 (in case order doesnt matter)
-	if (exists $cuis1{$cui1} || exists $cuis2{$cui1}) {
-	    $n1pAll{$cui1} .= "$cui2,";
-	    $n1pAll{$cui2} .= "$cui2,";
+	if ($noOrder_G) {
+	    if (exists $cuis1{$cui1} || exists $cuis2{$cui1}) {
+		$n1pAll{$cui1} .= "$cui2,";
+		$n1pAll{$cui2} .= "$cui1,";
+	    }
+	    if (exists $cuis2{$cui2} || exists $cuis1{$cui2}) {
+		$np1All{$cui2} .= "$cui1,";
+		$np1All{$cui1} .= "$cui2,";
+	    }
 	}
-	if (exists $cuis2{$cui2} || exists $cuis1{$cui2}) {
-	    $np1All{$cui2} .= "$cui1,";
-	    $np1All{$cui1} .= "$cui1,";
+	else {
+	    if (exists $cuis1{$cui1}) {
+		$n1pAll{$cui1} .= "$cui2,";
+	    }
+	    if (exists $cuis2{$cui2}) {
+		$np1All{$cui2} .= "$cui1,";
+	    }
 	}
 	
 	#update unique cui lists to calculate npp
@@ -868,6 +879,7 @@ sub _getObserved_matrix_LTA {
     #return the observed values
     return (\%n1pAll, \%np1All, $npp);
 }
+
 
 # Gets hashes of CUIs that co-occurr with the sets of cuis1 and cuis 2 using
 # a matrix. This is the first step in computing linking term associations
