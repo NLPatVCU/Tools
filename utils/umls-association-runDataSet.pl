@@ -105,7 +105,7 @@ my $DEFAULT_MEASURE = "tscore";
 #############################################
 #  Get Options and params
 #############################################
-eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s", "measure=s", "conceptexpansion", "noorder", "lta", "mwa", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 #get required input
 my $cuisFileName = shift;
@@ -226,6 +226,9 @@ if(defined $opt_precision){
 if(defined $opt_lta){
     $assoc_option_hash{"lta"} = $opt_lta;
 }
+if(defined $opt_mwa){
+    $assoc_option_hash{"mwa"} = $opt_mwa;
+}
 if(defined $opt_noorder){
     $assoc_option_hash{"noorder"} = $opt_noorder;
 }
@@ -253,7 +256,6 @@ foreach my $line (<IN>) {
 close IN;
 
 #calculate association scores for each term pair
-print "assoc_option_hash{measure} = ".($assoc_option_hash{"measure"}."\n");
 my $scoresRef = $association->calculateAssociation_termPairList(\@cuiPairs, $assoc_option_hash{"measure"});
 
 #output the results
@@ -288,7 +290,7 @@ sub showHelp {
     print "Usage: umls-association-runDataSet.pl [OPTIONS] CUI_LIST_FILE OUTPUT_FILE\n";
     print "\n";
     print "Please note, the optional parameters are identical to umls-association.pl.\n";
-    print "to avoid inconsitencies when adding new fetaure or updating, please see:\n";
+    print "to avoid inconsitencies when adding new features or updating, please see:\n";
     print "umls-association --help\n";
     print "for a complete list of optional arguments"
 }

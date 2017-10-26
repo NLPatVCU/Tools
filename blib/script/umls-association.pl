@@ -44,7 +44,14 @@ the association score is calculated.
 =head3 --lta
 
 Linking Term Association - Calculates the association scores using 
-implicit or intermediate relationships between the specified CUIs.
+implicit or intermediate relationships between the specified CUIs,
+and the count of unique shared co-occurrences.
+
+=head3 --mwa
+
+Minimum Weight Association - Calculates the association scores using 
+implicit or intermediate relationships between the specified CUIs, 
+and the minimum co-occurrence count between shared co-occurrences.
 
 =head3 --precision N
 
@@ -191,7 +198,7 @@ my $DEFAULT_MEASURE = "tscore";
 #############################################
 #  Get Options and params
 #############################################
-eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s",  "measure=s", "conceptexpansion", "noorder", "lta", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s",  "measure=s", "conceptexpansion", "noorder", "lta", "mwa", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 
 #############################################
@@ -309,6 +316,9 @@ if(defined $opt_precision){
 if(defined $opt_lta){
     $assoc_option_hash{"lta"} = $opt_lta;
 }
+if(defined $opt_mwa){
+    $assoc_option_hash{"mwa"} = $opt_mwa;
+}
 if(defined $opt_noorder){
     $assoc_option_hash{"noorder"} = $opt_noorder;
 }
@@ -377,7 +387,12 @@ sub showHelp() {
                                     the occurrences of descendants of the specified CUIs.\n\n";
 
     print "--lta                    Linking Term Association - Calculates the association scores using implicit 
-                                    or intermediate relationships between the specified CUIs.\n\n";
+                                    or intermediate relationships between the specified CUIs, and the count
+                                    of unique shared co-occurrences. \n\n";
+
+    print "--mwa                    Minimum Weight Association - Calculates the association scores using implicit 
+                                    or intermediate relationships between the specified CUIs, and the minimum
+                                    of co-occurrence count between shared co-occurrences. \n\n";
 
     print "--noorder                If selected, the order in which CUIs appear will be disregarded when the association 
                                     score is calculated.\n\n";

@@ -230,6 +230,9 @@ sub _initialize {
     if(!defined $self || !ref $self) {
 	$errorhandler->_error($pkg, $function, "", 2);
     }
+    if ($params->{'mwa'} && $params->{'lta'}) {
+	$errorhandler->_error($pkg, $function, "Cannot use both  MWA and LTA", 12);
+    }
 
     # set parameters
     if ($params->{'conceptexpansion'}) {
@@ -462,8 +465,10 @@ sub _calculateAssociation_fromObservedCounts {
 		  np1=>$np1, 
 		  npp=>$npp); 
     
+    #TODO, shouldn't it be <= 0
     #return cannot compute, or 0
-    if($n1p < 0 || $np1 < 0) { 	
+    if($n1p < 0 || $np1 < 0) { 
+    #if($n1p <= 0 || $np1 <= 0 || $npp <= 0) {
 	return -1.000; 
     }
     if($n11 <= 0) { 

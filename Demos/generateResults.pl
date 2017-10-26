@@ -8,12 +8,14 @@ use strict;
 use warnings;
 
 #the output file for all results
-my $outputFile = 'semmeddbTest.csv';
+my $outputFile = 'dateRangeComparison.csv';
 
 #a list of matrices to run
-my $matrixDirectory = '/home/sam/matrices/';
+my $matrixDirectory = '/home/sam/matrices/'
 my @matrices = ();
-push @matrices, 'semmeddb';
+push @matrices, '1809_2015_window8';
+push @matrices, '1975_2015_window8';
+push @matrices, '2000_2015_window8';
 
 
 #a list of measures to test
@@ -50,7 +52,10 @@ foreach my $matrix(@matrices) {
 
 	#print titles to output file
 	print OUT "$matrix $orderString\n";
-	print OUT "Reg,,,,LTA,,,,Reg_Exp,,,,LTA_Exp\n";
+	foreach my $label (@paramTags) {
+	    print OUT "$label,,,,";
+	}
+	print OUT "\n";
 
 	#loop over each dataset (mmCod, mmPhys, sim, reg)
 	for (my $datasetNum = 0; $datasetNum < scalar @dataTags; $datasetNum++) {
@@ -60,7 +65,11 @@ foreach my $matrix(@matrices) {
 	    my $cuisFileName = $cuisFileNames[$datasetNum];
 
 	    #print titles to output file
-	    print OUT "$dataTag,,,,$dataTag,,,,$dataTag,,,,$dataTag\n";
+	    #print titles to output file
+	    foreach my $label (@paramTags) {
+		print OUT "$dataTag,,,,";
+	    }
+	    print OUT "\n";\
 
 	    #generate the line for this measure
 	    foreach my $measure(@measures) {	

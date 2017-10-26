@@ -749,13 +749,13 @@ sub _getStats_LTA {
     if ($matrix_G) {
 	#get observed counts for all data
 	(my $cuis1Ref, my $cuis2Ref) = $self->_getAllLeadingAndTrailingCuis($pairHashListRef);
-	(my $n1pAllRef, my $np1AllRef, $npp) = $self->_getObserved_matrix_LTA($cuis1Ref, $cuis2Ref);
+	(my $matrixRef, $npp) = $self->_getObserved_matrix_LTA($cuis1Ref, $cuis2Ref);
 
 	#get co-occurrence data for each pairHash
 	foreach my $pairHashRef(@{$pairHashListRef}) {
 	    (my $cooccurrences1Ref, my $cooccurrences2Ref) = $self
 		->_getCUICooccurrences_matrix(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'}, 
-					      $n1pAllRef, $np1AllRef);
+					      $matrixRef);
 	    push @cooccurrences1List, $cooccurrences1Ref;
 	    push @cooccurrences2List, $cooccurrences2Ref;
 	}
@@ -779,15 +779,25 @@ sub _getStats_LTA {
     for (my $i = 0; $i < scalar @{$pairHashListRef}; $i++) {
   
 	#calculate n1p and np1 as the number of co-occurring terms
-	my $n1p = scalar keys %{$cooccurrences1List[$i]};
-	my $np1 = scalar keys %{$cooccurrences2List[$i]};
+	my $n1p = 0;
+	foreach my $cui (keys %{$cooccurrences1List[$i]}) {
+	    $n1p += ${$cooccurrences1List[$i]}{$cui};
+	}
+	my $np1 = 0;
+	foreach my $cui (keys %{$cooccurrences2List[$i]}) {
+	    $np1 += ${$cooccurrences2List[$i]}{$cui};
+	}
 
 	#calculate n11
 	my $n11 = 0;
 	#Find number of CUIs that co-occur with both CUI 1 and CUI 2
 	foreach my $cui (keys %{$cooccurrences1List[$i]}) {
 	    if (exists ${$cooccurrences2List[$i]}{$cui}) {
-		$n11++;
+		my $min = ${$cooccurrences1List[$i]}{$cui};
+		if (${$cooccurrences2List[$i]}{$cui} < $min) {
+		    $min = ${$cooccurrences2List[$i]}{$cui};
+		}
+		$n11+=$min;
 	    }
 	}
 
@@ -830,54 +840,31 @@ sub _getObserved_matrix_LTA {
     }
 
     #get stats
-    my %uniqueCuis = ();
-    my %n1pAll = ();
-    my %np1All = ();
+    my %matrix = ();
+    my $npp = 0;
     open IN, $matrix_G or die "Cannot open matrix_G for input: $matrix_G\n";
     while (my $line = <IN>) {
 	#get cuis and value fro mthe line
 	chomp $line;
 	my ($cui1, $cui2, $num) = split /\t/, $line;
+	$npp+=$num;
 
 	#update n1p and np1 for both cui1 and cui2 (in case order doesnt matter)
-	if ($noOrder_G) {
-	    if (exists $cuis1{$cui1} || exists $cuis2{$cui1}) {
-		$n1pAll{$cui1} .= "$cui2,";
-		$n1pAll{$cui2} .= "$cui1,";
+	if (exists $cuis1{$cui1} || exists $cuis1{$cui2}
+	    || exists $cuis2{$cui1} || exists $cuis2{$cui2}) {
+	    if ($noOrder_G) {
+		$matrix{"$cui1,$cui2"} = $num;
+		$matrix{"$cui2,$cui1"} = $num;
 	    }
-	    if (exists $cuis2{$cui2} || exists $cuis1{$cui2}) {
-		$np1All{$cui2} .= "$cui1,";
-		$np1All{$cui1} .= "$cui2,";
-	    }
-	}
-	else {
-	    if (exists $cuis1{$cui1}) {
-		$n1pAll{$cui1} .= "$cui2,";
-	    }
-	    if (exists $cuis2{$cui2}) {
-		$np1All{$cui2} .= "$cui1,";
+	    else {
+		$matrix{"$cui1,$cui2"} = $num;
 	    }
 	}
-	
-	#update unique cui lists to calculate npp
-	$uniqueCuis{$cui1} = 1;
-	$uniqueCuis{$cui2} = 1;
     }
     close IN;
-
-    #remove the trailing commas from the cui lists
-    foreach my $cui(keys %n1pAll) {
-	chop $n1pAll{$cui};
-    }
-    foreach my $cui(keys %np1All) {
-	chop $np1All{$cui};
-    } 
-
-    #npp is the number of unique cuis (vocab size)
-    my $npp = scalar keys %uniqueCuis;
        
     #return the observed values
-    return (\%n1pAll, \%np1All, $npp);
+    return (\%matrix, $npp);
 }
 
 
@@ -894,8 +881,7 @@ sub _getCUICooccurrences_matrix {
     my $self = shift;
     my $cuis1Ref = shift;
     my $cuis2Ref = shift;
-    my $n1pAllRef = shift;
-    my $np1AllRef = shift;
+    my $matrixRef = shift;
     
     #error checking
     my $function = "_getCUICooccurrences"; 
@@ -903,41 +889,51 @@ sub _getCUICooccurrences_matrix {
         $errorhandler->_error($pkg, $function, "", 2);
     }
 
+#TODO, running with cui1, and cui2 swapped only when assigning
+
     #get lists of explicitly co-occurring CUIs for each concept
     #add trailing cui co-occurrences to cui1Data
     my %cooccurrences1;
-    foreach my $cui1 (@{$cuis1Ref}){
-	if (defined ${$n1pAllRef}{$cui1}) {
-	    foreach my $cui (split /,/,${$n1pAllRef}{$cui1}) {
-		$cooccurrences1{$cui} = 1;
+    foreach my $cui (@{$cuis1Ref}){
+	foreach my $key(keys %{$matrixRef}) {
+	    (my $cui1, my $cui2) = split(/,/,$key);
+	    if ($cui1 eq $cui) {
+		$cooccurrences1{$cui2} = ${$matrixRef}{$key};
 	    }
 	}
     }
     #add leading cui co-occurrences to cui2Data
     my %cooccurrences2;
-    foreach my $cui2 (@{$cuis2Ref}) {
-	if (defined ${$np1AllRef}{$cui2}) {
-	    foreach my $cui (split /,/,${$np1AllRef}{$cui2}) {
-		$cooccurrences2{$cui} = 1;
+    foreach my $cui (@{$cuis2Ref}) {
+	foreach my $key(keys %{$matrixRef}) {
+	    (my $cui1, my $cui2) = split(/,/,$key);
+	    if ($cui2 eq $cui) {
+		#$cooccurrences2{$cui1} = ${$matrixRef}{$key};
+		$cooccurrences2{$cui2} = ${$matrixRef}{$key};
 	    }
 	}
     }
 
+
+
+
+
+
     #add more CUIs if order doesn't matter
     if ($noOrder_G) {
-	#add leading co-occurring cuis to cui1Data
-	foreach my $cui1 (@{$cuis1Ref}) {
-	    if (defined ${$np1AllRef}{$cui1}) {
-		foreach my $cui (split /,/,${$np1AllRef}{$cui1}) {
-		    $cooccurrences1{$cui} = 1;
+	foreach my $cui (@{$cuis1Ref}){
+	    foreach my $key(keys %{$matrixRef}) {
+		(my $cui1, my $cui2) = split(/,/,$key);
+		if ($cui2 eq $cui) {
+		    $cooccurrences1{$cui1}= ${$matrixRef}{$key};
 		}
 	    }
 	}
-	#add trailling co-occurring cuis to cui2Data
-	foreach my $cui2 (@{$cuis2Ref}) {
-	    if(defined ${$n1pAllRef}{$cui2}) {
-		foreach my $cui (split /,/,${$n1pAllRef}{$cui2}) {
-		    $cooccurrences2{$cui} = 1;
+	foreach my $cui (@{$cuis2Ref}) {
+	    foreach my $key(keys %{$matrixRef}) {
+		(my $cui1, my $cui2) = split(/,/,$key);
+		if ($cui1 eq $cui) {
+		    $cooccurrences2{$cui2}=${$matrixRef}{$key};
 		}
 	    }
 	}

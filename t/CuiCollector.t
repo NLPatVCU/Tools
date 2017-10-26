@@ -9,12 +9,12 @@ use Test::More;
 use Test::Deep;
 use lib '../lib';
 
-use UMLS::Association::Collector qw(build_utterance_graph get_bigrams_of);
+use UMLS::Association::CUICollector qw(build_utterance_graph get_bigrams_of);
 
 use Data::Dumper;
 
 # Can we find our Collector module?
-require_ok( UMLS::Association::Collector);
+require_ok( UMLS::Association::CUICollector);
 
 # Can we load the Graph CPAN module?
 require_ok( Graph::Directed );

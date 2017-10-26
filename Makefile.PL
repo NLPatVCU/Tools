@@ -24,7 +24,8 @@ WriteMakefile(
                                       'Text::NSP' => '0', 
                                       'UMLS::Interface' => '0', 
                                       'File::Spec' => '3.31',
-                                      'File::Path' => '2.08'},
+                                      'File::Path' => '2.08',
+                                      'Graph::Directed' => '0'},
               'EXE_FILES'         => [("utils/umls-association.pl", "utils/CUICollector.pl", "utils/umls-association-runDataSet.pl")], 
               'dist'              => {'COMPRESS' => 'gzip -9f', 'SUFFIX' => 'gz'},
     ($] >= 5.005 ?
