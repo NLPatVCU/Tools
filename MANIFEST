@@ -10,14 +10,13 @@ Hadoop/src/test/java/Hadoop/CUICollectorMapReduce/AppTest.java
 Hadoop/TODO
 INSTALL
 lib/UMLS/Association.pm
-lib/UMLS/Association/CUICollector.pm
 lib/UMLS/Association/ErrorHandler.pm
 lib/UMLS/Association/StatFinder.pm
 Makefile.PL
 MANIFEST			This list of files
 README
-t/CuiCollector.t
 t/functions.t
+t/sampleMatrix
 TODO
 utils/CUICollector.pl
 utils/umls-association.pl

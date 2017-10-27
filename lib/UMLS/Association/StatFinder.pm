@@ -60,6 +60,7 @@ my $debug     = 0; #in debug mode or not
 my $assocDB_G;
 my $lta_G = 0; #1 or 0 is using lta or not
 my $mwa_G = 0; #1 or 0 if using mwa or not
+my $vsa_G = 0; #1 or 0 if using vsa or not
 my $noOrder_G = 0; #1 or 0 if noOrder is enabled or not
 my $matrix_G = 0; #matrix file name is using a matrix file rather than DB
 
@@ -103,6 +104,7 @@ sub _initialize {
     #set global variables using option hash
     $lta_G = $params{'lta'};
     $mwa_G = $params{'mwa'};
+    $vsa_G = $params{'vsa'};
     $noOrder_G = $params{'noorder'};
     $matrix_G = $params{'matrix'};
 
@@ -117,6 +119,15 @@ sub _initialize {
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }    
+
+    #TODO, remove this once I have DB implemented
+    #check that a matrix is specified for options (need to implement DB mode)
+    if (!$matrix_G && $mwa_G) {
+	$errorhandler->_error($pkg, $function, "MWA requires the --matrix option", 12);
+    }
+     if (!$matrix_G && $vsa_G) {
+	$errorhandler->_error($pkg, $function, "VSA requires the --matrix option", 12);
+    }
 }
 
 sub _debug {
@@ -207,10 +218,13 @@ sub getObservedCounts {
     # and according to the method of various other options
     my $allStatsRef = -1;
     if ($lta_G) {
-	$allStatsRef = $self->_getStats_LTA($pairHashListRef);
+	$allStatsRef = $self->_getStats_LTA($pairHashListRef);	
     }
     elsif ($mwa_G) {
 	$allStatsRef = $self->_getStats_MWA($pairHashListRef);
+    }
+    elsif ($vsa_G) {
+	$allStatsRef = $self->_getStats_VSA($pairHashListRef);
     }
     else {
 	if ($matrix_G) {
@@ -418,7 +432,7 @@ sub _getNpp_DB {
     }
 
     #get npp, the number of co-occurrences
-    my $npp = shift $assocDB_G->selectcol_arrayref("select sum(N_11) from N_11"); 
+    my $npp = shift @{$assocDB_G->selectcol_arrayref("select sum(N_11) from N_11")}; 
 
     #update $npp for noOrder, since Cuis can be trailing or leading its 2x ordered npp
     if ($noOrder_G) {
@@ -728,9 +742,9 @@ sub _getNp1_matrix {
 
 
 ########################################################################
-# functions to get statistical information about the cuis LTA and MWA
+# functions to get statistical information about the cuis LTA, MWA, VSA
 ########################################################################
-#  Gets contingency table values for LTA using a matrix
+#  Gets contingency table values for Linking Term Association (LTA)
 #  input : $pairHashListRef <- ref to a pairHashList
 #  output: $\@data  <- valuesarray ref containing array refs of four values
 #                      for each pairHash in the pairHash list. The 
@@ -748,7 +762,7 @@ sub _getStats_LTA {
      #get data from the matrix
     (my $cooccurrences1ListRef, my $cooccurrences2ListRef,  
      my $numCooccurrences, my $numUniqueCuis) 
-	= $self->_readMatrixValues_LTA_MWA($pairHashListRef); 
+	= $self->_readMatrixValues_Linking($pairHashListRef); 
 
     #for LTA, npp= num unique cuis in the dataset
     my $npp = $numUniqueCuis;
@@ -780,7 +794,7 @@ sub _getStats_LTA {
 }
 
 
-#  Gets contingency table values for MWA
+#  Gets contingency table values for Minimum Weight Association (MWA)
 #  input : $pairHashListRef <- ref to a pairHashList
 #  output: $\@data  <- array ref containing array refs of four values
 #                      for each pairHash in the pairHash list. The 
@@ -799,7 +813,7 @@ sub _getStats_MWA {
     #get data from the matrix
     (my $cooccurrences1ListRef, my $cooccurrences2ListRef,
      my $numCooccurrences, my $numUniqueCuis) 
-	= $self->_readMatrixValues_LTA_MWA($pairHashListRef); 
+	= $self->_readMatrixValues_Linking($pairHashListRef); 
 
     #for MWA, npp= numCooccurrences in the dataset
     my $npp = $numCooccurrences;
@@ -811,23 +825,16 @@ sub _getStats_MWA {
 	my $set2CoRef = ${$cooccurrences2ListRef}[$i];
 
 	#calculate n1p and np1 as the number of co-occurrences for the term
-#	print "N1P:\n";
 	my $n1p = 0;
 	foreach my $cui (keys %{$set1CoRef}) {
-#	    print "   $n1p + ${$set1CoRef}{$cui} = ";
 	    $n1p += ${$set1CoRef}{$cui};
-#	    print "$n1p\n";
 	}
-#	print "NP1:\n";
 	my $np1 = 0;
 	foreach my $cui (keys %{$set2CoRef}) {
-#	    print "   $np1 + ${$set2CoRef}{$cui} = ";
 	    $np1 += ${$set2CoRef}{$cui};
-#	    print "$np1\n";
 	}
 
 	#Find $n11, the min co-occurrence value of the pair
-#	print "N11:\n";
 	my $n11 = 0;
 	foreach my $cui (keys %{$set1CoRef}) {
 	    #if this cui co-occurs with both sets, then increment n11
@@ -837,14 +844,11 @@ sub _getStats_MWA {
 		if (${$set2CoRef}{$cui} < $min) {
 		    $min = ${$set2CoRef}{$cui};
 		}
-#		print "   $n11 + $min = ";
 		$n11+=$min;
-#		print "$   n11\n";
 	    }
 	}
 
 	#store the data for this pairHash
-#	print "$n11, $n1p, $np1, $npp\n";
 	my @vals = ($n11, $n1p, $np1, $npp);
 	push @data, \@vals;
     }
@@ -852,6 +856,68 @@ sub _getStats_MWA {
     #return the data
     return  \@data;
 }
+
+
+#  Gets contingency table values for Vector Set Association (VSA)
+#  input : $pairHashListRef <- ref to a pairHashList
+#  output: $\@data  <- array ref containing array refs of four values
+#                      for each pairHash in the pairHash list. The 
+#                      values are $n11, $n1p, $np1, and $npp
+sub _getStats_VSA {
+    #grab parameters
+    my $self = shift;
+    my $pairHashListRef = shift;
+    
+    #error checking
+    my $function = "_getStats_VSA"; 
+    if(!defined $self || !ref $self) {
+        $errorhandler->_error($pkg, $function, "", 2);
+    }
+     #get data from the matrix
+    (my $cooccurrences1ListRef, my $cooccurrences2ListRef,  
+     my $numCooccurrences, my $numUniqueCuis) 
+	= $self->_readMatrixValues_Linking($pairHashListRef); 
+
+    #convert the cooccurrence lists to pairHashLists
+    my @newPairHashList = ();
+    for (my $i = 0; $i < scalar @{$pairHashListRef}; $i++) {
+	my %pairHash = ();
+	
+	#make set 1 an array
+	my @set1 = ();
+	foreach my $key (keys %{${$cooccurrences1ListRef}[$i]}) {
+	    push @set1, $key;
+	}
+	$pairHash{'set1'} = \@set1;
+
+	#make set 2 an array
+	my @set2 = ();
+	foreach my $key (keys %{${$cooccurrences2ListRef}[$i]}) {
+	    push @set2, $key;
+	}
+	$pairHash{'set2'} = \@set2;
+
+	#add the pairHash to the pairHashList
+	push @newPairHashList, \%pairHash;
+    }
+    #So, at this point we have converted the sets of B terms
+    # into a pairhashlist.
+    #Next we find the stats for each of those pair hashes and
+    # use that as the stats for the original pair.
+    # in this way we are finding the assocaition between
+    # sets of co-occurring terms of the original terms
+    my $allStatsRef;
+    if ($matrix_G) {
+	$allStatsRef = $self->_getStats_matrix(\@newPairHashList);
+    }
+    else {
+	$allStatsRef = $self->_getStats_DB(\@newPairHashList);
+    }
+    #all stats ref contains n11, np1, n1p, and npp for 
+    # each of the pair hashes
+    return $allStatsRef;
+}
+
 
 
 #  Gets co-occurrence data for each of the pairHashes in the pairHashList
@@ -863,13 +929,13 @@ sub _getStats_MWA {
 #  There is no distinction between different cuis of cuis1
 #  input : $pairHashListRef <- ref to a pairHashList
 #  output: $\@data  <- array ref containing array refs of four values
-sub _readMatrixValues_LTA_MWA {
+sub _readMatrixValues_Linking {
     #grab parameters
     my $self = shift;
     my $pairHashListRef = shift;
     
     #error checking
-    my $function = "_readMatrixValues_LTA"; 
+    my $function = "_readMatrixValues_Linking"; 
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
@@ -887,7 +953,7 @@ sub _readMatrixValues_LTA_MWA {
 	#get observed counts for all data
 	(my $cuis1Ref, my $cuis2Ref) = $self->_getAllLeadingAndTrailingCuis($pairHashListRef);
 	(my $n1pAllRef, my $np1AllRef, $totalCooccurrences, $totalUniqueCuis) 
-	    = $self->_getObserved_matrix_LTA_MWA($cuis1Ref, $cuis2Ref);
+	    = $self->_getObserved_matrix_Linking($cuis1Ref, $cuis2Ref);
 
 	#get co-occurrence data for each pairHash
 	foreach my $pairHashRef(@{$pairHashListRef}) {
@@ -900,12 +966,12 @@ sub _readMatrixValues_LTA_MWA {
 	}
     }
     else {
-	#TODO, also get total co-occurrences
-	my $totalCooccurrences = 0;
+	#get total co-occurrences and total unique cuis
+	$totalCooccurrences = $self->_getNpp_DB();
 
 	#get npp, the number of unique cuis
 	#TODO, query is slightly wrong. If the there are cuis that occur in the second position ONLY this will be wrong. I need to merge the CUI 1 and CUI2 tables then select distinct elements
-	$totalUniqueCuis = shift $assocDB_G->selectcol_arrayref("SELECT COUNT(cui_1) FROM (SELECT DISTINCT cui_1 FROM N_11) AS names");
+	$totalUniqueCuis = shift @{$assocDB_G->selectcol_arrayref("SELECT COUNT(cui_1) FROM (SELECT DISTINCT cui_1 FROM N_11) AS names")};
 
 	#TODO, check this with MWA now ...will need to code it
 	#get co-occurrence data for each pair hash
@@ -935,7 +1001,7 @@ sub _readMatrixValues_LTA_MWA {
 #          $cooccurrenceCount <- the total number of co-occurrences in 
 #                                the dataset
 #          $numUniquCuis <- the number of unique cuis in the dataset
-sub _getObserved_matrix_LTA_MWA {
+sub _getObserved_matrix_Linking {
     #grab parameters
     my $self = shift;
     my $cuis1Ref = shift;
@@ -1094,7 +1160,7 @@ sub _getCUICooccurrences_DB {
     my $cuis2Ref = shift;
     
     #error checking
-    my $function = "_getStats_LTA_DB"; 
+    my $function = "_getCUICooccurrences_DB"; 
     if(!defined $self || !ref $self) {
         $errorhandler->_error($pkg, $function, "", 2);
     }
@@ -1169,6 +1235,105 @@ sub _getCUICooccurrences_DB {
     #return the cui co-occurrences
     return (\%cooccurrences1, \%cooccurrences2);
 }
+
+
+=comment
+# Gets hashes of CUIs that co-occurr with the sets of cuis1 and cuis 2 using
+# a database. This is the first step in computing linking term associations
+#  input : $cuis1Ref <- ref to an array of the first cuis in a set of cui pairs
+#          $cuis2Ref <- ref to an array of the second cuis in a set of cui pairs
+# output: \%cooccurrences1 <- hash ref, keys are co-occurring cuis with cui 1, 
+#                             values are 1
+#         \%cooccurrences1 <- hash ref, keys are co-occurring cuis with cui 2, 
+#                             values are 1
+sub _getCUICooccurrences_DB {
+    #grab parameters
+    my $self = shift;
+    my $cuis1Ref = shift;
+    my $cuis2Ref = shift;
+    
+    #error checking
+    my $function = "_getCUICooccurrences_DB"; 
+    if(!defined $self || !ref $self) {
+        $errorhandler->_error($pkg, $function, "", 2);
+    }
+
+    #get hashes of co-occurring CUIs
+    my %cooccurrences1 = ();
+    my %cooccurrences2 = ();
+
+    #query DB to get cuis, where concept 1 is the leading cui
+    my $firstCui = shift @{$cuis1Ref};
+    my $query = "SELECT * FROM N_11 WHERE (N_11.cui_1 = '$firstCui' ";
+    foreach my $cui (@{$cuis1Ref}) {
+	$query .= "OR N_11.cui_1 = '$cui' ";
+    }
+    $query .= ") AND N_11.n_11 > 0;";
+    my $sth = $assocDB_G->prepare($query);
+    $sth->execute();   
+    my @rows = @{$sth->fetchall_arrayref()};
+    unshift @{$cuis1Ref}, $firstCui;
+
+    #turn CUIs into a hash of cui1's cooccurrences
+    foreach my $rowRef (@rows) {
+	print STDERR join(' ', @{$rowRef})."\n";
+    }
+    #TODO - this is done, it works ... it gets back the whole relevant table. Now fill up as needed.
+
+
+    my @cuis;
+    #query DB to get cuis, where concept 2 is the trailing cui
+    $firstCui = shift @{$cuis2Ref};
+    $query =  "SELECT N_11.cui_1 FROM N_11 WHERE (N_11.cui_2 = '$firstCui' ";
+    foreach my $cui (@{$cuis2Ref}) {
+	$query .= "OR N_11.cui_2 = '$cui' ";
+    }
+    $query .= ") AND N_11.n_11 > 0;";
+    @cuis = @{$assocDB_G->selectcol_arrayref($query)};
+    unshift @{$cuis2Ref}, $firstCui;
+
+    #turn CUIs into a hash of cui2's co-occurrences
+    foreach my $cui (@cuis) {
+	$cooccurrences2{$cui} = 1;
+    }
+
+    #add additional cuis if order doesn't matter
+    if($noOrder_G) {
+	#get cuis, where concept 1 is the trailing cui
+	$firstCui = shift @{$cuis1Ref};
+	my $query = "SELECT N_11.cui_1 FROM N_11 WHERE (N_11.cui_2 = '$firstCui' ";
+	foreach my $cui (@{$cuis1Ref}) {
+	    $query .= "OR N_11.cui_2 = '$cui' ";
+	}
+	$query .= ") AND N_11.n_11 > 0;";
+	@cuis = @{$assocDB_G->selectcol_arrayref($query)};
+	unshift @{$cuis1Ref}, $firstCui;
+
+	#add cuis to the hash of cui1's co-occurrences
+	foreach my $cui (@cuis) {
+	    $cooccurrences1{$cui} = 1;
+	}
+
+	#get cuis, where concept 2 is the leading cui
+	$firstCui = shift @{$cuis2Ref};
+	$query =  "SELECT N_11.cui_2 FROM N_11 WHERE (N_11.cui_1 = '$firstCui' ";
+	foreach my $cui (@{$cuis2Ref}) {
+	    $query .= "OR N_11.cui_1 = '$cui' ";
+	}
+	$query .= ") AND N_11.n_11 > 0;";
+	@cuis = @{$assocDB_G->selectcol_arrayref($query)};
+	unshift @{$cuis2Ref}, $firstCui;
+
+	#add cuis to the hash of cui2's co-occurrences
+	foreach my $cui (@cuis) {
+	    $cooccurrences2{$cui} = 1;
+	}
+    }
+
+    #return the cui co-occurrences
+    return (\%cooccurrences1, \%cooccurrences2);
+}
+=cut
 
 1;
 

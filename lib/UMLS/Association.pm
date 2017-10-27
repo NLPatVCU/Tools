@@ -230,8 +230,12 @@ sub _initialize {
     if(!defined $self || !ref $self) {
 	$errorhandler->_error($pkg, $function, "", 2);
     }
-    if ($params->{'mwa'} && $params->{'lta'}) {
-	$errorhandler->_error($pkg, $function, "Cannot use both  MWA and LTA", 12);
+    my $paramCount = 0;
+    if ($params->{'mwa'}) {$paramCount++;}
+    if ($params->{'lta'}) {$paramCount++;}
+    if ($params->{'vsa'}) {$paramCount++;}
+    if ($paramCount > 1) {
+	$errorhandler->_error($pkg, $function, "Only one of LTA, MWA, and VSA may be specified", 12);
     }
 
     # set parameters
@@ -465,10 +469,10 @@ sub _calculateAssociation_fromObservedCounts {
 		  np1=>$np1, 
 		  npp=>$npp); 
     
-    #TODO, shouldn't it be <= 0
     #return cannot compute, or 0
-    if($n1p < 0 || $np1 < 0) { 
-    #if($n1p <= 0 || $np1 <= 0 || $npp <= 0) {
+    #if($n1p < 0 || $np1 < 0) { #NOTE, this kind of makes sense, says if there as an error then return -1
+    # the method I am doing now just says if any didn't occurr in the dataset then return -1
+    if($n1p <= 0 || $np1 <= 0 || $npp <= 0) {
 	return -1.000; 
     }
     if($n11 <= 0) { 

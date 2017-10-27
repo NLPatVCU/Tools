@@ -15,9 +15,9 @@
 #     AUTHOR => [q[Bridget McInnes <btmcinnes@vcu.edu, Sam Henry <henryst@vcu.edu>, Keith Herbert <herbertkb@vcu.edu>, Andriy Mulyar <andriy.mulyar@gmail.com>]]
 #     BUILD_REQUIRES => {  }
 #     CONFIGURE_REQUIRES => {  }
-#     EXE_FILES => [q[utils/umls-association.pl], q[utils/CUICollector.pl]]
+#     EXE_FILES => [q[utils/umls-association.pl], q[utils/CUICollector.pl], q[utils/umls-association-runDataSet.pl]]
 #     NAME => q[UMLS::Association]
-#     PREREQ_PM => { UMLS::Interface=>q[0], Text::NSP=>q[0], DBI=>q[0], File::Spec=>q[3.31], DBD::mysql=>q[0], File::Path=>q[2.08] }
+#     PREREQ_PM => { File::Path=>q[2.08], DBI=>q[0], DBD::mysql=>q[0], UMLS::Interface=>q[0], File::Spec=>q[3.31], Graph::Directed=>q[0], Text::NSP=>q[0] }
 #     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[lib/UMLS/Association.pm]
 #     dist => { SUFFIX=>q[gz], COMPRESS=>q[gzip -9f] }
@@ -163,6 +163,7 @@ C_FILES  =
 O_FILES  = 
 H_FILES  = 
 MAN1PODS = utils/CUICollector.pl \
+	utils/umls-association-runDataSet.pl \
 	utils/umls-association.pl
 MAN3PODS = lib/UMLS/Association.pm \
 	lib/UMLS/Association/ErrorHandler.pm \
@@ -425,16 +426,18 @@ POD2MAN = $(POD2MAN_EXE)
 manifypods : pure_all  \
 	utils/CUICollector.pl \
 	utils/umls-association.pl \
+	utils/umls-association-runDataSet.pl \
+	lib/UMLS/Association/StatFinder.pm \
 	lib/UMLS/Association.pm \
-	lib/UMLS/Association/ErrorHandler.pm \
-	lib/UMLS/Association/StatFinder.pm
+	lib/UMLS/Association/ErrorHandler.pm
 	$(NOECHO) $(POD2MAN) --section=$(MAN1EXT) --perm_rw=$(PERM_RW) \
 	  utils/CUICollector.pl $(INST_MAN1DIR)/CUICollector.pl.$(MAN1EXT) \
-	  utils/umls-association.pl $(INST_MAN1DIR)/umls-association.pl.$(MAN1EXT) 
+	  utils/umls-association.pl $(INST_MAN1DIR)/umls-association.pl.$(MAN1EXT) \
+	  utils/umls-association-runDataSet.pl $(INST_MAN1DIR)/umls-association-runDataSet.pl.$(MAN1EXT) 
 	$(NOECHO) $(POD2MAN) --section=$(MAN3EXT) --perm_rw=$(PERM_RW) \
+	  lib/UMLS/Association/StatFinder.pm $(INST_MAN3DIR)/UMLS::Association::StatFinder.$(MAN3EXT) \
 	  lib/UMLS/Association.pm $(INST_MAN3DIR)/UMLS::Association.$(MAN3EXT) \
-	  lib/UMLS/Association/ErrorHandler.pm $(INST_MAN3DIR)/UMLS::Association::ErrorHandler.$(MAN3EXT) \
-	  lib/UMLS/Association/StatFinder.pm $(INST_MAN3DIR)/UMLS::Association::StatFinder.$(MAN3EXT) 
+	  lib/UMLS/Association/ErrorHandler.pm $(INST_MAN3DIR)/UMLS::Association::ErrorHandler.$(MAN3EXT) 
 
 
 
@@ -444,14 +447,21 @@ manifypods : pure_all  \
 
 # --- MakeMaker installbin section:
 
-EXE_FILES = utils/umls-association.pl utils/CUICollector.pl
+EXE_FILES = utils/umls-association.pl utils/CUICollector.pl utils/umls-association-runDataSet.pl
 
-pure_all :: $(INST_SCRIPT)/CUICollector.pl $(INST_SCRIPT)/umls-association.pl
+pure_all :: $(INST_SCRIPT)/umls-association.pl $(INST_SCRIPT)/CUICollector.pl $(INST_SCRIPT)/umls-association-runDataSet.pl
 	$(NOECHO) $(NOOP)
 
 realclean ::
 	$(RM_F) \
-	  $(INST_SCRIPT)/CUICollector.pl $(INST_SCRIPT)/umls-association.pl 
+	  $(INST_SCRIPT)/umls-association.pl $(INST_SCRIPT)/CUICollector.pl \
+	  $(INST_SCRIPT)/umls-association-runDataSet.pl 
+
+$(INST_SCRIPT)/umls-association.pl : utils/umls-association.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/umls-association.pl
+	$(CP) utils/umls-association.pl $(INST_SCRIPT)/umls-association.pl
+	$(FIXIN) $(INST_SCRIPT)/umls-association.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/umls-association.pl
 
 $(INST_SCRIPT)/CUICollector.pl : utils/CUICollector.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/CUICollector.pl
@@ -459,11 +469,11 @@ $(INST_SCRIPT)/CUICollector.pl : utils/CUICollector.pl $(FIRST_MAKEFILE) $(INST_
 	$(FIXIN) $(INST_SCRIPT)/CUICollector.pl
 	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/CUICollector.pl
 
-$(INST_SCRIPT)/umls-association.pl : utils/umls-association.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
-	$(NOECHO) $(RM_F) $(INST_SCRIPT)/umls-association.pl
-	$(CP) utils/umls-association.pl $(INST_SCRIPT)/umls-association.pl
-	$(FIXIN) $(INST_SCRIPT)/umls-association.pl
-	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/umls-association.pl
+$(INST_SCRIPT)/umls-association-runDataSet.pl : utils/umls-association-runDataSet.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/umls-association-runDataSet.pl
+	$(CP) utils/umls-association-runDataSet.pl $(INST_SCRIPT)/umls-association-runDataSet.pl
+	$(FIXIN) $(INST_SCRIPT)/umls-association-runDataSet.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/umls-association-runDataSet.pl
 
 
 
@@ -483,22 +493,22 @@ clean_subdirs :
 
 clean :: clean_subdirs
 	- $(RM_F) \
-	  $(BASEEXT).def core.[0-9] \
+	  core.[0-9] mon.out \
 	  pm_to_blib.ts $(BASEEXT).exp \
-	  blibdirs.ts core.[0-9][0-9][0-9][0-9] \
-	  perl mon.out \
-	  $(BASEEXT).bso $(MAKE_APERL_FILE) \
-	  so_locations $(BASEEXT).x \
-	  *$(OBJ_EXT) MYMETA.json \
-	  MYMETA.yml $(BOOTSTRAP) \
-	  pm_to_blib core.[0-9][0-9] \
-	  $(INST_ARCHAUTODIR)/extralibs.all perl$(EXE_EXT) \
-	  perl.exe core.*perl.*.? \
-	  perlmain.c *$(LIB_EXT) \
-	  *perl.core core.[0-9][0-9][0-9] \
-	  tmon.out lib$(BASEEXT).def \
-	  core core.[0-9][0-9][0-9][0-9][0-9] \
-	  $(INST_ARCHAUTODIR)/extralibs.ld 
+	  core so_locations \
+	  MYMETA.yml core.[0-9][0-9] \
+	  perl.exe $(BOOTSTRAP) \
+	  MYMETA.json $(BASEEXT).bso \
+	  $(INST_ARCHAUTODIR)/extralibs.all core.[0-9][0-9][0-9] \
+	  $(BASEEXT).x perl$(EXE_EXT) \
+	  core.[0-9][0-9][0-9][0-9][0-9] blibdirs.ts \
+	  core.*perl.*.? $(INST_ARCHAUTODIR)/extralibs.ld \
+	  core.[0-9][0-9][0-9][0-9] *perl.core \
+	  pm_to_blib *$(OBJ_EXT) \
+	  $(MAKE_APERL_FILE) *$(LIB_EXT) \
+	  $(BASEEXT).def perl \
+	  lib$(BASEEXT).def perlmain.c \
+	  tmon.out 
 	- $(RM_RF) \
 	  blib 
 	- $(MV) $(FIRST_MAKEFILE) $(MAKEFILE_OLD) $(DEV_NULL)
@@ -513,7 +523,7 @@ realclean_subdirs :
 # Delete temporary files (via clean) and also delete dist files
 realclean purge ::  clean realclean_subdirs
 	- $(RM_F) \
-	  $(FIRST_MAKEFILE) $(MAKEFILE_OLD) 
+	  $(MAKEFILE_OLD) $(FIRST_MAKEFILE) 
 	- $(RM_RF) \
 	  $(DISTVNAME) 
 
@@ -545,6 +555,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  DBI: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  File::Path: 2.08' >> META_new.yml
 	$(NOECHO) $(ECHO) '  File::Spec: 3.31' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Graph::Directed: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Text::NSP: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  UMLS::Interface: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) 'version: 0.15' >> META_new.yml
@@ -588,6 +599,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '            "DBI" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "File::Path" : "2.08",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "File::Spec" : "3.31",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Graph::Directed" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Text::NSP" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "UMLS::Interface" : "0"' >> META_new.json
 	$(NOECHO) $(ECHO) '         }' >> META_new.json
@@ -875,6 +887,7 @@ ppd :
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBI::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE VERSION="2.08" NAME="File::Path" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE VERSION="3.31" NAME="File::Spec" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Graph::Directed" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Text::NSP" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="UMLS::Interface" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-gnu-thread-multi-5.18" />' >> $(DISTNAME).ppd

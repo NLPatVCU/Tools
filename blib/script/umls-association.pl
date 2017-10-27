@@ -53,6 +53,11 @@ Minimum Weight Association - Calculates the association scores using
 implicit or intermediate relationships between the specified CUIs, 
 and the minimum co-occurrence count between shared co-occurrences.
 
+=head3 --vsa
+
+Vector Set Association - Calculates the association scores using the
+association between the sets of co-occurring terms of the original terms
+
 =head3 --precision N
 
 Displays values up to N places of decimal. (DEFAULT: 4)
@@ -198,7 +203,7 @@ my $DEFAULT_MEASURE = "tscore";
 #############################################
 #  Get Options and params
 #############################################
-eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s",  "measure=s", "conceptexpansion", "noorder", "lta", "mwa", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
+eval(GetOptions( "version", "help", "debug", "username=s", "password=s", "hostname=s", "umlsdatabase=s", "assocdatabase=s", "socket=s",  "measure=s", "conceptexpansion", "noorder", "lta", "mwa", "vsa", "matrix=s", "config=s","precision=s")) or die ("Please check the above mentioned option(s).\n");
 
 
 #############################################
@@ -319,6 +324,9 @@ if(defined $opt_lta){
 if(defined $opt_mwa){
     $assoc_option_hash{"mwa"} = $opt_mwa;
 }
+if(defined $opt_vsa) {
+    $assoc_option_hash{"vsa"} = $opt_vsa;
+}
 if(defined $opt_noorder){
     $assoc_option_hash{"noorder"} = $opt_noorder;
 }
@@ -393,6 +401,9 @@ sub showHelp() {
     print "--mwa                    Minimum Weight Association - Calculates the association scores using implicit 
                                     or intermediate relationships between the specified CUIs, and the minimum
                                     of co-occurrence count between shared co-occurrences. \n\n";
+
+    print "--vsa                    Vector Set Association - Calculates the association scores using the
+                                    association between the sets of co-occurring terms of the original terms\n\n";
 
     print "--noorder                If selected, the order in which CUIs appear will be disregarded when the association 
                                     score is calculated.\n\n";

@@ -1,4 +1,3 @@
-
 #!/usr/local/bin/perl -w
 
 # Before `make install' is performed this script should be runnable with
@@ -19,6 +18,7 @@ use warnings;
 
 #  initialize option hash
 my %option_hash = ();
+$option_hash{'matrix'} = './t/sampleMatrix';
 
 #  connect to the UMLS-Association
 my $mmb = UMLS::Association->new(\%option_hash); 
