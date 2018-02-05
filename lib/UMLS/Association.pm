@@ -370,7 +370,7 @@ sub calculateAssociation_setPairList {
     my @pairHashes = ();
     for (my $i = 0; $i < scalar @{$cuis1Ref}; $i++) {
 	#grab the cuis from the pair
-	push @pairHashes, $self->_createPairHash_termLists(${$cuis1Ref}[$i],${$cui2Ref}[$i]);
+	push @pairHashes, $self->_createPairHash_termLists(${$cuis1Ref}[$i],${$cuis2Ref}[$i]);
     }
 
     #return the array of association scores for each pair
