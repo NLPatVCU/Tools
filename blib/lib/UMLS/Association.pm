@@ -341,7 +341,7 @@ sub calculateAssociation_setPair {
 
     #create the cuiPairs hash datasetructure
     my @pairHashes = ();
-    push @pairHashes, $self->createPairHash_termLists($cuis1Ref, $cuis2Ref);
+    push @pairHashes, $self->_createPairHash_termLists($cuis1Ref, $cuis2Ref);
 
     #return the association score, which is the first (and only)
     # value of the return array
