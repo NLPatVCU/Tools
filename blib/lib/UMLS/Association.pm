@@ -341,7 +341,7 @@ sub calculateAssociation_setPair {
 
     #create the cuiPairs hash datasetructure
     my @pairHashes = ();
-    push @pairHashes, $self->createPairHash_termList($cuis1Ref, $cuis2Ref);
+    push @pairHashes, $self->createPairHash_termLists($cuis1Ref, $cuis2Ref);
 
     #return the association score, which is the first (and only)
     # value of the return array
@@ -395,14 +395,46 @@ sub _createPairHash_singleTerms {
 
 
 # Creates a pair hash from two cui lists
-# input:
-# output:
+# input:  \@set1Ref - the leading cuis of the pair set 
+#         \@set2Ref - the trailing cuis of the pair set
+# output: \%pairHash - a ref to a pairHash
 sub _createPairHash_termLists {
     my $self = shift;
     my $set1Ref = shift;
     my $set2Ref = shift;
 
-    #TODO
+    #create the hash data structures
+    my %pairHash = ();
+
+    #populate the @cuiLists
+    if ($conceptExpansion_G) {
+	#expand the cuis and add to the lists
+	my @expandedCuis1 = ();
+	foreach my $cui (@{$set1Ref}) {
+	    my $expandedRef = $self->_expandConcept($cui);
+	    foreach my $expandedCUI (@{$expandedRef}) {
+		push @expandedCuis1, $expandedCUI;
+	    }
+	}
+	my @expandedCuis2 = ();
+	foreach my $cui (@{$set2Ref}) {
+	    my $expandedRef = $self->_expandConcept($cui);
+	    foreach my $expandedCUI (@{$expandedRef}) {
+		push @expandedCuis2, $expandedCUI;
+	    }
+	}
+    
+	#add the expanded cui lists to the pair hash
+	$pairHash{'set1'} = \@expandedCuis1;
+	$pairHash{'set2'} = \@expandedCuis2;
+    }
+    else {
+	#set the cui lists to the pair hash directly
+	$pairHash{'set1'} = $set1Ref;
+	$pairHash{'set2'} = $set2Ref;
+    }
+
+    return \%pairHash;
 
 }
 
