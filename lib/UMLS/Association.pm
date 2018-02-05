@@ -286,17 +286,18 @@ sub version {
 
 
 # calculates association for a list of single cui pairs
-# input:  $cuiPairsFromFileRef - an array ref of comma seperated cui pairs  
-#                                the first in the pair is the leading, 
-#                                second in the pair is the trailing
+# input:  $cuiPairListRef - an array ref of comma seperated cui pairs  
+#                           the first in the pair is the leading, 
+#                           second in the pair is the trailing
 #         $measure - a string specifying the association measure to use
-# output: $score - the association between the cuis
+# output: \@scores - an array ref of scores corresponding to the assocaition
+#                    score for each of the pairHashes that were input
 sub calculateAssociation_termPairList {
     my $self = shift;
     my $cuiPairListRef = shift;
     my $measure = shift;
 
-    #create the cuiPairs hash datasetructure
+    #create the cuiPairs hash datastructure
     my @pairHashes = ();
     foreach my $pair (@{$cuiPairListRef}) {
 	#grab the cuis from the pair
@@ -349,14 +350,38 @@ sub calculateAssociation_setPair {
 }
 
 
-# calculate association between a list of cui pairs
-# input:
-# output:
+# calculate association between a list of cui set pairs. The cui lists are
+# passed in as parallel arrays of sets of cuis, where assoc(cuis1[i], and cuis2[i]
+# are calcualted. 
+# input: \@cuis1Ref - an array ref to an array of arrays, where each element
+#                     of the array contains a set of cuis
+#        \@cuis2Ref - an array ref to an array of arrays of the same format as 
+#                     \@cuis1Ref
+#        $measure - a string specifying the association measure to use
+# \@scores - an array ref of scores corresponding to the assocaition
+#                    score for each of the pairHashes that were input
 sub calculateAssociation_setPairList {
+    my $self = shift;
+    my $cuis1Ref = shift;
+    my $cuis2Ref = shift;
+    my $measure = shift;
+    
+    #create the pair hash for each set of pairs
+    my @pairHashes = ();
+    for (my $i = 0; $i < scalar @{$cuis1Ref}; $i++) {
+	#grab the cuis from the pair
+	push @pairHashes, $self->_createPairHash_termLists(${$cuis1Ref}[$i],${$cui2Ref}[$i]);
+    }
 
-#TODO
-
+    #return the array of association scores for each pair
+    return $self->_calculateAssociation_pairHashList(\@pairHashes, $measure);
 }
+
+
+
+
+
+
 
 ##########################################################################
 #                          PairHash Creators
