@@ -369,14 +369,13 @@ sub calculateAssociation_setPairList {
     #create the pair hash for each set of pairs
     my @pairHashes = ();
     for (my $i = 0; $i < scalar @{$cuis1Ref}; $i++) {
-	#grab the cuis from the pair
+	#turn the cui arrays into a hash ref
 	push @pairHashes, $self->_createPairHash_termLists(${$cuis1Ref}[$i],${$cuis2Ref}[$i]);
     }
 
     #return the array of association scores for each pair
     return $self->_calculateAssociation_pairHashList(\@pairHashes, $measure);
 }
-
 
 
 
