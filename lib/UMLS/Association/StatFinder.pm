@@ -506,10 +506,10 @@ sub _getStats_matrix {
     #get values for each pairHash based on what was retreived from the matrix
     my @data = ();
     foreach my $pairHashRef (@{$pairHashListRef}) {
-	my $n11 = $self->_getN11_matrix(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'}, $n11AllRef); 
-	my $n1p = $self->_getN1p_matrix(${$pairHashRef}{'set1'}, $n11AllRef, $n1pAllRef, $np1AllRef); 
+	my $n11 = $self->_getN11_matrix(${$pairHashRef}{'set1'}, ${$pairHashRef}{'set2'}, $n11AllRef); 	
+      	my $n1p = $self->_getN1p_matrix(${$pairHashRef}{'set1'}, $n11AllRef, $n1pAllRef, $np1AllRef); 
 	my $np1 = $self->_getNp1_matrix(${$pairHashRef}{'set2'}, $n11AllRef, $n1pAllRef, $np1AllRef); 
-	
+
 	my @vals = ($n11, $n1p, $np1, $npp);
 	push @data, \@vals;
     }
