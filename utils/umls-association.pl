@@ -1,4 +1,3 @@
-
 #!/usr/bin/perl
 
 =head1 NAME
@@ -362,7 +361,7 @@ sub showHelp() {
     print "or two CUIs from the command line or a file and returns \n";
     print "their association using one of the following measures: \n";
 
-    print "0.  Frequency - just n11 (freq)"
+    print "0.  Frequency - just n11 (freq)";
     print "1.  Dice Coefficient (dice) \n";
     print "2.  Fishers exact test - left sided (left)\n";
     print "3.  Fishers exact test - right sided (right)\n";
