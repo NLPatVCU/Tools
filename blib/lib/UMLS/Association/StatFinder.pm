@@ -836,7 +836,6 @@ sub _getStats_MWA {
 
 	#Find $n11, the min co-occurrence value of the pair
 	my $n11 = 0;
-	my $amwCount = 0;
 	foreach my $cui (keys %{$set1CoRef}) {
 	    #if this cui co-occurs with both sets, then increment n11
 	    if (exists ${$set2CoRef}{$cui}) {
@@ -846,11 +845,8 @@ sub _getStats_MWA {
 		    $min = ${$set2CoRef}{$cui};
 		}
 		$n11+=$min;
-		$amwCount++;
 	    }
 	}
-	$n11/=$amwCount; #NOTE: amwCount is used for making freq MWA be AMW (wren et al) 
-	                 # ... it should be commented out in normal operation
 
 	#store the data for this pairHash
 	my @vals = ($n11, $n1p, $np1, $npp);
