@@ -1,0 +1,22 @@
+##################################################################
+#
+#    CHANGES for the MetaMap::DataStructures Package
+#    $Id: NanoB2BExample.pod,v 1.96 2015/06/24 19:25:05 btmcinnes Exp $ 
+#################################################################
+
+=head1 NAME
+
+MetaMap::DataStructures CHANGES
+
+=head2 version 0.03
+
+1. bug fixes with DataStructures.pm 
+
+=head2 version 0.01
+
+1. initial creation of package 
+
+
+
+
+
