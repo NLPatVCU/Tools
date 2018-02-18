@@ -1,0 +1,23 @@
+##################################################################
+#
+#    CHANGES for the SemMed::Interface package
+#    $Id: CHANGELOG.pod,v 1.96 2016/08/03 14:13:32 andriy Exp $
+#################################################################
+
+=head1 NAME
+
+SemMed::Interface CHANGES
+
+=head2 Changes from 0.03 to 0.05
+
+1. Removed dependancy on UMLS::Interface
+2. Added random walks functionality
+3. Further Optimized database queries
+
+=head2 Changes from 0.01 to 0.03
+
+1. Added additional package information
+
+=head2 version 0.01
+
+1. initial creation of package
